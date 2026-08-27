@@ -1,4 +1,5 @@
 accelerator_core @ git+https://github.com/NIEHS/accelerator-core@develop
+hew-data-commons-model @ git+https://github.com/NIEHS/HEW_Catalog_Data_Model@develop
 openpyxl~=3.1.2
 requests~=2.32.3
 PyYAML~=6.0.1
