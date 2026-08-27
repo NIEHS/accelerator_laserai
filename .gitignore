@@ -179,3 +179,4 @@ cython_debug/
 .DS_Store
 ~*
 accelerator_source_cedar/tests/test_resources/temp_dirs
+/tests/test_resources/LaserAI Export.xlsx
