@@ -180,3 +180,5 @@ cython_debug/
 ~*
 accelerator_source_cedar/tests/test_resources/temp_dirs
 /tests/test_resources/LaserAI Export.xlsx
+/integration_tests/test_resources/LaserAI Export.xlsx
+/integration_tests/test_resources/temp_dirs/
