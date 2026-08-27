@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+jsonschema = "~=4.26.0"
+validators = "~=0.35.0"
+pymongo = "~=4.17.0"
+pyyaml = "~=6.0.3"
+Jinja2 = "~=3.1.4"
+openpyxl = "~=3.1.2"
+requests = "~=2.32.3"
+urllib3 = "~=2.7.0"
+ijson = "~=3.4.0"
+[dev-packages]
+pre-commit = "~=4.6.0"
+black = "~=26.5.1"
+pytest = "~=9.1.1"
+coverage = "~=7.6.12"
+
+[requires]
+python_version = "3.11"

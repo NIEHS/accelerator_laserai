@@ -1,0 +1,7 @@
+accelerator_core @ git+https://github.com/NIEHS/accelerator-core@develop
+openpyxl~=3.1.2
+requests~=2.32.3
+PyYAML~=6.0.1
+urllib3~=2.7.0
+ijson~=3.4.0
+validators~=0.35.0
