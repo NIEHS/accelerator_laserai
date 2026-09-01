@@ -54,6 +54,12 @@ class TestLaserAIAccelSourceIntegration(unittest.TestCase):
             "10.1007/s00345-024-05119-6",
             first_record["bibliographic"]["doi"],
         )
+        for category in ("exposures", "health_impacts", "geography"):
+            self.assertIsInstance(first_record[category], list)
+            for rollup in first_record[category]:
+                self.assertEqual(
+                    {"level1", "level2", "level3"}, rollup.keys()
+                )
 
 
 if __name__ == "__main__":

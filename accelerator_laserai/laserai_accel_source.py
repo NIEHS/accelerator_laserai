@@ -48,6 +48,33 @@ def _first_value(rows: list[Mapping[str, Any]], header: str) -> Any:
     return values[0] if values else None
 
 
+def _rollups(
+    rows: list[Mapping[str, Any]],
+    headers_by_level: Mapping[str, str],
+) -> list[dict[str, Any]]:
+    """Keep each spreadsheet row's hierarchical values in one JSON entry."""
+    rollups = []
+    for row in rows:
+        rollup = {
+            f"level{level}": _clean(row.get(header)) or ""
+            for level, header in headers_by_level.items()
+        }
+        if any(rollup.values()):
+            rollups.append(rollup)
+    return rollups
+
+
+def _levels(
+    rows: list[Mapping[str, Any]],
+    headers_by_level: Mapping[str, str],
+) -> dict[str, list[Any]]:
+    """Group non-rollup hierarchical fields under JSON level keys."""
+    return {
+        str(level): _column_values(rows, header)
+        for level, header in headers_by_level.items()
+    }
+
+
 def _raw_values(rows: list[Mapping[str, Any]]) -> dict[str, list[Any]]:
     result: OrderedDict[str, list[Any]] = OrderedDict()
     for row in rows:
@@ -92,38 +119,66 @@ def _record(reference_number: str, rows: list[Mapping[str, Any]]) -> dict[str, A
         "study_objectives": _column_values(
             rows, "Study objective (AI-generated) (extracted)"
         ),
-        "exposures": {
-            "level_1": _column_values(rows, "Exposure L1 (extracted)"),
-            "level_2": _column_values(rows, "Exposure L2 (extracted)"),
-            "write_in": _column_values(rows, "Write-in (extracted)"),
-        },
-        "health_impacts": {
-            "level_1": _column_values(rows, "Health Impact L1 (extracted)"),
-            "level_2": _column_values(rows, "Health Impact L2 (extracted)"),
-            "level_3": _column_values(rows, "Health Impact L3 (extracted)"),
-            "write_in": _column_values(rows, "Write-In (extracted)6"),
-        },
-        "geography": {
-            "locations_level_1": _column_values(rows, "Location L1 (extracted)"),
-            "locations_level_2": _column_values(rows, "Location L2 (extracted)"),
-            "geographic_features": _column_values(
-                rows, "Geographic Feature (extracted)"
-            ),
-            "write_in": _column_values(rows, "Write-in (extracted)8"),
-        },
+        "exposures": _rollups(
+            rows,
+            {
+                "1": "Exposure L1 (extracted)",
+                "2": "Exposure L2 (extracted)",
+                "3": "Exposure L3 (extracted)",
+            },
+        )
+        + [
+            {"level1": value, "level2": "", "level3": ""}
+            for value in _column_values(rows, "Write-in (extracted)")
+        ],
+        "health_impacts": _rollups(
+            rows,
+            {
+                "1": "Health Impact L1 (extracted)",
+                "2": "Health Impact L2 (extracted)",
+                "3": "Health Impact L3 (extracted)",
+            },
+        )
+        + [
+            {"level1": value, "level2": "", "level3": ""}
+            for value in _column_values(rows, "Write-In (extracted)6")
+        ],
+        "geography": _rollups(
+            rows,
+            {
+                "1": "Location L1 (extracted)",
+                "2": "Location L2 (extracted)",
+                "3": "Location L3 (extracted)",
+            },
+        )
+        + [
+            {"level1": value, "level2": "", "level3": ""}
+            for value in _column_values(rows, "Write-in (extracted)8")
+        ],
+        "geographic_features": _column_values(
+            rows, "Geographic Feature (extracted)"
+        ),
         "data_and_models": {
-            "data_resource_types_level_1": _column_values(
-                rows, "Data Resource Type L1 (extracted)"
-            ),
-            "data_resource_types_level_2": _column_values(
-                rows, "Data Resource Type L2 (extracted)"
-            ),
+            "data_resource_types": {
+                "levels": _levels(
+                    rows,
+                    {
+                        "1": "Data Resource Type L1 (extracted)",
+                        "2": "Data Resource Type L2 (extracted)",
+                    },
+                ),
+                "write_in": _column_values(rows, "Write-in (extracted)10"),
+            },
             "model_types": _column_values(rows, "Model Type (extracted)"),
-            "write_in": _column_values(rows, "Write-in (extracted)10"),
         },
         "special_topics": {
-            "level_1": _column_values(rows, "Special Topics L1 (extracted)"),
-            "level_2": _column_values(rows, "Special Topics L2 (extracted)"),
+            "levels": _levels(
+                rows,
+                {
+                    "1": "Special Topics L1 (extracted)",
+                    "2": "Special Topics L2 (extracted)",
+                },
+            ),
             "write_in": _column_values(rows, "Write-in (extracted)12"),
         },
         # Keep the original sparse values, including repeated values and sentinels

@@ -18,6 +18,16 @@ def _without_not_reported(values: list[Any]) -> list[Any]:
     return [value for value in values if value and value != "not reported"]
 
 
+def _flatten_levels(group: dict[str, Any], *legacy_keys: str) -> list[Any]:
+    """Flatten the hierarchical intermediate shape, with legacy compatibility."""
+    levels = group.get("levels")
+    if isinstance(levels, dict):
+        values = [value for level in levels.values() for value in level]
+    else:
+        values = [value for key in legacy_keys for value in group.get(key, [])]
+    return values + group.get("write_in", [])
+
+
 def _enum_value(value: str | None) -> str | None:
     """Convert the export's display labels to current HEW enum values."""
     if value is None or value == "not reported":
@@ -46,6 +56,51 @@ def _annotation_values(
         if parent_concept:
             annotation["parent_concept"] = parent_concept
         annotations.append(annotation)
+    return annotations
+
+
+def _level_annotations(
+    category: str,
+    group: dict[str, Any] | list[dict[str, Any]],
+    map_term: TermMapper,
+) -> list[dict[str, Any]]:
+    """Map hierarchical terms while preserving their source coding depth."""
+    if isinstance(group, list):
+        annotations = []
+        for rollup in group:
+            for level in ("1", "2", "3"):
+                value = rollup.get(f"level{level}")
+                if value:
+                    annotations.append(
+                        {
+                            "coded_concept": map_term(category, str(value)),
+                            "coding_depth": int(level),
+                        }
+                    )
+        return annotations
+
+    annotations = []
+    levels = group.get("levels", {})
+    if isinstance(levels, dict):
+        for level, values in levels.items():
+            for value in _without_not_reported(values):
+                annotations.append(
+                    {
+                        "coded_concept": map_term(category, str(value)),
+                        "coding_depth": int(level),
+                    }
+                )
+    else:
+        annotations.extend(
+            _annotation_values(
+                category,
+                _flatten_levels(group, "level_1", "level_2", "level_3"),
+                map_term,
+            )
+        )
+
+    for value in _without_not_reported(group.get("write_in", [])):
+        annotations.append({"coded_concept": map_term(category, str(value))})
     return annotations
 
 
@@ -156,28 +211,38 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             annotation["study_objective"] = objectives[0]
 
         exposures = payload.get("exposures", {})
-        annotation["exposure_annotations"] = _annotation_values(
-            "exposure",
-            exposures.get("level_1", []) + exposures.get("level_2", []) + exposures.get("write_in", []),
-            self.term_mapper,
+        annotation["exposure_annotations"] = _level_annotations(
+            "exposure", exposures, self.term_mapper
         )
 
         health_impacts = payload.get("health_impacts", {})
-        annotation["health_impact_annotations"] = _annotation_values(
-            "health_impact",
-            health_impacts.get("level_1", [])
-            + health_impacts.get("level_2", [])
-            + health_impacts.get("level_3", [])
-            + health_impacts.get("write_in", []),
-            self.term_mapper,
+        annotation["health_impact_annotations"] = _level_annotations(
+            "health_impact", health_impacts, self.term_mapper
         )
 
         geography = payload.get("geography", {})
         geography_annotation: dict[str, Any] = {}
-        locations = _without_not_reported(
-            geography.get("locations_level_1", []) + geography.get("locations_level_2", [])
-        )
-        features = _without_not_reported(geography.get("geographic_features", []))
+        if isinstance(geography, list):
+            locations = [
+                value
+                for rollup in geography
+                for value in (rollup.get("level1"), rollup.get("level2"), rollup.get("level3"))
+                if value and value != "not reported"
+            ]
+            features = _without_not_reported(
+                payload.get("geographic_features", [])
+            )
+        else:
+            locations_group = geography.get("locations", {})
+            locations = _without_not_reported(
+                _flatten_levels(locations_group, "locations_level_1", "locations_level_2")
+            )
+            if not locations_group:
+                locations = _without_not_reported(
+                    geography.get("locations_level_1", [])
+                    + geography.get("locations_level_2", [])
+                )
+            features = _without_not_reported(geography.get("geographic_features", []))
         if locations:
             geography_annotation["geographic_locations"] = [
                 self.term_mapper("geography", str(value)) for value in locations
@@ -189,13 +254,18 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         annotation["geography_annotations"] = [geography_annotation] if geography_annotation else []
 
         data_and_models = payload.get("data_and_models", {})
+        data_resource_types = data_and_models.get("data_resource_types", {})
+        if not data_resource_types:
+            data_resource_types = {
+                "level_1": data_and_models.get("data_resource_types_level_1", []),
+                "level_2": data_and_models.get("data_resource_types_level_2", []),
+            }
         annotation["data_tool_method_annotations"] = [
             {
                 "data_resource_types": [
                     self.term_mapper("data_resource_type", str(value))
                     for value in _without_not_reported(
-                        data_and_models.get("data_resource_types_level_1", [])
-                        + data_and_models.get("data_resource_types_level_2", [])
+                        _flatten_levels(data_resource_types, "level_1", "level_2")
                     )
                 ],
                 "model_types": [
@@ -206,11 +276,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         ]
 
         special_topics = payload.get("special_topics", {})
-        annotation["special_topic_annotations"] = _annotation_values(
-            "special_topic",
-            special_topics.get("level_1", [])
-            + special_topics.get("level_2", [])
-            + special_topics.get("write_in", []),
-            self.term_mapper,
+        annotation["special_topic_annotations"] = _level_annotations(
+            "special_topic", special_topics, self.term_mapper
         )
         return annotation

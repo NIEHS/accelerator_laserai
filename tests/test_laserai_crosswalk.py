@@ -11,10 +11,9 @@ from accelerator_laserai.laserai_crosswalk import LaserAIToHEWCrosswalk
 class TestLaserAICrosswalk(unittest.TestCase):
     def test_crosswalks_intermediate_record_to_hew_shape(self):
         record_path = (
-            Path(__file__).parent.parent
-            / "integration_tests"
+            Path(__file__).parent
             / "test_resources"
-            / "f7abc5b7-1fb0-4941-9347-57a724c103f0.json"
+            / "0a0cb18d-7a31-445b-9dec-fcf088d4cd0e.json"
         )
         if not record_path.exists():
             self.skipTest("LaserAI intermediate JSON fixture is not present")
@@ -43,12 +42,46 @@ class TestLaserAICrosswalk(unittest.TestCase):
         transformed = result.payload[0]
         self.assertEqual("LiteratureResource", transformed["@type"])
         self.assertEqual("https://example.org/test-context", transformed["@context"])
-        self.assertEqual("HEWRES:laserai_3541", transformed["id"])
+        self.assertEqual("HEWRES:laserai_4451", transformed["id"])
         self.assertEqual("literature", transformed["resource_type"])
-        self.assertEqual("38639787", transformed["pmid"])
+        self.assertEqual("38270762", transformed["pmid"])
+        annotation = transformed["annotations"][0]
         self.assertEqual(
-            "TEST:exposure:Temperature",
-            transformed["annotations"][0]["exposure_annotations"][0]["coded_concept"],
+            [
+                {
+                    "coded_concept": "TEST:exposure:Temperature",
+                    "coding_depth": 1,
+                },
+                {
+                    "coded_concept": "TEST:exposure:Extreme Heat/Heat",
+                    "coding_depth": 2,
+                },
+                {
+                    "coded_concept": "TEST:exposure:Air Pollution",
+                    "coding_depth": 1,
+                },
+            ],
+            annotation["exposure_annotations"],
+        )
+        self.assertEqual(
+            [
+                {
+                    "coded_concept": "TEST:health_impact:Morbidity/Mortality",
+                    "coding_depth": 1,
+                }
+            ],
+            annotation["health_impact_annotations"],
+        )
+        self.assertEqual(
+            [
+                "TEST:geography:Non-United States",
+                "TEST:geography:Non-U.S. North America",
+            ],
+            annotation["geography_annotations"][0]["geographic_locations"],
+        )
+        self.assertEqual(
+            ["TEST:geographic_feature:Urban"],
+            annotation["geography_annotations"][0]["geographic_features"],
         )
 
 

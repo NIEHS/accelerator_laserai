@@ -1,0 +1,165 @@
+{
+  "source": "laserai",
+  "source_reference_number": "4451",
+  "bibliographic": {
+    "first_author": "Boudreault",
+    "year": 2024,
+    "title": "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+    "doi": "10.1007/s11356-024-31969-z",
+    "accession_number": 38270762,
+    "study_identifiers": []
+  },
+  "review": {
+    "reference_type": "Research Article",
+    "reference_type_comments": [],
+    "information_source": "Complete Resource",
+    "information_source_comments": [],
+    "recommend_for_removal": null,
+    "recommend_for_removal_comments": [],
+    "postpone": null,
+    "postpone_comments": []
+  },
+  "study_objectives": [],
+  "exposures": [
+    {
+      "level1": "Temperature",
+      "level2": "Extreme Heat/Heat",
+      "level3": ""
+    },
+    {
+      "level1": "Air Pollution",
+      "level2": "",
+      "level3": ""
+    }
+  ],
+  "health_impacts": [
+    {
+      "level1": "Morbidity/Mortality",
+      "level2": "",
+      "level3": ""
+    }
+  ],
+  "geography": [
+    {
+      "level1": "Non-United States",
+      "level2": "Non-U.S. North America",
+      "level3": ""
+    }
+  ],
+  "geographic_features": [
+    "Urban"
+  ],
+  "data_and_models": {
+    "data_resource_types": {
+      "levels": {
+        "1": [
+          "not reported"
+        ],
+        "2": []
+      },
+      "write_in": []
+    },
+    "model_types": [
+      "Artificial Intelligence/Machine Learning"
+    ]
+  },
+  "special_topics": {
+    "levels": {
+      "1": [
+        "not reported"
+      ],
+      "2": []
+    },
+    "write_in": []
+  },
+  "raw_values": {
+    "1st Author": [
+      "Boudreault",
+      "Boudreault",
+      "Boudreault",
+      "Boudreault",
+      "Boudreault",
+      "Boudreault",
+      "Boudreault"
+    ],
+    "Year": [
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024
+    ],
+    "Title": [
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning",
+      "Revisiting the importance of temperature, weather and air pollution variables in heat-mortality relationships with machine learning"
+    ],
+    "Reference number": [
+      4451,
+      4451,
+      4451,
+      4451,
+      4451,
+      4451,
+      4451
+    ],
+    "DOI": [
+      "10.1007/s11356-024-31969-z",
+      "10.1007/s11356-024-31969-z",
+      "10.1007/s11356-024-31969-z",
+      "10.1007/s11356-024-31969-z",
+      "10.1007/s11356-024-31969-z",
+      "10.1007/s11356-024-31969-z",
+      "10.1007/s11356-024-31969-z"
+    ],
+    "Accession Number": [
+      38270762,
+      38270762,
+      38270762,
+      38270762,
+      38270762,
+      38270762,
+      38270762
+    ],
+    "Data Resource Type L1 (extracted)": [
+      "not reported"
+    ],
+    "Model Type (extracted)": [
+      "Artificial Intelligence/Machine Learning"
+    ],
+    "Reference Type (extracted)": [
+      "Research Article"
+    ],
+    "Information Source (extracted)": [
+      "Complete Resource"
+    ],
+    "Exposure L1 (extracted)": [
+      "Temperature",
+      "Air Pollution"
+    ],
+    "Exposure L2 (extracted)": [
+      "Extreme Heat/Heat"
+    ],
+    "Health Impact L1 (extracted)": [
+      "Morbidity/Mortality"
+    ],
+    "Location L1 (extracted)": [
+      "Non-United States"
+    ],
+    "Location L2 (extracted)": [
+      "Non-U.S. North America"
+    ],
+    "Geographic Feature (extracted)": [
+      "Urban"
+    ],
+    "Special Topics L1 (extracted)": [
+      "not reported"
+    ]
+  }
+}

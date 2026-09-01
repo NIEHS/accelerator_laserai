@@ -37,6 +37,7 @@ class TestLaserAIAccelSource(unittest.TestCase):
                 ]
             )
             worksheet.append(["Author", 2024, "Title", 22, "10/example", "Temperature"])
+            worksheet.append(["Author", 2024, "Title", 22, "10/example", "Humidity"])
             worksheet.append(["Author", 2024, "Title", 22, "10/example", None, "Heatwave"])
             worksheet.append(["Other", 2024, "Other title", 23, "10/other", "Flood"])
             workbook.save(temporary.name)
@@ -48,10 +49,23 @@ class TestLaserAIAccelSource(unittest.TestCase):
             ["22", "23"],
             [record["source_reference_number"] for record in records],
         )
-        self.assertEqual(["Temperature"], records[0]["exposures"]["level_1"])
-        self.assertEqual(["Heatwave"], records[0]["exposures"]["level_2"])
         self.assertEqual(
-            ["Temperature", "Heatwave"],
+            [
+                {"level1": "Temperature", "level2": "", "level3": ""},
+                {"level1": "Humidity", "level2": "", "level3": ""},
+                {"level1": "", "level2": "Heatwave", "level3": ""},
+            ],
+            records[0]["exposures"],
+        )
+        self.assertEqual(
+            [], records[0]["health_impacts"]
+        )
+        self.assertEqual(
+            [{"level1": "Flood", "level2": "", "level3": ""}],
+            records[1]["exposures"],
+        )
+        self.assertEqual(
+            ["Temperature", "Humidity", "Heatwave"],
             records[0]["raw_values"]["Exposure L1 (extracted)"]
             + records[0]["raw_values"].get("Exposure L2 (extracted)", []),
         )
