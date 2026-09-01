@@ -1,1 +1,130 @@
-{"source": "laserai", "source_reference_number": "3541", "bibliographic": {"first_author": "\u00c3\u2021a\u00c4\u0178lak", "year": 2024, "title": "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future", "doi": "10.1007/s00484-024-02666-w", "accession_number": 38639787, "study_identifiers": []}, "review": {"reference_type": "Research Article", "reference_type_comments": [], "information_source": "Complete Resource", "information_source_comments": [], "recommend_for_removal": null, "recommend_for_removal_comments": [], "postpone": null, "postpone_comments": []}, "study_objectives": [], "exposures": {"level_1": ["Temperature"], "level_2": ["Extreme Heat/Heat"], "write_in": []}, "health_impacts": {"level_1": [], "level_2": [], "level_3": [], "write_in": []}, "geography": {"locations_level_1": ["Non-United States"], "locations_level_2": ["Europe"], "geographic_features": ["Urban"], "write_in": []}, "data_and_models": {"data_resource_types_level_1": ["not reported"], "data_resource_types_level_2": [], "model_types": ["Geospatial Modeling"], "write_in": []}, "special_topics": {"level_1": [], "level_2": [], "write_in": []}, "raw_values": {"1st Author": ["\u00c3\u2021a\u00c4\u0178lak", "\u00c3\u2021a\u00c4\u0178lak", "\u00c3\u2021a\u00c4\u0178lak", "\u00c3\u2021a\u00c4\u0178lak"], "Year": [2024, 2024, 2024, 2024], "Title": ["Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future", "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future", "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future", "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future"], "Reference number": [3541, 3541, 3541, 3541], "DOI": ["10.1007/s00484-024-02666-w", "10.1007/s00484-024-02666-w", "10.1007/s00484-024-02666-w", "10.1007/s00484-024-02666-w"], "Accession Number": [38639787, 38639787, 38639787, 38639787], "Data Resource Type L1 (extracted)": ["not reported"], "Model Type (extracted)": ["Geospatial Modeling"], "Reference Type (extracted)": ["Research Article"], "Information Source (extracted)": ["Complete Resource"], "Exposure L1 (extracted)": ["Temperature"], "Exposure L2 (extracted)": ["Extreme Heat/Heat"], "Location L1 (extracted)": ["Non-United States"], "Location L2 (extracted)": ["Europe"], "Geographic Feature (extracted)": ["Urban"]}}
+{
+  "source": "laserai",
+  "source_reference_number": "3541",
+  "bibliographic": {
+    "first_author": "\u00c3\u2021a\u00c4\u0178lak",
+    "year": 2024,
+    "title": "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future",
+    "doi": "10.1007/s00484-024-02666-w",
+    "accession_number": 38639787,
+    "study_identifiers": []
+  },
+  "review": {
+    "reference_type": "Research Article",
+    "reference_type_comments": [],
+    "information_source": "Complete Resource",
+    "information_source_comments": [],
+    "recommend_for_removal": null,
+    "recommend_for_removal_comments": [],
+    "postpone": null,
+    "postpone_comments": []
+  },
+  "study_objectives": [],
+  "exposures": {
+    "level_1": [
+      "Temperature"
+    ],
+    "level_2": [
+      "Extreme Heat/Heat"
+    ],
+    "write_in": []
+  },
+  "health_impacts": {
+    "level_1": [],
+    "level_2": [],
+    "level_3": [],
+    "write_in": []
+  },
+  "geography": {
+    "locations_level_1": [
+      "Non-United States"
+    ],
+    "locations_level_2": [
+      "Europe"
+    ],
+    "geographic_features": [
+      "Urban"
+    ],
+    "write_in": []
+  },
+  "data_and_models": {
+    "data_resource_types_level_1": [
+      "not reported"
+    ],
+    "data_resource_types_level_2": [],
+    "model_types": [
+      "Geospatial Modeling"
+    ],
+    "write_in": []
+  },
+  "special_topics": {
+    "level_1": [],
+    "level_2": [],
+    "write_in": []
+  },
+  "raw_values": {
+    "1st Author": [
+      "\u00c3\u2021a\u00c4\u0178lak",
+      "\u00c3\u2021a\u00c4\u0178lak",
+      "\u00c3\u2021a\u00c4\u0178lak",
+      "\u00c3\u2021a\u00c4\u0178lak"
+    ],
+    "Year": [
+      2024,
+      2024,
+      2024,
+      2024
+    ],
+    "Title": [
+      "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future",
+      "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future",
+      "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future",
+      "Assessment of biometeorological conditions in Eastern Mediterranean City Adana, Turkey from past to the future"
+    ],
+    "Reference number": [
+      3541,
+      3541,
+      3541,
+      3541
+    ],
+    "DOI": [
+      "10.1007/s00484-024-02666-w",
+      "10.1007/s00484-024-02666-w",
+      "10.1007/s00484-024-02666-w",
+      "10.1007/s00484-024-02666-w"
+    ],
+    "Accession Number": [
+      38639787,
+      38639787,
+      38639787,
+      38639787
+    ],
+    "Data Resource Type L1 (extracted)": [
+      "not reported"
+    ],
+    "Model Type (extracted)": [
+      "Geospatial Modeling"
+    ],
+    "Reference Type (extracted)": [
+      "Research Article"
+    ],
+    "Information Source (extracted)": [
+      "Complete Resource"
+    ],
+    "Exposure L1 (extracted)": [
+      "Temperature"
+    ],
+    "Exposure L2 (extracted)": [
+      "Extreme Heat/Heat"
+    ],
+    "Location L1 (extracted)": [
+      "Non-United States"
+    ],
+    "Location L2 (extracted)": [
+      "Europe"
+    ],
+    "Geographic Feature (extracted)": [
+      "Urban"
+    ]
+  }
+}
