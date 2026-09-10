@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from typing import Any, Callable
 
+from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 from accelerator_core.utils.xcom_utils import XcomPropsResolver
 from accelerator_core.workflow.accel_source_ingest import IngestPayload
 from accelerator_core.workflow.crosswalk import Crosswalk
@@ -130,6 +131,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         super().__init__(xcom_props_resolver)
         self.term_mapper = term_mapper or (lambda _category, value: value)
         self.jsonld_serializer = jsonld_serializer or self._load_jsonld_serializer()
+        self.template_processor = AccelTemplateProcessor()
 
     @staticmethod
     def _load_jsonld_serializer() -> JsonLdSerializer:
@@ -149,13 +151,26 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         payload_length = self.get_payload_length(ingest_result)
 
         for index in range(payload_length):
-            payload = self.payload_resolve(ingest_result, index)
+            input_record = self.payload_resolve(ingest_result, index)
+            payload = input_record["data"]
             linkml_record = self.translate_to_linkml(payload)
             jsonld_record = self.jsonld_serializer(
                 linkml_record,
                 class_name="LiteratureResource",
             )
-            self.report_individual(output_payload, linkml_record["id"], jsonld_record)
+            descriptor = ingest_result.ingest_source_descriptor
+            source_metadata = input_record["technical_metadata"]
+            source_submission = input_record["submission"]
+            accelerator_record = self.template_processor.render_generic(
+                jsonld_record,
+                submission=source_submission,
+                technical_metadata=source_metadata,
+            )
+            self.report_individual(
+                output_payload, linkml_record["id"], accelerator_record
+            )
+            descriptor.ingest_item_id = source_metadata["original_source_identifier"]
+            descriptor.ingest_link = source_metadata["original_source_link"]
 
         output_payload.ingest_successful = True
         return output_payload

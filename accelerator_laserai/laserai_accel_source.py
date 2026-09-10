@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 from collections import OrderedDict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 from openpyxl import load_workbook
 
+from accelerator_core.schema.models.base_model import create_timestamped_log
+from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 from accelerator_core.utils.xcom_utils import XcomPropsResolver
 from accelerator_core.workflow.accel_source_ingest import (
     AccelIngestComponent,
@@ -196,6 +199,43 @@ class LaserAIAccelSource(AccelIngestComponent):
         xcom_props_resolver: XcomPropsResolver,
     ):
         super().__init__(ingest_source_descriptor, xcom_props_resolver)
+        self.template_processor = AccelTemplateProcessor()
+
+    def _wrap_record(
+        self,
+        record: dict[str, Any],
+        ingest_file_name: str,
+        extract_date: str,
+    ) -> dict[str, Any]:
+        """Put a LaserAI intermediate record in the Accelerator document shape."""
+        descriptor = self.ingest_source_descriptor
+        doi = record.get("bibliographic", {}).get("doi")
+        return self.template_processor.render_generic(
+            record,
+            submission={
+                "submitter_name": descriptor.submitter_name or "",
+                "submitter_email": descriptor.submitter_email or "",
+                "submitter_comment": "",
+            },
+            technical_metadata={
+                "created": extract_date,
+                "modified": extract_date,
+                "verified": "",
+                "data_checksum": "",
+                "target_schema_type": descriptor.ingest_type or "",
+                "target_schema_version": descriptor.schema_version or "",
+                "original_source_type": "laserai_spreadsheet",
+                "original_source_identifier": doi,
+                "original_source_link": ingest_file_name,
+                "additional_data": [],
+                "history": [
+                    create_timestamped_log(
+                        f"ingest from landing zone: {ingest_file_name}"
+                    ).to_dict()
+                ],
+                "dissemination_endpoints": [],
+            },
+        )
 
     @staticmethod
     def parse_workbook(identifier: str | Path) -> list[dict[str, Any]]:
@@ -247,13 +287,26 @@ class LaserAIAccelSource(AccelIngestComponent):
         self, identifier: str, additional_parameters: dict
     ) -> IngestPayload:
         """Ingest a workbook path supplied as the source identifier."""
-        records = self.parse_workbook(identifier)
+        workbook_path = Path(identifier)
+        records = self.parse_workbook(workbook_path)
+        ingest_file_name = workbook_path.name
+        extract_date = datetime.now(timezone.utc).isoformat()
+        self.ingest_source_descriptor.ingest_item_id = ingest_file_name
+        self.ingest_source_descriptor.ingest_link = ingest_file_name
+        self.ingest_source_descriptor.submit_date = (
+            self.ingest_source_descriptor.submit_date or extract_date
+        )
         ingest_payload = IngestPayload(self.ingest_source_descriptor)
         for record in records:
+            accelerator_record = self._wrap_record(
+                record, ingest_file_name, extract_date
+            )
             self.report_individual(
                 ingest_payload,
                 record["source_reference_number"],
-                record,
+                accelerator_record,
             )
+        self.ingest_source_descriptor.ingest_item_id = ingest_file_name
+        self.ingest_source_descriptor.ingest_link = ingest_file_name
         ingest_payload.ingest_successful = True
         return ingest_payload

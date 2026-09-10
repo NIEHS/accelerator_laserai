@@ -2,6 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
+from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
 
@@ -22,6 +23,15 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
 
         with self.INPUT_PATH.open(encoding="utf-8") as input_file:
             record = json.load(input_file)
+        record = AccelTemplateProcessor().render_generic(
+            record,
+            {"submitter_name": "", "submitter_email": "", "submitter_comment": ""},
+            {
+                "original_source_identifier": record["bibliographic"]["doi"],
+                "original_source_link": "laserai.xlsx",
+                "history": [],
+            },
+        )
 
         self.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         descriptor = IngestSourceDescriptor()
@@ -50,16 +60,18 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
         with output_path.open(encoding="utf-8") as output_file:
             jsonld = json.load(output_file)
 
-        self.assertEqual("LiteratureResource", jsonld["@type"])
-        self.assertEqual("HEWRES:laserai_25505", jsonld["id"])
-        self.assertIn("WOS:001260496000001", jsonld["identifiers"])
+        self.assertEqual("LiteratureResource", jsonld["data"]["@type"])
+        self.assertEqual("HEWRES:laserai_25505", jsonld["data"]["id"])
+        self.assertIn("WOS:001260496000001", jsonld["data"]["identifiers"])
         self.assertEqual(
             [
                 {"name": "Non-United States", "location_type": "other"},
                 {"name": "Asia", "location_type": "other"},
             ],
-            jsonld["annotations"][0]["geography_annotations"][0]["locations"],
+            jsonld["data"]["annotations"][0]["geography_annotations"][0]["locations"],
         )
+        self.assertIn("submission", jsonld)
+        self.assertIn("technical_metadata", jsonld)
 
 
 if __name__ == "__main__":

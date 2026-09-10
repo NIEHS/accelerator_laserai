@@ -49,14 +49,18 @@ class TestLaserAIAccelSourceIntegration(unittest.TestCase):
         with output_paths[0].open(encoding="utf-8") as output_file:
             first_record = json.load(output_file)
 
-        self.assertEqual("22", first_record["source_reference_number"])
+        self.assertEqual("22", first_record["data"]["source_reference_number"])
         self.assertEqual(
             "10.1007/s00345-024-05119-6",
-            first_record["bibliographic"]["doi"],
+            first_record["data"]["bibliographic"]["doi"],
+        )
+        self.assertEqual(
+            "10.1007/s00345-024-05119-6",
+            first_record["technical_metadata"]["original_source_identifier"],
         )
         for category in ("exposures", "health_impacts", "geography"):
-            self.assertIsInstance(first_record[category], list)
-            for rollup in first_record[category]:
+            self.assertIsInstance(first_record["data"][category], list)
+            for rollup in first_record["data"][category]:
                 self.assertEqual(
                     {"level1", "level2", "level3"}, rollup.keys()
                 )

@@ -4,6 +4,7 @@ from pathlib import Path
 
 from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
+from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 
 from accelerator_laserai.laserai_crosswalk import LaserAIToHEWCrosswalk
 
@@ -20,6 +21,15 @@ class TestLaserAICrosswalk(unittest.TestCase):
 
         with record_path.open(encoding="utf-8") as record_file:
             record = json.load(record_file)
+        record = AccelTemplateProcessor().render_generic(
+            record,
+            {"submitter_name": "", "submitter_email": "", "submitter_comment": ""},
+            {
+                "original_source_identifier": record["bibliographic"]["doi"],
+                "original_source_link": "laserai.xlsx",
+                "history": [],
+            },
+        )
 
         descriptor = IngestSourceDescriptor()
         descriptor.ingest_identifier = "laserai-crosswalk-test"
@@ -40,12 +50,12 @@ class TestLaserAICrosswalk(unittest.TestCase):
 
         self.assertEqual(1, len(result.payload))
         transformed = result.payload[0]
-        self.assertEqual("LiteratureResource", transformed["@type"])
-        self.assertEqual("https://example.org/test-context", transformed["@context"])
-        self.assertEqual("HEWRES:laserai_24500", transformed["id"])
-        self.assertEqual("literature", transformed["resource_type"])
-        self.assertEqual("39497795", transformed["pmid"])
-        annotation = transformed["annotations"][0]
+        self.assertEqual("LiteratureResource", transformed["data"]["@type"])
+        self.assertEqual("https://example.org/test-context", transformed["data"]["@context"])
+        self.assertEqual("HEWRES:laserai_24500", transformed["data"]["id"])
+        self.assertEqual("literature", transformed["data"]["resource_type"])
+        self.assertEqual("39497795", transformed["data"]["pmid"])
+        annotation = transformed["data"]["annotations"][0]
         self.assertEqual(
             [
                 {
@@ -106,6 +116,8 @@ class TestLaserAICrosswalk(unittest.TestCase):
             ],
             annotation["geography_annotations"][0]["locations"],
         )
+        self.assertIn("submission", transformed)
+        self.assertIn("technical_metadata", transformed)
 
 
 if __name__ == "__main__":

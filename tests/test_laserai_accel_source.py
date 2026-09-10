@@ -81,10 +81,22 @@ class TestLaserAIAccelSource(unittest.TestCase):
 
         self.assertTrue(payload.ingest_successful)
         self.assertEqual(2518, len(payload.payload))
-        self.assertEqual("22", payload.payload[0]["source_reference_number"])
+        self.assertEqual("22", payload.payload[0]["data"]["source_reference_number"])
         self.assertEqual(
             "10.1007/s00345-024-05119-6",
-            payload.payload[0]["bibliographic"]["doi"],
+            payload.payload[0]["data"]["bibliographic"]["doi"],
+        )
+        self.assertEqual(
+            "10.1007/s00345-024-05119-6",
+            payload.payload[0]["technical_metadata"]["original_source_identifier"],
+        )
+        self.assertEqual(
+            "laserai_spreadsheet",
+            payload.payload[0]["technical_metadata"]["original_source_type"],
+        )
+        self.assertIn(
+            "ingest from landing zone",
+            payload.payload[0]["technical_metadata"]["history"][0]["msg"],
         )
         self.assertEqual("laserai-test-run", descriptor.ingest_identifier)
 
