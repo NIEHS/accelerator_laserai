@@ -18,6 +18,16 @@ def _without_not_reported(values: list[Any]) -> list[Any]:
     return [value for value in values if value and value != "not reported"]
 
 
+def _structured_locations(values: list[Any]) -> list[dict[str, Any]]:
+    """Preserve source geography as structured locations without guessing IDs."""
+    locations = []
+    for value in _without_not_reported(values):
+        name = str(value)
+        if not any(location["name"] == name for location in locations):
+            locations.append({"name": name, "location_type": "other"})
+    return locations
+
+
 def _flatten_levels(group: dict[str, Any], *legacy_keys: str) -> list[Any]:
     """Flatten the hierarchical intermediate shape, with legacy compatibility."""
     levels = group.get("levels")
@@ -168,6 +178,10 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             ],
         }
 
+        environmental_variables = payload.get("environmental_variables")
+        if isinstance(environmental_variables, list) and environmental_variables:
+            resource["environmental_variables"] = environmental_variables
+
         accession_number = bibliographic.get("accession_number")
         if accession_number is not None:
             accession = str(accession_number)
@@ -251,6 +265,9 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             geography_annotation["geographic_features"] = [
                 self.term_mapper("geographic_feature", str(value)) for value in features
             ]
+        structured_locations = _structured_locations(locations)
+        if structured_locations:
+            geography_annotation["locations"] = structured_locations
         annotation["geography_annotations"] = [geography_annotation] if geography_annotation else []
 
         data_and_models = payload.get("data_and_models", {})
@@ -279,4 +296,5 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         annotation["special_topic_annotations"] = _level_annotations(
             "special_topic", special_topics, self.term_mapper
         )
+
         return annotation

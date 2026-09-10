@@ -12,7 +12,7 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
     TEST_RESOURCES_DIR = Path(__file__).parent / "test_resources"
     INPUT_PATH = (
         TEST_RESOURCES_DIR
-        / "f7abc5b7-1fb0-4941-9347-57a724c103f0.json"
+        / "test_laser1.json"
     )
     OUTPUT_DIR = TEST_RESOURCES_DIR / "temp_dirs/jsonld"
 
@@ -51,8 +51,15 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
             jsonld = json.load(output_file)
 
         self.assertEqual("LiteratureResource", jsonld["@type"])
-        self.assertEqual("HEWRES:laserai_3541", jsonld["id"])
-        self.assertEqual("38639787", jsonld["pmid"])
+        self.assertEqual("HEWRES:laserai_25505", jsonld["id"])
+        self.assertIn("WOS:001260496000001", jsonld["identifiers"])
+        self.assertEqual(
+            [
+                {"name": "Non-United States", "location_type": "other"},
+                {"name": "Asia", "location_type": "other"},
+            ],
+            jsonld["annotations"][0]["geography_annotations"][0]["locations"],
+        )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,232 @@
+{
+  "source": "laserai",
+  "source_reference_number": "25505",
+  "bibliographic": {
+    "first_author": "Ural",
+    "year": 2024,
+    "title": "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+    "doi": "10.1016/j.ijdrr.2024.104617",
+    "accession_number": "WOS:001260496000001",
+    "study_identifiers": [
+      104617
+    ]
+  },
+  "review": {
+    "reference_type": "Research Article",
+    "reference_type_comments": [],
+    "information_source": "Complete Resource",
+    "information_source_comments": [],
+    "recommend_for_removal": "not reported",
+    "recommend_for_removal_comments": [],
+    "postpone": "not reported",
+    "postpone_comments": []
+  },
+  "study_objectives": [],
+  "exposures": [
+    {
+      "level1": "Extreme Weather-Related Event or Disaster",
+      "level2": "Earthquake",
+      "level3": ""
+    }
+  ],
+  "health_impacts": [
+    {
+      "level1": "Mental Health and Well-Being",
+      "level2": "Stress Disorder",
+      "level3": "Post Traumatic Stress Disorder"
+    },
+    {
+      "level1": "Mental Health and Well-Being",
+      "level2": "General Mental Health and Well-Being",
+      "level3": "not reported"
+    }
+  ],
+  "geography": [
+    {
+      "level1": "Non-United States",
+      "level2": "Asia",
+      "level3": ""
+    }
+  ],
+  "geographic_features": [
+    "not reported"
+  ],
+  "data_and_models": {
+    "data_resource_types": {
+      "levels": {
+        "1": [
+          "Survey"
+        ],
+        "2": [
+          "not reported"
+        ]
+      },
+      "write_in": []
+    },
+    "model_types": [
+      "not reported"
+    ]
+  },
+  "special_topics": {
+    "levels": {
+      "1": [
+        "Study Population",
+        "Intervention",
+        "Communication"
+      ],
+      "2": [
+        "Sex",
+        "Disaster Risk Reduction",
+        "General Public/Unspecified",
+        "Low Socioeconomic Status"
+      ]
+    },
+    "write_in": []
+  },
+  "raw_values": {
+    "1st Author": [
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural",
+      "Ural"
+    ],
+    "Year": [
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024
+    ],
+    "Title": [
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study",
+      "Women's experiences in the aftermath of the Kahramanmara\u00c5\u0178 earthquakes in T\u00c3\u00bcrkiye: A phenomenological study"
+    ],
+    "Reference number": [
+      25505,
+      25505,
+      25505,
+      25505,
+      25505,
+      25505,
+      25505,
+      25505,
+      25505,
+      25505
+    ],
+    "Study identifier": [
+      104617,
+      104617,
+      104617,
+      104617,
+      104617,
+      104617,
+      104617,
+      104617,
+      104617,
+      104617
+    ],
+    "DOI": [
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617",
+      "10.1016/j.ijdrr.2024.104617"
+    ],
+    "Accession Number": [
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001",
+      "WOS:001260496000001"
+    ],
+    "Data Resource Type L1 (extracted)": [
+      "Survey"
+    ],
+    "Data Resource Type L2 (extracted)": [
+      "not reported"
+    ],
+    "Model Type (extracted)": [
+      "not reported"
+    ],
+    "Reference Type (extracted)": [
+      "Research Article"
+    ],
+    "Information Source (extracted)": [
+      "Complete Resource"
+    ],
+    "Recommend for Removal (extracted)": [
+      "not reported"
+    ],
+    "Postpone (extracted)": [
+      "not reported"
+    ],
+    "Exposure L1 (extracted)": [
+      "Extreme Weather-Related Event or Disaster"
+    ],
+    "Exposure L2 (extracted)": [
+      "Earthquake"
+    ],
+    "Health Impact L1 (extracted)": [
+      "Mental Health and Well-Being",
+      "Mental Health and Well-Being"
+    ],
+    "Health Impact L2 (extracted)": [
+      "Stress Disorder",
+      "General Mental Health and Well-Being"
+    ],
+    "Health Impact L3 (extracted)": [
+      "Post Traumatic Stress Disorder",
+      "not reported"
+    ],
+    "Location L1 (extracted)": [
+      "Non-United States"
+    ],
+    "Location L2 (extracted)": [
+      "Asia"
+    ],
+    "Geographic Feature (extracted)": [
+      "not reported"
+    ],
+    "Special Topics L1 (extracted)": [
+      "Study Population",
+      "Intervention",
+      "Communication",
+      "Study Population"
+    ],
+    "Special Topics L2 (extracted)": [
+      "Sex",
+      "Disaster Risk Reduction",
+      "General Public/Unspecified",
+      "Low Socioeconomic Status"
+    ]
+  }
+}

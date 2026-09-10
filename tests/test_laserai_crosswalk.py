@@ -13,7 +13,7 @@ class TestLaserAICrosswalk(unittest.TestCase):
         record_path = (
             Path(__file__).parent
             / "test_resources"
-            / "0a0cb18d-7a31-445b-9dec-fcf088d4cd0e.json"
+            / "laserai_crosswalk.json"
         )
         if not record_path.exists():
             self.skipTest("LaserAI intermediate JSON fixture is not present")
@@ -42,23 +42,27 @@ class TestLaserAICrosswalk(unittest.TestCase):
         transformed = result.payload[0]
         self.assertEqual("LiteratureResource", transformed["@type"])
         self.assertEqual("https://example.org/test-context", transformed["@context"])
-        self.assertEqual("HEWRES:laserai_4451", transformed["id"])
+        self.assertEqual("HEWRES:laserai_24500", transformed["id"])
         self.assertEqual("literature", transformed["resource_type"])
-        self.assertEqual("38270762", transformed["pmid"])
+        self.assertEqual("39497795", transformed["pmid"])
         annotation = transformed["annotations"][0]
         self.assertEqual(
             [
                 {
-                    "coded_concept": "TEST:exposure:Temperature",
+                    "coded_concept": "TEST:exposure:Extreme Weather-Related Event or Disaster",
                     "coding_depth": 1,
                 },
                 {
-                    "coded_concept": "TEST:exposure:Extreme Heat/Heat",
+                    "coded_concept": "TEST:exposure:Earthquake",
                     "coding_depth": 2,
                 },
                 {
-                    "coded_concept": "TEST:exposure:Air Pollution",
+                    "coded_concept": "TEST:exposure:Extreme Weather-Related Event or Disaster",
                     "coding_depth": 1,
+                },
+                {
+                    "coded_concept": "TEST:exposure:Tsunami",
+                    "coding_depth": 2,
                 },
             ],
             annotation["exposure_annotations"],
@@ -66,22 +70,41 @@ class TestLaserAICrosswalk(unittest.TestCase):
         self.assertEqual(
             [
                 {
-                    "coded_concept": "TEST:health_impact:Morbidity/Mortality",
+                    "coded_concept": "TEST:health_impact:Mental Health and Well-Being",
                     "coding_depth": 1,
-                }
+                },
+                {
+                    "coded_concept": "TEST:health_impact:Mood Disorder",
+                    "coding_depth": 2,
+                },
+                {
+                    "coded_concept": "TEST:health_impact:Mental Health and Well-Being",
+                    "coding_depth": 1,
+                },
+                {
+                    "coded_concept": "TEST:health_impact:Suicide Ideation",
+                    "coding_depth": 2,
+                },
             ],
             annotation["health_impact_annotations"],
         )
         self.assertEqual(
             [
                 "TEST:geography:Non-United States",
-                "TEST:geography:Non-U.S. North America",
+                "TEST:geography:Asia",
             ],
             annotation["geography_annotations"][0]["geographic_locations"],
         )
         self.assertEqual(
-            ["TEST:geographic_feature:Urban"],
+            ["TEST:geographic_feature:Ocean/Coastal"],
             annotation["geography_annotations"][0]["geographic_features"],
+        )
+        self.assertEqual(
+            [
+                {"name": "Non-United States", "location_type": "other"},
+                {"name": "Asia", "location_type": "other"},
+            ],
+            annotation["geography_annotations"][0]["locations"],
         )
 
 
