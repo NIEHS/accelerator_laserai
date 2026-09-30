@@ -55,6 +55,9 @@ class TestLaserAICrosswalk(unittest.TestCase):
         self.assertEqual("HEWRES:laserai_24500", transformed["data"]["id"])
         self.assertEqual("literature", transformed["data"]["resource_type"])
         self.assertEqual("39497795", transformed["data"]["pmid"])
+        self.assertEqual("LiteratureResource", transformed["data"]["@type"])
+        self.assertIn("submission", transformed)
+        self.assertIn("technical_metadata", transformed)
         annotation = transformed["data"]["annotations"][0]
         self.assertEqual(
             [
@@ -100,24 +103,22 @@ class TestLaserAICrosswalk(unittest.TestCase):
         )
         self.assertEqual(
             [
-                "TEST:geography:Non-United States",
-                "TEST:geography:Asia",
+                "asia",
             ],
             annotation["geography_annotations"][0]["geographic_locations"],
         )
         self.assertEqual(
-            ["TEST:geographic_feature:Ocean/Coastal"],
+            ["ocean_coastal"],
             annotation["geography_annotations"][0]["geographic_features"],
         )
         self.assertEqual(
-            [
-                {"name": "Non-United States", "location_type": "other"},
-                {"name": "Asia", "location_type": "other"},
-            ],
-            annotation["geography_annotations"][0]["locations"],
+            "Non-United States",
+            annotation["geography_annotations"][0]["spatial_text"],
         )
-        self.assertIn("submission", transformed)
-        self.assertIn("technical_metadata", transformed)
+        self.assertEqual(
+            ["24500"],
+            transformed["data"]["identifiers"],
+        )
 
 
 if __name__ == "__main__":

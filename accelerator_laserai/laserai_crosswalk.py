@@ -14,19 +14,62 @@ from accelerator_core.workflow.crosswalk import Crosswalk
 TermMapper = Callable[[str, str], str]
 JsonLdSerializer = Callable[..., dict[str, Any]]
 
+_REFERENCE_TYPES = {
+    "research_article",
+    "review_article",
+    "commentary_opinion",
+    "assessment_book_report",
+}
+_INFORMATION_SOURCES = {"complete_resource", "abstract_and_title_only"}
+_GEOGRAPHIC_LOCATIONS = {
+    "global_or_unspecified_location",
+    "africa",
+    "antarctica",
+    "asia",
+    "australasia",
+    "central_south_america",
+    "europe",
+    "non_us_north_america",
+    "united_states",
+}
+_GEOGRAPHIC_FEATURES = {
+    "general_geographic_feature",
+    "built_environment",
+    "desert",
+    "forest",
+    "freshwater",
+    "grassland",
+    "island",
+    "mountain",
+    "ocean_coastal",
+    "polar",
+    "rainforest",
+    "rural",
+    "temperate",
+    "tropical",
+    "urban",
+    "valley",
+    "wetland",
+    "other",
+}
+_DATA_RESOURCE_TYPES = {
+    "cohort",
+    "source_cohort_publication",
+    "dataset",
+    "software_code_library",
+    "survey",
+    "other",
+}
+_MODEL_TYPES = {
+    "artificial_intelligence_machine_learning",
+    "exposure_modeling",
+    "geospatial_modeling",
+    "other",
+}
+
 
 def _without_not_reported(values: list[Any]) -> list[Any]:
     return [value for value in values if value and value != "not reported"]
-
-
-def _structured_locations(values: list[Any]) -> list[dict[str, Any]]:
-    """Preserve source geography as structured locations without guessing IDs."""
-    locations = []
-    for value in _without_not_reported(values):
-        name = str(value)
-        if not any(location["name"] == name for location in locations):
-            locations.append({"name": name, "location_type": "other"})
-    return locations
 
 
 def _flatten_levels(group: dict[str, Any], *legacy_keys: str) -> list[Any]:
@@ -39,19 +82,51 @@ def _flatten_levels(group: dict[str, Any], *legacy_keys: str) -> list[Any]:
     return values + group.get("write_in", [])
 
 
-def _enum_value(value: str | None) -> str | None:
-    """Convert the export's display labels to current HEW enum values."""
+def _enum_value(value: str | None, allowed: set[str]) -> str | None:
+    """Convert a display label to a normalized value without inventing enums."""
     if value is None or value == "not reported":
         return None
     normalized = re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
-    return {
+    candidate = {
         "research_article": "research_article",
         "review_article": "review_article",
         "commentary_opinion": "commentary_opinion",
         "assessment_book_report": "assessment_book_report",
         "complete_resource": "complete_resource",
         "title_and_abstract_only": "abstract_and_title_only",
-    }.get(normalized, normalized)
+    }.get(normalized)
+    return candidate if candidate in allowed else None
+
+
+def _closed_enum_values(
+    values: list[Any],
+    allowed: set[str],
+    aliases: dict[str, str] | None = None,
+) -> tuple[list[str], list[str]]:
+    """Return valid enum members and source labels that need text preservation."""
+    mapped = []
+    unmapped = []
+    aliases = aliases or {}
+    for value in _without_not_reported(values):
+        normalized = re.sub(r"[^a-z0-9]+", "_", str(value).lower()).strip("_")
+        candidate = aliases.get(normalized, normalized)
+        if candidate in allowed:
+            if candidate not in mapped:
+                mapped.append(candidate)
+        else:
+            unmapped.append(str(value))
+    return mapped, unmapped
+
+
+def _unique_strings(values: list[Any]) -> list[str]:
+    result = []
+    for value in values:
+        if value is None:
+            continue
+        value = str(value)
+        if value and value not in result:
+            result.append(value)
+    return result
 
 
 def _annotation_values(
@@ -187,7 +262,10 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             "title": bibliographic.get("title"),
             "resource_type": "literature",
             "doi": bibliographic.get("doi"),
-            "identifiers": [reference_number],
+            "identifiers": _unique_strings(
+                [reference_number]
+                + (bibliographic.get("study_identifiers") or [])
+            ),
             "annotations": [
                 self._annotation(payload, resource_id, reference_number, review)
             ],
@@ -209,7 +287,9 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         if first_author:
             # HEW currently models authors as CURIEs. Keep a deterministic source
             # CURIE here until an author/person crosswalk is defined.
-            author_slug = re.sub(r"[^a-z0-9]+", "_", str(first_author).lower()).strip("_")
+            author_slug = re.sub(
+                r"[^a-z0-9]+", "_", str(first_author).lower()
+            ).strip("_")
             resource["authors"] = [f"HEW:laserai_author_{author_slug}"]
 
         return {key: value for key, value in resource.items() if value is not None}
@@ -228,8 +308,10 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             "coding_method": "laser_ai_generated",
         }
 
-        reference_type = _enum_value(review.get("reference_type"))
-        information_source = _enum_value(review.get("information_source"))
+        reference_type = _enum_value(review.get("reference_type"), _REFERENCE_TYPES)
+        information_source = _enum_value(
+            review.get("information_source"), _INFORMATION_SOURCES
+        )
         if reference_type:
             annotation["reference_type"] = reference_type
         if information_source:
@@ -238,6 +320,8 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         objectives = payload.get("study_objectives", [])
         if objectives:
             annotation["study_objective"] = objectives[0]
+            if len(objectives) > 1:
+                annotation["notes"] = "; ".join(str(value) for value in objectives[1:])
 
         exposures = payload.get("exposures", {})
         annotation["exposure_annotations"] = _level_annotations(
@@ -272,18 +356,25 @@ class LaserAIToHEWCrosswalk(Crosswalk):
                     + geography.get("locations_level_2", [])
                 )
             features = _without_not_reported(geography.get("geographic_features", []))
-        if locations:
-            geography_annotation["geographic_locations"] = [
-                self.term_mapper("geography", str(value)) for value in locations
-            ]
-        if features:
-            geography_annotation["geographic_features"] = [
-                self.term_mapper("geographic_feature", str(value)) for value in features
-            ]
-        structured_locations = _structured_locations(locations)
-        if structured_locations:
-            geography_annotation["locations"] = structured_locations
-        annotation["geography_annotations"] = [geography_annotation] if geography_annotation else []
+        geographic_locations, unmapped_locations = _closed_enum_values(
+            locations,
+            _GEOGRAPHIC_LOCATIONS,
+        )
+        geographic_features, unmapped_features = _closed_enum_values(
+            features,
+            _GEOGRAPHIC_FEATURES,
+            aliases={"ocean_coastal": "ocean_coastal"},
+        )
+        if geographic_locations:
+            geography_annotation["geographic_locations"] = geographic_locations
+        if geographic_features:
+            geography_annotation["geographic_features"] = geographic_features
+        source_geography_text = _unique_strings(unmapped_locations + unmapped_features)
+        if source_geography_text:
+            geography_annotation["spatial_text"] = "; ".join(source_geography_text)
+        annotation["geography_annotations"] = (
+            [geography_annotation] if geography_annotation else []
+        )
 
         data_and_models = payload.get("data_and_models", {})
         data_resource_types = data_and_models.get("data_resource_types", {})
@@ -292,20 +383,22 @@ class LaserAIToHEWCrosswalk(Crosswalk):
                 "level_1": data_and_models.get("data_resource_types_level_1", []),
                 "level_2": data_and_models.get("data_resource_types_level_2", []),
             }
-        annotation["data_tool_method_annotations"] = [
-            {
-                "data_resource_types": [
-                    self.term_mapper("data_resource_type", str(value))
-                    for value in _without_not_reported(
-                        _flatten_levels(data_resource_types, "level_1", "level_2")
-                    )
-                ],
-                "model_types": [
-                    self.term_mapper("model_type", str(value))
-                    for value in _without_not_reported(data_and_models.get("model_types", []))
-                ],
-            }
-        ]
+        resource_types, _ = _closed_enum_values(
+            _flatten_levels(data_resource_types, "level_1", "level_2"),
+            _DATA_RESOURCE_TYPES,
+        )
+        model_types, _ = _closed_enum_values(
+            data_and_models.get("model_types", []),
+            _MODEL_TYPES,
+        )
+        data_tool_method_annotation = {}
+        if resource_types:
+            data_tool_method_annotation["data_resource_types"] = resource_types
+        if model_types:
+            data_tool_method_annotation["model_types"] = model_types
+        annotation["data_tool_method_annotations"] = (
+            [data_tool_method_annotation] if data_tool_method_annotation else []
+        )
 
         special_topics = payload.get("special_topics", {})
         annotation["special_topic_annotations"] = _level_annotations(
