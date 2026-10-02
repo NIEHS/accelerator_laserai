@@ -119,6 +119,43 @@ class TestLaserAICrosswalk(unittest.TestCase):
             ["24500"],
             transformed["data"]["identifiers"],
         )
+        self.assertEqual("research_article", transformed["data"]["publication_type"])
+        self.assertEqual(
+            [
+                {
+                    "id": "PERSON:laserai_orui",
+                    "agent_type": "Person",
+                    "family_name": "Orui",
+                }
+            ],
+            transformed["data"]["authors"],
+        )
+        self.assertNotIn("agent_associations", transformed["data"])
+
+    def test_translate_omits_authors_when_first_author_missing(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        for first_author in (None, "", "not reported", "---"):
+            resource = crosswalk.translate_to_linkml(
+                {
+                    "source_reference_number": "1",
+                    "bibliographic": {"title": "T", "first_author": first_author},
+                }
+            )
+            self.assertNotIn("authors", resource)
+
+    def test_translate_maps_year_to_publication_date(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        for year, expected in ((2024, "2024"), ("2024", "2024"), ("n.d.", None), (None, None)):
+            resource = crosswalk.translate_to_linkml(
+                {"source_reference_number": "1", "bibliographic": {"year": year}}
+            )
+            self.assertEqual(expected, resource.get("publication_date"))
 
 
 if __name__ == "__main__":

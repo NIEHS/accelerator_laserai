@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import re
+from functools import partial
+from pathlib import Path
 from typing import Any, Callable
 
 from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
@@ -194,6 +196,43 @@ def _resource_id(reference_number: str) -> str:
     return f"HEWRES:laserai_{reference_number}"
 
 
+def _slug(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", str(value).lower()).strip("_")
+
+
+def _authors(first_author: Any) -> list[dict[str, Any]]:
+    """Map the LaserAI first author to an inlined HEW 2.0 Person.
+
+    LaserAI exports only the first author's surname, so the Person carries
+    ``family_name`` alone.
+    """
+    if not first_author or first_author == "not reported":
+        return []
+    author_slug = _slug(first_author)
+    if not author_slug:
+        return []
+    return [
+        {
+            "id": f"PERSON:laserai_{author_slug}",
+            "agent_type": "Person",
+            "family_name": str(first_author),
+        }
+    ]
+
+
+def _core_schema_path() -> Path:
+    """Locate the HEW core schema, which fully defines LiteratureResource."""
+    try:
+        from hew_model.jsonld import SCHEMA_PATH
+    except ImportError as exc:
+        raise ImportError(
+            "The HEW model package is required for LaserAI JSON-LD output; "
+            "install the accelerator_laserai requirements"
+        ) from exc
+    # hew_model defaults to hew-extended.yaml; the core hew.yaml sits beside it.
+    return SCHEMA_PATH.with_name("hew.yaml")
+
+
 class LaserAIToHEWCrosswalk(Crosswalk):
     """Convert one or more LaserAI intermediate records to HEW JSON."""
 
@@ -211,14 +250,22 @@ class LaserAIToHEWCrosswalk(Crosswalk):
     @staticmethod
     def _load_jsonld_serializer() -> JsonLdSerializer:
         """Load the serializer from the reusable HEW model package."""
-        try:
-            from hew_model.jsonld import to_jsonld
-        except ImportError as exc:
-            raise ImportError(
-                "The HEW model package is required for LaserAI JSON-LD output; "
-                "install the accelerator_laserai requirements"
-            ) from exc
-        return to_jsonld
+        schema_path = _core_schema_path()
+        from hew_model.jsonld import to_jsonld
+
+        return partial(to_jsonld, schema_path=schema_path)
+
+    @staticmethod
+    def _canonical_context() -> dict[str, Any]:
+        """Load the JSON-LD context generated for the installed HEW schema."""
+        schema_path = _core_schema_path()
+        from hew_model.jsonld import generate_context
+
+        context_document = generate_context(schema_path)
+        context = context_document.get("@context")
+        if not isinstance(context, dict):
+            raise RuntimeError("The HEW model generated an invalid JSON-LD context")
+        return context
 
     def transform(self, ingest_result: IngestPayload) -> IngestPayload:
         """Resolve and crosswalk every intermediate LaserAI record."""
@@ -233,6 +280,8 @@ class LaserAIToHEWCrosswalk(Crosswalk):
                 linkml_record,
                 class_name="LiteratureResource",
             )
+            if not jsonld_record.get("@context"):
+                jsonld_record["@context"] = self._canonical_context()
             descriptor = ingest_result.ingest_source_descriptor
             source_metadata = input_record["technical_metadata"]
             source_submission = input_record["submission"]
@@ -271,10 +320,6 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             ],
         }
 
-        environmental_variables = payload.get("environmental_variables")
-        if isinstance(environmental_variables, list) and environmental_variables:
-            resource["environmental_variables"] = environmental_variables
-
         accession_number = bibliographic.get("accession_number")
         if accession_number is not None:
             accession = str(accession_number)
@@ -283,14 +328,17 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             else:
                 resource["identifiers"].append(accession)
 
-        first_author = bibliographic.get("first_author")
-        if first_author:
-            # HEW currently models authors as CURIEs. Keep a deterministic source
-            # CURIE here until an author/person crosswalk is defined.
-            author_slug = re.sub(
-                r"[^a-z0-9]+", "_", str(first_author).lower()
-            ).strip("_")
-            resource["authors"] = [f"HEW:laserai_author_{author_slug}"]
+        publication_type = _enum_value(review.get("reference_type"), _REFERENCE_TYPES)
+        if publication_type:
+            resource["publication_type"] = publication_type
+
+        year = bibliographic.get("year")
+        if year is not None and re.fullmatch(r"\d{4}", str(year)):
+            resource["publication_date"] = str(year)
+
+        authors = _authors(bibliographic.get("first_author"))
+        if authors:
+            resource["authors"] = authors
 
         return {key: value for key, value in resource.items() if value is not None}
 

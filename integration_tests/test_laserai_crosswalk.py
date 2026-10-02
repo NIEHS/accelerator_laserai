@@ -62,12 +62,49 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
                 jsonld = json.load(output_file)
 
             self.assertEqual("LiteratureResource", jsonld["data"]["@type"])
-            self.assertEqual("HEWRES:laserai_25505", jsonld["data"]["id"])
-            self.assertIn("WOS:001260496000001", jsonld["data"]["identifiers"])
-            geography_annotation = jsonld["data"]["annotations"][0]["geography_annotations"][0]
-            self.assertEqual(["asia"], geography_annotation["geographic_locations"])
-            self.assertEqual("Non-United States", geography_annotation["spatial_text"])
-            self.assertNotIn("locations", geography_annotation)
+            self.assertIsInstance(jsonld["data"]["@context"], dict)
+            self.assertEqual(
+                "https://w3id.org/hew/",
+                jsonld["data"]["@context"]["@vocab"],
+            )
+            self.assertEqual("HEWRES:laserai_8689", jsonld["data"]["id"])
+            self.assertEqual("38959513", jsonld["data"]["pmid"])
+            self.assertEqual(
+                "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+                jsonld["data"]["title"],
+            )
+            self.assertEqual(
+                "10.3928/00989134-20240618-01",
+                jsonld["data"]["doi"],
+            )
+            self.assertEqual(
+                [
+                    {
+                        "@type": "Person",
+                        "id": "PERSON:laserai_husser",
+                        "agent_type": "Person",
+                        "family_name": "Husser",
+                    }
+                ],
+                jsonld["data"]["authors"],
+            )
+            self.assertEqual("commentary_opinion", jsonld["data"]["publication_type"])
+            self.assertEqual("2024", jsonld["data"]["publication_date"])
+            self.assertIn("PERSON", jsonld["data"]["@context"])
+            self.assertEqual(
+                ["8689"],
+                jsonld["data"]["identifiers"],
+            )
+            annotation = jsonld["data"]["annotations"][0]
+            self.assertEqual("HEWANN:laserai_8689", annotation["id"])
+            self.assertEqual("commentary_opinion", annotation["reference_type"])
+            self.assertEqual("complete_resource", annotation["information_source"])
+            geography_annotation = annotation["geography_annotations"][0]
+            self.assertEqual(
+                ["global_or_unspecified_location"],
+                geography_annotation["geographic_locations"],
+            )
+            self.assertNotIn("spatial_text", geography_annotation)
             self.assertIn("submission", jsonld)
             self.assertIn("technical_metadata", jsonld)
 
