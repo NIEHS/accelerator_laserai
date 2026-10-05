@@ -320,6 +320,10 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             ],
         }
 
+        subtitle = bibliographic.get("subtitle")
+        if subtitle is not None:
+            resource["subtitle"] = subtitle
+
         accession_number = bibliographic.get("accession_number")
         if accession_number is not None:
             accession = str(accession_number)

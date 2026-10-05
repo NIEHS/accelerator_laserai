@@ -157,6 +157,22 @@ class TestLaserAICrosswalk(unittest.TestCase):
             )
             self.assertEqual(expected, resource.get("publication_date"))
 
+    def test_translate_preserves_publication_subtitle(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        resource = crosswalk.translate_to_linkml(
+            {
+                "source_reference_number": "1",
+                "bibliographic": {
+                    "title": "Publication",
+                    "subtitle": "A study subtitle",
+                },
+            }
+        )
+        self.assertEqual("A study subtitle", resource["subtitle"])
+
 
 if __name__ == "__main__":
     unittest.main()

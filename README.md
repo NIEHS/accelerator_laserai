@@ -22,7 +22,9 @@ Accelerator envelope:
 Bibliographic identifiers map to HEW `doi`, `pmid`, and `identifiers`;
 systematic-review coding remains under `annotations`. The extracted reference
 type also populates `publication_type`, and the year populates
-`publication_date`. LaserAI exports only the first author's surname, which maps
+`publication_date` (the shared HEW resource publication date). An input
+`subtitle`, when present, is preserved as the shared HEW `subtitle` field.
+LaserAI exports only the first author's surname, which maps
 to an inlined HEW 2.0 `Person` in `authors`
 (`{"id": "PERSON:laserai_<surname>", "agent_type": "Person", "family_name": ...}`).
 Output is serialized against the HEW 2.0 core schema (`hew.yaml`). Closed HEW enum fields
