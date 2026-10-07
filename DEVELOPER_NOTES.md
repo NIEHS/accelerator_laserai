@@ -1,0 +1,4 @@
+If you want a truly seamless user experience where an action happens immediately after a file upload, decouple Airflow from the upload interface entirely:Storage Sensors: Configure an Airflow Sensor to constantly monitor a specific bucket prefix for new files.Event-Driven Webhooks: Set up a cloud function (like AWS Lambda) that triggers upon a file landing in your bucket. The cloud function can then programmatically trigger your DAG via the Airflow REST API while passing the exact file name inside the configuration body.Would you like help writing a cloud function script to trigger a DAG via the REST API,
+
+
+Strategy for DAG, add a file drop folder and allow upload 

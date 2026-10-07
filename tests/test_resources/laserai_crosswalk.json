@@ -1,0 +1,196 @@
+{
+  "source": "laserai",
+  "source_reference_number": "24500",
+  "bibliographic": {
+    "first_author": "Orui",
+    "year": 2024,
+    "title": "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+    "doi": "10.1002/pcn5.70025",
+    "accession_number": 39497795,
+    "study_identifiers": []
+  },
+  "review": {
+    "reference_type": "Research Article",
+    "reference_type_comments": [],
+    "information_source": "Complete Resource",
+    "information_source_comments": [],
+    "recommend_for_removal": null,
+    "recommend_for_removal_comments": [],
+    "postpone": null,
+    "postpone_comments": []
+  },
+  "study_objectives": [],
+  "exposures": [
+    {
+      "level1": "Extreme Weather-Related Event or Disaster",
+      "level2": "Earthquake",
+      "level3": ""
+    },
+    {
+      "level1": "Extreme Weather-Related Event or Disaster",
+      "level2": "Tsunami",
+      "level3": ""
+    }
+  ],
+  "health_impacts": [
+    {
+      "level1": "Mental Health and Well-Being",
+      "level2": "Mood Disorder",
+      "level3": ""
+    },
+    {
+      "level1": "Mental Health and Well-Being",
+      "level2": "Suicide Ideation",
+      "level3": ""
+    }
+  ],
+  "geography": [
+    {
+      "level1": "Non-United States",
+      "level2": "Asia",
+      "level3": ""
+    }
+  ],
+  "geographic_features": [
+    "Ocean/Coastal"
+  ],
+  "data_and_models": {
+    "data_resource_types": {
+      "levels": {
+        "1": [
+          "Cohort",
+          "Survey"
+        ],
+        "2": []
+      },
+      "write_in": []
+    },
+    "model_types": [
+      "not reported"
+    ]
+  },
+  "special_topics": {
+    "levels": {
+      "1": [
+        "Study Population"
+      ],
+      "2": [
+        "Pregnant or Breastfeeding Women"
+      ]
+    },
+    "write_in": []
+  },
+  "raw_values": {
+    "1st Author": [
+      "Orui",
+      "Orui",
+      "Orui",
+      "Orui",
+      "Orui",
+      "Orui",
+      "Orui",
+      "Orui",
+      "Orui"
+    ],
+    "Year": [
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024,
+      2024
+    ],
+    "Title": [
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study",
+      "Evaluation of depression at 6 and 12 months postpartum by examining depressive symptoms and self-harm ideation during the early postpartum period: Tohoku Medical Megabank Project Birth and Three-Generation Cohort Study"
+    ],
+    "Reference number": [
+      24500,
+      24500,
+      24500,
+      24500,
+      24500,
+      24500,
+      24500,
+      24500,
+      24500
+    ],
+    "DOI": [
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025",
+      "10.1002/pcn5.70025"
+    ],
+    "Accession Number": [
+      39497795,
+      39497795,
+      39497795,
+      39497795,
+      39497795,
+      39497795,
+      39497795,
+      39497795,
+      39497795
+    ],
+    "Data Resource Type L1 (extracted)": [
+      "Cohort",
+      "Survey"
+    ],
+    "Model Type (extracted)": [
+      "not reported",
+      "not reported"
+    ],
+    "Reference Type (extracted)": [
+      "Research Article"
+    ],
+    "Information Source (extracted)": [
+      "Complete Resource"
+    ],
+    "Exposure L1 (extracted)": [
+      "Extreme Weather-Related Event or Disaster",
+      "Extreme Weather-Related Event or Disaster"
+    ],
+    "Exposure L2 (extracted)": [
+      "Earthquake",
+      "Tsunami"
+    ],
+    "Health Impact L1 (extracted)": [
+      "Mental Health and Well-Being",
+      "Mental Health and Well-Being"
+    ],
+    "Health Impact L2 (extracted)": [
+      "Mood Disorder",
+      "Suicide Ideation"
+    ],
+    "Location L1 (extracted)": [
+      "Non-United States"
+    ],
+    "Location L2 (extracted)": [
+      "Asia"
+    ],
+    "Geographic Feature (extracted)": [
+      "Ocean/Coastal"
+    ],
+    "Special Topics L1 (extracted)": [
+      "Study Population"
+    ],
+    "Special Topics L2 (extracted)": [
+      "Pregnant or Breastfeeding Women"
+    ]
+  }
+}

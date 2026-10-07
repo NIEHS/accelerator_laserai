@@ -1,0 +1,173 @@
+{
+    "source": "laserai",
+    "source_reference_number": "8689",
+    "bibliographic": {
+      "first_author": "Husser",
+      "year": 2024,
+      "title": "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+      "doi": "10.3928/00989134-20240618-01",
+      "accession_number": 38959513,
+      "study_identifiers": []
+    },
+    "review": {
+      "reference_type": "Commentary/Opinion",
+      "reference_type_comments": [],
+      "information_source": "Complete Resource",
+      "information_source_comments": [],
+      "recommend_for_removal": "not reported",
+      "recommend_for_removal_comments": [],
+      "postpone": "not reported",
+      "postpone_comments": []
+    },
+    "study_objectives": [],
+    "exposures": [
+      {
+        "level1": "Temperature",
+        "level2": "Extreme Heat/Heat",
+        "level3": ""
+      }
+    ],
+    "health_impacts": [
+      {
+        "level1": "Temperature-Related Health Impact",
+        "level2": "Heat-Related Health Impact",
+        "level3": "not reported"
+      }
+    ],
+    "geography": [
+      {
+        "level1": "Global or Unspecified Location",
+        "level2": "not reported",
+        "level3": ""
+      }
+    ],
+    "geographic_features": [
+      "not reported"
+    ],
+    "data_and_models": {
+      "data_resource_types": {
+        "levels": {
+          "1": [],
+          "2": []
+        },
+        "write_in": []
+      },
+      "model_types": []
+    },
+    "special_topics": {
+      "levels": {
+        "1": [
+          "Study Population",
+          "Sociodemographic Vulnerability",
+          "Intervention"
+        ],
+        "2": [
+          "Elderly",
+          "not reported"
+        ]
+      },
+      "write_in": []
+    },
+    "raw_values": {
+      "1st Author": [
+        "Husser",
+        "Husser",
+        "Husser",
+        "Husser",
+        "Husser",
+        "Husser",
+        "Husser"
+      ],
+      "Year": [
+        2024,
+        2024,
+        2024,
+        2024,
+        2024,
+        2024,
+        2024
+      ],
+      "Title": [
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events"
+      ],
+      "Reference number": [
+        8689,
+        8689,
+        8689,
+        8689,
+        8689,
+        8689,
+        8689
+      ],
+      "DOI": [
+        "10.3928/00989134-20240618-01",
+        "10.3928/00989134-20240618-01",
+        "10.3928/00989134-20240618-01",
+        "10.3928/00989134-20240618-01",
+        "10.3928/00989134-20240618-01",
+        "10.3928/00989134-20240618-01",
+        "10.3928/00989134-20240618-01"
+      ],
+      "Accession Number": [
+        38959513,
+        38959513,
+        38959513,
+        38959513,
+        38959513,
+        38959513,
+        38959513
+      ],
+      "Reference Type (extracted)": [
+        "Commentary/Opinion"
+      ],
+      "Information Source (extracted)": [
+        "Complete Resource"
+      ],
+      "Recommend for Removal (extracted)": [
+        "not reported"
+      ],
+      "Postpone (extracted)": [
+        "not reported"
+      ],
+      "Exposure L1 (extracted)": [
+        "Temperature"
+      ],
+      "Exposure L2 (extracted)": [
+        "Extreme Heat/Heat"
+      ],
+      "Health Impact L1 (extracted)": [
+        "Temperature-Related Health Impact"
+      ],
+      "Health Impact L2 (extracted)": [
+        "Heat-Related Health Impact"
+      ],
+      "Health Impact L3 (extracted)": [
+        "not reported"
+      ],
+      "Location L1 (extracted)": [
+        "Global or Unspecified Location"
+      ],
+      "Location L2 (extracted)": [
+        "not reported"
+      ],
+      "Geographic Feature (extracted)": [
+        "not reported"
+      ],
+      "Special Topics L1 (extracted)": [
+        "Study Population",
+        "Sociodemographic Vulnerability",
+        "Intervention"
+      ],
+      "Special Topics L2 (extracted)": [
+        "Elderly",
+        "not reported",
+        "not reported"
+      ]
+    }
+  }
