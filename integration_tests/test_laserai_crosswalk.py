@@ -27,7 +27,7 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
             record,
             {"submitter_name": "", "submitter_email": "", "submitter_comment": ""},
             {
-                "original_source_identifier": record["bibliographic"]["doi"],
+                "original_source_identifier": record["data"]["bibliographic"]["doi"],
                 "original_source_link": "laserai.xlsx",
                 "history": [],
             },
@@ -67,44 +67,49 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
                 "https://w3id.org/hew/",
                 jsonld["data"]["@context"]["@vocab"],
             )
-            self.assertEqual("HEWRES:laserai_8689", jsonld["data"]["id"])
-            self.assertEqual("38959513", jsonld["data"]["pmid"])
+            self.assertEqual("HEWRES:laserai_11227", jsonld["data"]["id"])
+            self.assertEqual("38503408", jsonld["data"]["pmid"])
             self.assertEqual(
-                "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+                "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
                 jsonld["data"]["title"],
             )
             self.assertEqual(
-                "10.3928/00989134-20240618-01",
+                "10.1136/bmjopen-2023-080374",
                 jsonld["data"]["doi"],
             )
             self.assertEqual(
                 [
                     {
                         "@type": "Person",
-                        "id": "PERSON:laserai_husser",
+                        "id": "PERSON:laserai_njuguna",
                         "agent_type": "Person",
-                        "family_name": "Husser",
+                        "family_name": "Njuguna",
                     }
                 ],
                 jsonld["data"]["authors"],
             )
-            self.assertEqual("commentary_opinion", jsonld["data"]["publication_type"])
+            self.assertEqual("research_article", jsonld["data"]["publication_type"])
             self.assertEqual("2024", jsonld["data"]["publication_date"])
             self.assertIn("PERSON", jsonld["data"]["@context"])
             self.assertEqual(
-                ["8689"],
+                ["11227"],
                 jsonld["data"]["identifiers"],
             )
             annotation = jsonld["data"]["annotations"][0]
-            self.assertEqual("HEWANN:laserai_8689", annotation["id"])
-            self.assertEqual("commentary_opinion", annotation["reference_type"])
+            self.assertEqual("research_article", annotation["reference_type"])
             self.assertEqual("complete_resource", annotation["information_source"])
-            geography_annotation = annotation["geography_annotations"][0]
+            temperature_annotation = annotation["exposure_annotations"][2]
             self.assertEqual(
-                ["global_or_unspecified_location"],
-                geography_annotation["geographic_locations"],
+                "https://NIEHS.github.io/HEW_Measures/dist/Drought",
+                temperature_annotation["coded_concept"],
             )
-            self.assertNotIn("spatial_text", geography_annotation)
+            self.assertEqual(
+                [
+                    "https://NIEHS.github.io/HEW_Measures/hew_measures.jsonld"
+                ],
+                temperature_annotation["source_vocabularies"],
+            )
+
             self.assertIn("submission", jsonld)
             self.assertIn("technical_metadata", jsonld)
 

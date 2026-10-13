@@ -1,0 +1,2473 @@
+{
+  "name": "hew_measures_vocabulary",
+  "version": "1.0.0",
+  "vocabulary_uri": "https://NIEHS.github.io/HEW_Measures/hew_measures.jsonld",
+  "vocabulary_prefix": "https://NIEHS.github.io/HEW_Measures/dist/",
+  "terms": [
+    {
+      "name": "Category"
+    },
+    {
+      "name": "Health",
+      "is_a": "Category"
+    },
+    {
+      "name": "HealthData",
+      "is_a": "Health"
+    },
+    {
+      "name": "ClaimsData",
+      "is_a": "HealthData",
+      "aliases": [
+        "Claims Data",
+        "administrative claims, healthcare"
+      ],
+      "exact_mappings": [
+        "mesh:D000067575"
+      ]
+    },
+    {
+      "name": "ElectronicHealthRecords",
+      "is_a": "HealthData",
+      "aliases": [
+        "Electronic Health Records",
+        "electronic health records"
+      ],
+      "exact_mappings": [
+        "mesh:D057286"
+      ]
+    },
+    {
+      "name": "HealthSurveyData",
+      "is_a": "HealthData",
+      "aliases": [
+        "Health Survey Data",
+        "health surveys"
+      ],
+      "exact_mappings": [
+        "mesh:D006306"
+      ]
+    },
+    {
+      "name": "MensHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Mens Health",
+        "men's health"
+      ],
+      "exact_mappings": [
+        "mesh:D054526"
+      ]
+    },
+    {
+      "name": "WomensHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Womens Health",
+        "women's health"
+      ],
+      "exact_mappings": [
+        "mesh:D016387"
+      ]
+    },
+    {
+      "name": "OccupationalHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Occupational Health",
+        "occupational health"
+      ],
+      "exact_mappings": [
+        "mesh:D016272"
+      ]
+    },
+    {
+      "name": "Nutrition",
+      "is_a": "HealthData",
+      "aliases": [
+        "Nutrition",
+        "nutrition survey"
+      ],
+      "exact_mappings": [
+        "mesh:D009749"
+      ]
+    },
+    {
+      "name": "PhysicalFitness",
+      "is_a": "HealthData",
+      "aliases": [
+        "Physical Fitness",
+        "physical fitness"
+      ],
+      "exact_mappings": [
+        "mesh:D010809"
+      ]
+    },
+    {
+      "name": "HealthBehavior",
+      "is_a": "HealthData",
+      "aliases": [
+        "Health Behavior",
+        "health behavior"
+      ],
+      "exact_mappings": [
+        "mesh:D015438"
+      ]
+    },
+    {
+      "name": "ChildHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Child Health",
+        "child health"
+      ],
+      "exact_mappings": [
+        "mesh:D000067576"
+      ]
+    },
+    {
+      "name": "AdolescentHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Adolescent Health",
+        "adolescent health"
+      ],
+      "exact_mappings": [
+        "mesh:D000067697"
+      ]
+    },
+    {
+      "name": "ReproductiveBirth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Reproductive/Birth",
+        "reproductive history"
+      ],
+      "exact_mappings": [
+        "mesh:D017584"
+      ]
+    },
+    {
+      "name": "HealthIndicators",
+      "is_a": "HealthData",
+      "aliases": [
+        "Health Indicators",
+        "health status indicators"
+      ],
+      "exact_mappings": [
+        "mesh:D006305"
+      ]
+    },
+    {
+      "name": "GeriatricHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Geriatric Health",
+        "healthy aging"
+      ],
+      "exact_mappings": [
+        "mesh:D000073656"
+      ]
+    },
+    {
+      "name": "OrthopedicHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Orthopedic Health",
+        "not found"
+      ]
+    },
+    {
+      "name": "MaternalAndChildHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Maternal and Child Health",
+        "maternal health"
+      ],
+      "exact_mappings": [
+        "mesh:D000068097"
+      ]
+    },
+    {
+      "name": "MedicationAdherence",
+      "is_a": "HealthData",
+      "aliases": [
+        "Medication Adherence",
+        "medication adherance"
+      ],
+      "exact_mappings": [
+        "mesh:D055118"
+      ]
+    },
+    {
+      "name": "DevelopmentalHealth",
+      "is_a": "HealthData",
+      "aliases": [
+        "Developmental Health",
+        "developmental origins of health and disease"
+      ],
+      "exact_mappings": [
+        "mesh:D000098845"
+      ]
+    },
+    {
+      "name": "PatientReportedOutcomes",
+      "is_a": "HealthData",
+      "aliases": [
+        "Patient-Reported Outcomes",
+        "patient reported outcome measures"
+      ],
+      "exact_mappings": [
+        "mesh:D000071066"
+      ]
+    },
+    {
+      "name": "Immunization",
+      "is_a": "HealthData",
+      "aliases": [
+        "Immunization",
+        "immunization"
+      ],
+      "exact_mappings": [
+        "mesh:D007114"
+      ]
+    },
+    {
+      "name": "RadiationTherapy",
+      "is_a": "HealthData",
+      "aliases": [
+        "Radiation Therapy",
+        "radiotherapy"
+      ],
+      "exact_mappings": [
+        "mesh:D011878"
+      ]
+    },
+    {
+      "name": "DiseaseRisk",
+      "is_a": "HealthData",
+      "aliases": [
+        "Disease Risk",
+        "risk factors"
+      ],
+      "exact_mappings": [
+        "mesh:D012307"
+      ]
+    },
+    {
+      "name": "Disability",
+      "is_a": "HealthData",
+      "aliases": [
+        "Disability",
+        "persons with disabilities"
+      ],
+      "exact_mappings": [
+        "mesh:D006233"
+      ]
+    },
+    {
+      "name": "Fertility",
+      "is_a": "HealthData",
+      "aliases": [
+        "Fertility",
+        "fertility"
+      ],
+      "exact_mappings": [
+        "mesh:D005298"
+      ]
+    },
+    {
+      "name": "Genetics",
+      "is_a": "HealthData",
+      "aliases": [
+        "Genetics",
+        "genetics"
+      ],
+      "exact_mappings": [
+        "mesh:D005823"
+      ]
+    },
+    {
+      "name": "Metabolomics",
+      "is_a": "HealthData",
+      "aliases": [
+        "Metabolomics",
+        "metabolomics"
+      ],
+      "exact_mappings": [
+        "mesh:D005823"
+      ]
+    },
+    {
+      "name": "ClinicalChemistry",
+      "is_a": "HealthData",
+      "aliases": [
+        "Clinical Chemistry",
+        "clinical chemistry tests"
+      ],
+      "exact_mappings": [
+        "mesh:D005823"
+      ]
+    },
+    {
+      "name": "WellBeing",
+      "is_a": "HealthData",
+      "aliases": [
+        "Well-Being"
+      ]
+    },
+    {
+      "name": "HealthPopulation",
+      "is_a": "Health"
+    },
+    {
+      "name": "GeneralPopulation",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "General Population",
+        "population"
+      ],
+      "exact_mappings": [
+        "mesh:D011153"
+      ]
+    },
+    {
+      "name": "Inpatient",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "Inpatient",
+        "inpatients"
+      ],
+      "exact_mappings": [
+        "mesh:D011153"
+      ]
+    },
+    {
+      "name": "Readmissions",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "Readmissions",
+        "patient readmission"
+      ],
+      "exact_mappings": [
+        "mesh:D010359"
+      ]
+    },
+    {
+      "name": "Outpatient",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "Outpatient",
+        "outpatients"
+      ],
+      "exact_mappings": [
+        "mesh:D010045"
+      ]
+    },
+    {
+      "name": "EmergencyCare",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "Emergency Care",
+        "emergency medical services"
+      ],
+      "exact_mappings": [
+        "mesh:D004632"
+      ]
+    },
+    {
+      "name": "IndigenousPeople",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "Indigenous People",
+        "indigenous peoples"
+      ],
+      "exact_mappings": [
+        "mesh:D000081034"
+      ]
+    },
+    {
+      "name": "PopulationsOfConcern",
+      "is_a": "HealthPopulation",
+      "aliases": [
+        "Populations of Concern",
+        "not found"
+      ]
+    },
+    {
+      "name": "HealthSystem",
+      "is_a": "Health"
+    },
+    {
+      "name": "HealthCareProviderCharacteristics",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Provider Characteristics",
+        "health personnel"
+      ],
+      "exact_mappings": [
+        "mesh:D006282"
+      ]
+    },
+    {
+      "name": "HealthCareFacilitiesCharacteristics",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Facilities Characteristics",
+        "health facilities"
+      ],
+      "exact_mappings": [
+        "mesh:D006268"
+      ]
+    },
+    {
+      "name": "HealthOutcomes",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Outcomes",
+        "patient outcome assessment"
+      ],
+      "exact_mappings": [
+        "mesh:D063868"
+      ]
+    },
+    {
+      "name": "HealthCareQuality",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Quality",
+        "quality of health care"
+      ],
+      "exact_mappings": [
+        "mesh:D011787"
+      ]
+    },
+    {
+      "name": "HealthCareIndicators",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Indicators",
+        "quality indicators, health care"
+      ],
+      "exact_mappings": [
+        "mesh:D019984"
+      ]
+    },
+    {
+      "name": "HealthPrevention",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Prevention",
+        "preventive health service"
+      ],
+      "exact_mappings": [
+        "mesh:D011314"
+      ]
+    },
+    {
+      "name": "HealthCareBenefits",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Benefits",
+        "not found"
+      ]
+    },
+    {
+      "name": "HealthCareReferrals",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Referrals",
+        "referral and consultation"
+      ],
+      "exact_mappings": [
+        "mesh:D012017"
+      ]
+    },
+    {
+      "name": "MedicalFinancialAssistance",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Medical Financial Assistance",
+        "public assistance"
+      ],
+      "exact_mappings": [
+        "mesh:D011632"
+      ]
+    },
+    {
+      "name": "HealthCareUtilization",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Care Utilization",
+        "health service utilization"
+      ],
+      "exact_mappings": [
+        "SCDO:0000493"
+      ]
+    },
+    {
+      "name": "HealthEquity",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Health Equity",
+        "health equity"
+      ],
+      "exact_mappings": [
+        "mesh:D000069576"
+      ]
+    },
+    {
+      "name": "VaccineSafetyAndEffectiveness",
+      "is_a": "HealthSystem",
+      "aliases": [
+        "Vaccine Safety and Effectiveness",
+        "vaccine effectiveness rate"
+      ],
+      "exact_mappings": [
+        "VO:0000443"
+      ]
+    },
+    {
+      "name": "HealthCondition",
+      "is_a": "Health"
+    },
+    {
+      "name": "GeneralHealth",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "General Health"
+      ]
+    },
+    {
+      "name": "CardiovascularSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Cardiovascular System",
+        "cardiovascular system"
+      ],
+      "exact_mappings": [
+        "UBERON:0004535"
+      ]
+    },
+    {
+      "name": "EndocrineSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Endocrine System",
+        "endocrine system"
+      ],
+      "exact_mappings": [
+        "UBERON:0000949"
+      ]
+    },
+    {
+      "name": "GastrointestinalSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Gastrointestinal System",
+        "digestive system"
+      ],
+      "exact_mappings": [
+        "UBERON:0001007"
+      ]
+    },
+    {
+      "name": "HematopoieticSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Hematopoietic System",
+        "hematopoietic system"
+      ],
+      "exact_mappings": [
+        "UBERON:0002390"
+      ]
+    },
+    {
+      "name": "ImmuneSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Immune System",
+        "immune system"
+      ],
+      "exact_mappings": [
+        "UBERON:0002405"
+      ]
+    },
+    {
+      "name": "IntegumentarySystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Integumentary System",
+        "integumental system"
+      ],
+      "exact_mappings": [
+        "UBERON:0002416"
+      ]
+    },
+    {
+      "name": "MusculoskeletalSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Musculoskeletal System",
+        "musculoskeletal"
+      ],
+      "exact_mappings": [
+        "UBERON:0002204"
+      ]
+    },
+    {
+      "name": "ReproductiveSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Reproductive System",
+        "reproductive system"
+      ],
+      "exact_mappings": [
+        "UBERON:0000990"
+      ]
+    },
+    {
+      "name": "RespiratorySystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Respiratory System",
+        "respiratory system"
+      ],
+      "exact_mappings": [
+        "UBERON:0001004"
+      ]
+    },
+    {
+      "name": "ThoracicSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Thoracic System",
+        "not found"
+      ]
+    },
+    {
+      "name": "UrinarySystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Urinary System",
+        "renal system"
+      ],
+      "exact_mappings": [
+        "UBERON:0001008"
+      ]
+    },
+    {
+      "name": "NervousSystem",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Nervous System",
+        "nervous system"
+      ],
+      "exact_mappings": [
+        "UBERON:0001016"
+      ]
+    },
+    {
+      "name": "Injury",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Injury",
+        "injury"
+      ],
+      "exact_mappings": [
+        "MONDO:0021178"
+      ]
+    },
+    {
+      "name": "InfectiousDisease",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Infectious Disease",
+        "infectious disease"
+      ],
+      "exact_mappings": [
+        "MONDO:0005550"
+      ]
+    },
+    {
+      "name": "Cancer",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Cancer",
+        "neoplasm"
+      ],
+      "exact_mappings": [
+        "HP:0002664"
+      ]
+    },
+    {
+      "name": "Asthma",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Asthma",
+        "asthma"
+      ],
+      "exact_mappings": [
+        "HP:0002099"
+      ]
+    },
+    {
+      "name": "MentalHealth",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Mental Health",
+        "mental health"
+      ],
+      "exact_mappings": [
+        "mesh:D008603"
+      ]
+    },
+    {
+      "name": "Diabetes",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Diabetes",
+        "diabetes mellitus"
+      ],
+      "exact_mappings": [
+        "HP:0000819"
+      ]
+    },
+    {
+      "name": "Osteoporosis",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Osteoporosis",
+        "osteoporosis"
+      ],
+      "exact_mappings": [
+        "HP:0000939"
+      ]
+    },
+    {
+      "name": "BirthDefect",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Birth Defect",
+        "congenital abnormalities"
+      ],
+      "exact_mappings": [
+        "mesh:D000013"
+      ]
+    },
+    {
+      "name": "ChronicObstructivePulmonaryDiseaseCopd",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Chronic Obstructive Pulmonary Disease (COPD)",
+        "chronic pulmonary obstruction"
+      ],
+      "exact_mappings": [
+        "HP:0006510"
+      ]
+    },
+    {
+      "name": "HeatRelatedIllnesses",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Heat Related Illnesses",
+        "heat related illness"
+      ],
+      "exact_mappings": [
+        "NCIT:C206556"
+      ]
+    },
+    {
+      "name": "HormoneDisorder",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Hormone Disorder",
+        "not found"
+      ]
+    },
+    {
+      "name": "Stroke",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Stroke",
+        "stroke"
+      ],
+      "exact_mappings": [
+        "HP:0001297"
+      ]
+    },
+    {
+      "name": "KidneyDisease",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Kidney Disease",
+        "kidney disorder"
+      ],
+      "exact_mappings": [
+        "MONDO:0005240"
+      ]
+    },
+    {
+      "name": "Obesity",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Obesity",
+        "obesity"
+      ],
+      "exact_mappings": [
+        "HP:0001513"
+      ]
+    },
+    {
+      "name": "DentalAndOralConditions",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Dental and Oral Conditions",
+        "dental disorder"
+      ],
+      "exact_mappings": [
+        "NCIT:C35077"
+      ]
+    },
+    {
+      "name": "Arthritis",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Arthritis",
+        "arthritis"
+      ],
+      "exact_mappings": [
+        "HP:0001369"
+      ]
+    },
+    {
+      "name": "Covid19",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "COVID-19",
+        "COVID-19"
+      ],
+      "exact_mappings": [
+        "mesh:D000086382"
+      ]
+    },
+    {
+      "name": "Death",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Death",
+        "death"
+      ],
+      "exact_mappings": [
+        "mesh:D003643"
+      ]
+    },
+    {
+      "name": "EyeAndVision",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Eye and Vision",
+        "eye disorder"
+      ],
+      "exact_mappings": [
+        "MONDO:0005328"
+      ]
+    },
+    {
+      "name": "AidsHiv",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "AIDS/HIV",
+        "two terms"
+      ]
+    },
+    {
+      "name": "Tuberculosis",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Tuberculosis",
+        "tuberculosis"
+      ],
+      "exact_mappings": [
+        "mesh:D014376"
+      ]
+    },
+    {
+      "name": "CommunicableDisease",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Communicable Disease",
+        "infectious disease"
+      ]
+    },
+    {
+      "name": "Anemia",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Anemia",
+        "anemia"
+      ],
+      "exact_mappings": [
+        "HP:0001903"
+      ]
+    },
+    {
+      "name": "HearingLoss",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Hearing Loss",
+        "hearing impairment"
+      ],
+      "exact_mappings": [
+        "HP:0000365"
+      ]
+    },
+    {
+      "name": "Allergy",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Allergy",
+        "allergy"
+      ],
+      "exact_mappings": [
+        "HP:0012393"
+      ]
+    },
+    {
+      "name": "Anxiety",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Anxiety",
+        "anxiety"
+      ],
+      "exact_mappings": [
+        "HP:0000739"
+      ]
+    },
+    {
+      "name": "Hypertension",
+      "is_a": "HealthCondition",
+      "aliases": [
+        "Hypertension",
+        "hypertension"
+      ],
+      "exact_mappings": [
+        "HP:0000822"
+      ]
+    },
+    {
+      "name": "Environment",
+      "is_a": "Category"
+    },
+    {
+      "name": "RemoteSensing",
+      "is_a": "Environment"
+    },
+    {
+      "name": "NightimeImagery",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Nightime Imagery"
+      ]
+    },
+    {
+      "name": "LandEnvironmentIndicators",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Land Environment Indicators",
+        "environmental indicators"
+      ],
+      "exact_mappings": [
+        "mesh:D000079264"
+      ]
+    },
+    {
+      "name": "InfraredRadiation",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Infrared Radiation",
+        "infrared radiation"
+      ],
+      "exact_mappings": [
+        "ENVO:21001214"
+      ]
+    },
+    {
+      "name": "LightAbsorptionScatter",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Light Absorption/Scatter",
+        "two terms"
+      ]
+    },
+    {
+      "name": "SolarRadiation",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Solar Radiation",
+        "solar radiation"
+      ],
+      "exact_mappings": [
+        "ENVO:01001862"
+      ]
+    },
+    {
+      "name": "UltravioletRadiation",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Ultraviolet Radiation",
+        "ultraviolet radiation"
+      ],
+      "exact_mappings": [
+        "ENVO:21001216"
+      ]
+    },
+    {
+      "name": "Radiation",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Radiation",
+        "radiation"
+      ],
+      "exact_mappings": [
+        "ENVO:01001023"
+      ]
+    },
+    {
+      "name": "Evaporation",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Evaporation",
+        "evaporation"
+      ],
+      "exact_mappings": [
+        "ENVO:02500034"
+      ]
+    },
+    {
+      "name": "RadiativeForcing",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Radiative Forcing",
+        "not found"
+      ]
+    },
+    {
+      "name": "AtmosphericStability",
+      "is_a": "RemoteSensing",
+      "aliases": [
+        "Atmospheric Stability",
+        "not found"
+      ]
+    },
+    {
+      "name": "Land",
+      "is_a": "Environment"
+    },
+    {
+      "name": "Vegetation",
+      "is_a": "Land"
+    },
+    {
+      "name": "Biomass",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Biomass",
+        "organic material"
+      ],
+      "exact_mappings": [
+        "ENVO:01000155"
+      ]
+    },
+    {
+      "name": "VegetationCover",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Cover",
+        "vegetation layer"
+      ],
+      "exact_mappings": [
+        "ENVO:01000355"
+      ]
+    },
+    {
+      "name": "VegetationType",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Type",
+        "vegetation layer"
+      ],
+      "exact_mappings": [
+        "ENVO:01000355"
+      ]
+    },
+    {
+      "name": "VegetationPhenology",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Phenology",
+        "plant phenology trait"
+      ],
+      "exact_mappings": [
+        "PPO:0002000"
+      ]
+    },
+    {
+      "name": "VegetationStress",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Stress",
+        "not found"
+      ]
+    },
+    {
+      "name": "VegetationProductivity",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Productivity",
+        "not found"
+      ]
+    },
+    {
+      "name": "VegetationStructure",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Structure",
+        "vegetation layer"
+      ],
+      "exact_mappings": [
+        "ENVO:01000355"
+      ]
+    },
+    {
+      "name": "VegetationIndicators",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Indicators",
+        "not found"
+      ]
+    },
+    {
+      "name": "VegetationGreenness",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Vegetation Greenness",
+        "vegetated area"
+      ],
+      "exact_mappings": [
+        "ENVO:01001305"
+      ]
+    },
+    {
+      "name": "CanopyCharacteristics",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Canopy Characteristics",
+        "canopy"
+      ],
+      "exact_mappings": [
+        "ENVO:01001242"
+      ]
+    },
+    {
+      "name": "SolarInducedFluorescence",
+      "is_a": "Vegetation",
+      "aliases": [
+        "Solar Induced Fluorescence",
+        "not found"
+      ]
+    },
+    {
+      "name": "LandSurface",
+      "is_a": "Land"
+    },
+    {
+      "name": "Topography",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Topography",
+        "not found"
+      ]
+    },
+    {
+      "name": "SurfaceReflectance",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Surface Reflectance",
+        "not found"
+      ]
+    },
+    {
+      "name": "LandUse",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Land Use",
+        "land use process"
+      ],
+      "exact_mappings": [
+        "ENVO:01001431"
+      ]
+    },
+    {
+      "name": "LandCover",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Land Cover",
+        "vegetated area"
+      ],
+      "exact_mappings": [
+        "ENVO:01001305"
+      ]
+    },
+    {
+      "name": "LandSurfaceCharacteristics",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Land Surface Characteristics",
+        "not found"
+      ]
+    },
+    {
+      "name": "SoilMoisture",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Soil Moisture",
+        "concentration of liquid water in soil"
+      ],
+      "exact_mappings": [
+        "ENVO:09000026"
+      ]
+    },
+    {
+      "name": "SoilTemperature",
+      "is_a": "LandSurface",
+      "aliases": [
+        "Soil Temperature",
+        "temperature of soil"
+      ],
+      "exact_mappings": [
+        "ENVO:09200012"
+      ]
+    },
+    {
+      "name": "Water",
+      "is_a": "Environment"
+    },
+    {
+      "name": "WaterQuality",
+      "is_a": "Water"
+    },
+    {
+      "name": "ImpairedWater",
+      "is_a": "WaterQuality",
+      "aliases": [
+        "Impaired Water",
+        "water pollution"
+      ],
+      "exact_mappings": [
+        "ENVO:02500039"
+      ]
+    },
+    {
+      "name": "DrinkingWater",
+      "is_a": "WaterQuality",
+      "aliases": [
+        "Drinking Water",
+        "drinking water"
+      ],
+      "exact_mappings": [
+        "ENVO:00003064"
+      ]
+    },
+    {
+      "name": "WaterComposition",
+      "is_a": "WaterQuality",
+      "aliases": [
+        "Water Composition",
+        "composition of water"
+      ],
+      "exact_mappings": [
+        "ENVO:09200017"
+      ]
+    },
+    {
+      "name": "WaterQualityIndicators",
+      "is_a": "WaterQuality",
+      "aliases": [
+        "Water Quality Indicators",
+        "water qulaity"
+      ],
+      "exact_mappings": [
+        "mesh:D060753"
+      ]
+    },
+    {
+      "name": "WasteWater",
+      "is_a": "WaterQuality",
+      "aliases": [
+        "Waste Water",
+        "waste water"
+      ],
+      "exact_mappings": [
+        "ENVO:00002001"
+      ]
+    },
+    {
+      "name": "WaterBodies",
+      "is_a": "Water"
+    },
+    {
+      "name": "SeaSurfaceTemperature",
+      "is_a": "WaterBodies",
+      "aliases": [
+        "Sea Surface Temperature",
+        "temperature of sea surface"
+      ],
+      "exact_mappings": [
+        "ENVO:04000002"
+      ]
+    },
+    {
+      "name": "OceanColor",
+      "is_a": "WaterBodies",
+      "aliases": [
+        "Ocean Color",
+        "color"
+      ],
+      "exact_mappings": [
+        "PATO:0000014"
+      ]
+    },
+    {
+      "name": "SeaSurfaceSalinity",
+      "is_a": "WaterBodies",
+      "aliases": [
+        "Sea Surface Salinity",
+        "salinity"
+      ],
+      "exact_mappings": [
+        "PATO:0085001"
+      ]
+    },
+    {
+      "name": "Evapotranspiration",
+      "is_a": "WaterBodies",
+      "aliases": [
+        "Evapotranspiration",
+        "not found"
+      ]
+    },
+    {
+      "name": "GroundWater",
+      "is_a": "WaterBodies",
+      "aliases": [
+        "Ground Water",
+        "ground water"
+      ],
+      "exact_mappings": [
+        "ENVO:00002041"
+      ]
+    },
+    {
+      "name": "SeaIce",
+      "is_a": "WaterBodies",
+      "aliases": [
+        "Sea Ice",
+        "sea ice"
+      ],
+      "exact_mappings": [
+        "ENVO:00002200"
+      ]
+    },
+    {
+      "name": "Air",
+      "is_a": "Environment"
+    },
+    {
+      "name": "AirQuality",
+      "is_a": "Air"
+    },
+    {
+      "name": "Diesel",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Diesel",
+        "diesel exhaust"
+      ],
+      "exact_mappings": [
+        "ENVO:03510008"
+      ]
+    },
+    {
+      "name": "Pm25",
+      "is_a": "AirQuality",
+      "aliases": [
+        "PM2.5",
+        "not separated"
+      ]
+    },
+    {
+      "name": "Pm10",
+      "is_a": "AirQuality",
+      "aliases": [
+        "PM10",
+        "not separated"
+      ]
+    },
+    {
+      "name": "ParticulateMatterPm25Pm10",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Particulate Matter (PM2.5, PM10)",
+        "ultrafine respirable suspended particulate matter"
+      ],
+      "exact_mappings": [
+        "ENVO:01000416"
+      ]
+    },
+    {
+      "name": "SulfurDioxideSo2",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Sulfur Dioxide (SO2)",
+        "sulfur dioxide"
+      ],
+      "exact_mappings": [
+        "CHEBI:18422"
+      ]
+    },
+    {
+      "name": "OzoneO3",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Ozone (O3)",
+        "ozone"
+      ],
+      "exact_mappings": [
+        "CHEBI:25812"
+      ]
+    },
+    {
+      "name": "CarbonMonoxideCo",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Carbon Monoxide (CO)",
+        "carbon monoxide"
+      ],
+      "exact_mappings": [
+        "CHEBI:17245"
+      ]
+    },
+    {
+      "name": "CarbonDioxideCo2",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Carbon Dioxide (CO2)",
+        "carbon dioxide"
+      ],
+      "exact_mappings": [
+        "CHEBI:16526"
+      ]
+    },
+    {
+      "name": "AirQualityIndicators",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Air Quality Indicators",
+        "not found - see EPA"
+      ]
+    },
+    {
+      "name": "AirPollutants",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Air Pollutants",
+        "air pollution"
+      ],
+      "exact_mappings": [
+        "ENVO:02500037"
+      ]
+    },
+    {
+      "name": "NitrogenDioxideNo2",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Nitrogen Dioxide (NO2)",
+        "nitrogen dioxide"
+      ],
+      "exact_mappings": [
+        "CHEBI:33101"
+      ]
+    },
+    {
+      "name": "FormaldehydeHcho",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Formaldehyde (HCHO)",
+        "formaldehyde"
+      ],
+      "exact_mappings": [
+        "CHEBI:16842"
+      ]
+    },
+    {
+      "name": "Dust",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Dust",
+        "dust"
+      ],
+      "exact_mappings": [
+        "ENVO:00002008"
+      ]
+    },
+    {
+      "name": "AmmoniaNh3",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Ammonia (NH3)",
+        "ammonia"
+      ],
+      "exact_mappings": [
+        "CHEBI:16134"
+      ]
+    },
+    {
+      "name": "Aerosol",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Aerosol",
+        "aerosol"
+      ],
+      "exact_mappings": [
+        "ENVO:00010505"
+      ]
+    },
+    {
+      "name": "TraceGases",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Trace Gases",
+        "not found"
+      ]
+    },
+    {
+      "name": "VolatileOrganicCompoundsVoc",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Volatile Organic Compounds (VOC)",
+        "volatile organic compound"
+      ],
+      "exact_mappings": [
+        "CHEBI:134179"
+      ]
+    },
+    {
+      "name": "Aeroallergens",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Aeroallergens",
+        "not found"
+      ]
+    },
+    {
+      "name": "BlackCarbon",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Black Carbon",
+        "carbon black"
+      ],
+      "exact_mappings": [
+        "CHEBI:82297"
+      ]
+    },
+    {
+      "name": "MethaneCh4",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Methane (CH4)",
+        "methane"
+      ],
+      "exact_mappings": [
+        "CHEBI:16183"
+      ]
+    },
+    {
+      "name": "NitrousOxideLaughingGasN2o",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Nitrous Oxide (laughing gas, N2O)",
+        "nitrous oxide"
+      ],
+      "exact_mappings": [
+        "CHEBI:749671"
+      ]
+    },
+    {
+      "name": "WaterVapor",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Water Vapor",
+        "water vapour"
+      ],
+      "exact_mappings": [
+        "ENVO:01000266"
+      ]
+    },
+    {
+      "name": "ChlorofluorocarbonsCfc",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Chlorofluorocarbons (CFC)",
+        "chlorofouorocarbon"
+      ],
+      "exact_mappings": [
+        "CHEBI:134024"
+      ]
+    },
+    {
+      "name": "NitricOxideNo",
+      "is_a": "AirQuality",
+      "aliases": [
+        "Nitric Oxide (NO)",
+        "nitric oxide"
+      ],
+      "exact_mappings": [
+        "CHEBI:16480"
+      ]
+    },
+    {
+      "name": "Wildfire",
+      "is_a": "Environment"
+    },
+    {
+      "name": "WildfireCharacteristics",
+      "is_a": "Wildfire"
+    },
+    {
+      "name": "FireArea",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Area",
+        "area"
+      ],
+      "exact_mappings": [
+        "NCIT:C25244"
+      ]
+    },
+    {
+      "name": "FireLocation",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Location",
+        "not found"
+      ]
+    },
+    {
+      "name": "BurnSeverity",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Burn Severity",
+        "not found"
+      ]
+    },
+    {
+      "name": "FirePerimeter",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Perimeter",
+        "perimeter"
+      ],
+      "exact_mappings": [
+        "PATO:0001711"
+      ]
+    },
+    {
+      "name": "FireType",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Type",
+        "land fire"
+      ],
+      "exact_mappings": [
+        "ENVO:01001292"
+      ]
+    },
+    {
+      "name": "FireHotspot",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Hotspot",
+        "not found"
+      ]
+    },
+    {
+      "name": "FireEmission",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Emission",
+        "not found"
+      ]
+    },
+    {
+      "name": "FireFuel",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Fuel",
+        "fuel"
+      ],
+      "exact_mappings": [
+        "CHEBI:33292"
+      ]
+    },
+    {
+      "name": "FireSmoke",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Smoke",
+        "smoke"
+      ],
+      "exact_mappings": [
+        "ENVO:01000838"
+      ]
+    },
+    {
+      "name": "FireDetail",
+      "is_a": "WildfireCharacteristics",
+      "aliases": [
+        "Fire Detail",
+        "not found"
+      ]
+    },
+    {
+      "name": "WildfireManagement",
+      "is_a": "Wildfire"
+    },
+    {
+      "name": "FireDeathAndInjury",
+      "is_a": "WildfireManagement",
+      "aliases": [
+        "Fire Death and Injury",
+        "death by fire (event)"
+      ],
+      "exact_mappings": [
+        "SNOMED:67786008"
+      ]
+    },
+    {
+      "name": "FireDamage",
+      "is_a": "WildfireManagement",
+      "aliases": [
+        "Fire Damage",
+        "not found"
+      ]
+    },
+    {
+      "name": "FireSuppression",
+      "is_a": "WildfireManagement",
+      "aliases": [
+        "Fire Suppression",
+        "not found"
+      ]
+    },
+    {
+      "name": "FireForecasting",
+      "is_a": "WildfireManagement",
+      "aliases": [
+        "Fire Forecasting",
+        "not found"
+      ]
+    },
+    {
+      "name": "FireManagement",
+      "is_a": "WildfireManagement",
+      "aliases": [
+        "Fire Management",
+        "planned burn"
+      ],
+      "exact_mappings": [
+        "ENVO:03000122"
+      ]
+    },
+    {
+      "name": "Weather",
+      "is_a": "Environment"
+    },
+    {
+      "name": "Drought",
+      "is_a": "Weather",
+      "aliases": [
+        "Drought",
+        "drought"
+      ],
+      "exact_mappings": [
+        "ENVO:1000745"
+      ]
+    },
+    {
+      "name": "Heat",
+      "is_a": "Weather",
+      "aliases": [
+        "Heat",
+        "not found"
+      ]
+    },
+    {
+      "name": "Precipitation",
+      "is_a": "Weather",
+      "aliases": [
+        "Precipitation",
+        "hydrological precipitation process"
+      ],
+      "exact_mappings": [
+        "ENVO:01000703"
+      ]
+    },
+    {
+      "name": "Temperature",
+      "is_a": "Weather",
+      "aliases": [
+        "Temperature",
+        "temperature"
+      ],
+      "exact_mappings": [
+        "PATO:0000146"
+      ]
+    },
+    {
+      "name": "Flooding",
+      "is_a": "Weather",
+      "aliases": [
+        "Flooding",
+        "flood"
+      ],
+      "exact_mappings": [
+        "ENVO:01000710"
+      ]
+    },
+    {
+      "name": "Hurricanes",
+      "is_a": "Weather",
+      "aliases": [
+        "Hurricanes",
+        "cyclone"
+      ],
+      "exact_mappings": [
+        "ENVO:01001297"
+      ]
+    },
+    {
+      "name": "Tornados",
+      "is_a": "Weather",
+      "aliases": [
+        "Tornados",
+        "tornado"
+      ],
+      "exact_mappings": [
+        "ENVO:01001482"
+      ]
+    },
+    {
+      "name": "Wildfires",
+      "is_a": "Weather",
+      "aliases": [
+        "Wildfires",
+        "wildfire"
+      ],
+      "exact_mappings": [
+        "ENVO:01000787"
+      ]
+    },
+    {
+      "name": "Humidity",
+      "is_a": "Weather",
+      "aliases": [
+        "Humidity",
+        "humidity"
+      ],
+      "exact_mappings": [
+        "PATO:0015009"
+      ]
+    },
+    {
+      "name": "Winds",
+      "is_a": "Weather",
+      "aliases": [
+        "Winds",
+        "atmospheric wind"
+      ],
+      "exact_mappings": [
+        "ENVO:01000793"
+      ]
+    },
+    {
+      "name": "Clouds",
+      "is_a": "Weather",
+      "aliases": [
+        "Clouds",
+        "cloud"
+      ],
+      "exact_mappings": [
+        "ENVO:01000760"
+      ]
+    },
+    {
+      "name": "UvRadiation",
+      "is_a": "Weather",
+      "aliases": [
+        "UV Radiation"
+      ]
+    },
+    {
+      "name": "Lightning",
+      "is_a": "Weather",
+      "aliases": [
+        "Lightning",
+        "atmospheric lightning"
+      ],
+      "exact_mappings": [
+        "ENVO:01000898"
+      ]
+    },
+    {
+      "name": "Snow",
+      "is_a": "Weather",
+      "aliases": [
+        "Snow",
+        "snow"
+      ],
+      "exact_mappings": [
+        "ENVO:01000406"
+      ]
+    },
+    {
+      "name": "Sunlight",
+      "is_a": "Weather",
+      "aliases": [
+        "Sunlight",
+        "solar radiation"
+      ],
+      "exact_mappings": [
+        "ENVO:01001862"
+      ]
+    },
+    {
+      "name": "BarometricPressure",
+      "is_a": "Weather",
+      "aliases": [
+        "Barometric Pressure",
+        "pressure of air"
+      ],
+      "exact_mappings": [
+        "ENVO:09200011"
+      ]
+    },
+    {
+      "name": "DewPoint",
+      "is_a": "Weather",
+      "aliases": [
+        "Dew Point",
+        "dew point"
+      ],
+      "exact_mappings": [
+        "ENVO:01001859"
+      ]
+    },
+    {
+      "name": "Visibility",
+      "is_a": "Weather",
+      "aliases": [
+        "Visibility",
+        "atmospheric aerosol"
+      ],
+      "exact_mappings": [
+        "ENVO:01001652"
+      ]
+    },
+    {
+      "name": "Monsoon",
+      "is_a": "Weather",
+      "aliases": [
+        "Monsoon",
+        "monsoon wind"
+      ],
+      "exact_mappings": [
+        "ENVO:03000130"
+      ]
+    },
+    {
+      "name": "Social",
+      "is_a": "Category"
+    },
+    {
+      "name": "SocialContext",
+      "is_a": "Social"
+    },
+    {
+      "name": "Demographics",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Demographics",
+        "demographic"
+      ],
+      "exact_mappings": [
+        "mesh:D003710"
+      ]
+    },
+    {
+      "name": "Immigration",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Immigration",
+        "emigration and immigration"
+      ],
+      "exact_mappings": [
+        "mesh:D004641"
+      ]
+    },
+    {
+      "name": "LivingConditions",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Living Conditions",
+        "home environment"
+      ],
+      "exact_mappings": [
+        "mesh:D004641"
+      ]
+    },
+    {
+      "name": "SocioeconomicIndicators",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Socioeconomic Indicators",
+        "socioeconomic factors"
+      ],
+      "exact_mappings": [
+        "mesh:D012959"
+      ]
+    },
+    {
+      "name": "Segregation",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Segregation",
+        "social segregation"
+      ],
+      "exact_mappings": [
+        "mesh:D012959"
+      ]
+    },
+    {
+      "name": "Traffic",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Traffic",
+        "not found"
+      ]
+    },
+    {
+      "name": "EnvironmentalJusticeIndicators",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Environmental Justice Indicators",
+        "environmental justice"
+      ],
+      "exact_mappings": [
+        "mesh:D000091383"
+      ]
+    },
+    {
+      "name": "SocialVulnerabilityIndicators",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Social Vulnerability Indicators",
+        "social vulnerability"
+      ],
+      "exact_mappings": [
+        "mesh:D000091482"
+      ]
+    },
+    {
+      "name": "RuralUrban",
+      "is_a": "SocialContext",
+      "aliases": [
+        "Rural/Urban",
+        "urbanization"
+      ],
+      "exact_mappings": [
+        "mesh:D014507"
+      ]
+    },
+    {
+      "name": "Economic",
+      "is_a": "Social"
+    },
+    {
+      "name": "Income",
+      "is_a": "Economic",
+      "aliases": [
+        "Income",
+        "income"
+      ],
+      "exact_mappings": [
+        "mesh:D007182"
+      ]
+    },
+    {
+      "name": "Employment",
+      "is_a": "Economic",
+      "aliases": [
+        "Employment",
+        "employment"
+      ],
+      "exact_mappings": [
+        "mesh:D004651"
+      ]
+    },
+    {
+      "name": "Poverty",
+      "is_a": "Economic",
+      "aliases": [
+        "Poverty",
+        "poverty"
+      ],
+      "exact_mappings": [
+        "mesh:D011203"
+      ]
+    },
+    {
+      "name": "OccupationAndIndustry",
+      "is_a": "Economic",
+      "aliases": [
+        "Occupation and Industry",
+        "technology, industry and agriculture"
+      ],
+      "exact_mappings": [
+        "http://purl.obolibrary.org/obo/mesh#J"
+      ]
+    },
+    {
+      "name": "Education",
+      "is_a": "Social"
+    },
+    {
+      "name": "ProximityToSchool",
+      "is_a": "Education",
+      "aliases": [
+        "Proximity to School",
+        "not found"
+      ]
+    },
+    {
+      "name": "EducationAttainment",
+      "is_a": "Education",
+      "aliases": [
+        "Education Attainment",
+        "education level"
+      ],
+      "exact_mappings": [
+        "NCIT:C17953"
+      ]
+    },
+    {
+      "name": "SchoolSystem",
+      "is_a": "Education",
+      "aliases": [
+        "School System",
+        "not found"
+      ]
+    },
+    {
+      "name": "EducationalFunding",
+      "is_a": "Education",
+      "aliases": [
+        "Educational Funding",
+        "not found"
+      ]
+    },
+    {
+      "name": "Literacy",
+      "is_a": "Education",
+      "aliases": [
+        "Literacy",
+        "literacy"
+      ],
+      "exact_mappings": [
+        "GSSO:010553"
+      ]
+    },
+    {
+      "name": "Numeracy",
+      "is_a": "Education",
+      "aliases": [
+        "Numeracy",
+        "quantitative literacy"
+      ],
+      "exact_mappings": [
+        "GSSO:010556"
+      ]
+    },
+    {
+      "name": "PhysicalInfrastructure",
+      "is_a": "Social"
+    },
+    {
+      "name": "Housing",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Housing",
+        "housing"
+      ],
+      "exact_mappings": [
+        "mesh:D006798"
+      ]
+    },
+    {
+      "name": "Internet",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Internet",
+        "internet"
+      ],
+      "exact_mappings": [
+        "mesh:D020407"
+      ]
+    },
+    {
+      "name": "SocialServices",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Social Services",
+        "social work"
+      ],
+      "exact_mappings": [
+        "mesh:D012947"
+      ]
+    },
+    {
+      "name": "FoodAccess",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Food Access",
+        "access to healthy foods"
+      ],
+      "exact_mappings": [
+        "mesh:D000091483"
+      ]
+    },
+    {
+      "name": "AccessToExercise",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Access to Exercise",
+        "exercise"
+      ],
+      "exact_mappings": [
+        "mesh:D015444"
+      ]
+    },
+    {
+      "name": "Migration",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Migration",
+        "human migration"
+      ],
+      "exact_mappings": [
+        "mesh:D063426"
+      ]
+    },
+    {
+      "name": "Crime",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Crime",
+        "crime"
+      ],
+      "exact_mappings": [
+        "mesh:D003415"
+      ]
+    },
+    {
+      "name": "IndustryComposition",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Industry Composition",
+        "industry"
+      ],
+      "exact_mappings": [
+        "mesh:D007221"
+      ]
+    },
+    {
+      "name": "Transportation",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Transportation",
+        "transportation"
+      ],
+      "exact_mappings": [
+        "mesh:D014186"
+      ]
+    },
+    {
+      "name": "Walkability",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Walkability",
+        "perceived walkability of neighborhood (observable entity)"
+      ],
+      "exact_mappings": [
+        "SNOMED:1220610008"
+      ]
+    },
+    {
+      "name": "BuiltEnvironmentIndicators",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Built Environment Indicators",
+        "not found"
+      ]
+    },
+    {
+      "name": "BuiltEnvironment",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Built Environment",
+        "built environment"
+      ],
+      "exact_mappings": [
+        "mesh:D000076624"
+      ]
+    },
+    {
+      "name": "GreenSpace",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Green Space",
+        "parks, recreational"
+      ],
+      "exact_mappings": [
+        "mesh:D000068316"
+      ]
+    },
+    {
+      "name": "Commute",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Commute",
+        "commute"
+      ],
+      "exact_mappings": [
+        "NCIT:C141285"
+      ]
+    },
+    {
+      "name": "HealthcareAccess",
+      "is_a": "Social"
+    },
+    {
+      "name": "HealthInsurance",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Health Insurance",
+        "insurance, health"
+      ],
+      "exact_mappings": [
+        "mesh:D007348"
+      ]
+    },
+    {
+      "name": "DistanceToProvider",
+      "is_a": "PhysicalInfrastructure",
+      "aliases": [
+        "Distance to Provider",
+        "not found"
+      ]
+    },
+    {
+      "name": "Exposures",
+      "is_a": "Category"
+    },
+    {
+      "name": "ProximityToHazards",
+      "is_a": "Exposures",
+      "aliases": [
+        "Proximity to Hazards",
+        "proximally connected to"
+      ]
+    },
+    {
+      "name": "HouseholdExposures",
+      "is_a": "Exposures",
+      "aliases": [
+        "Household Exposures",
+        "not found"
+      ]
+    },
+    {
+      "name": "PesticideHerbicideAndFungicideExposure",
+      "is_a": "Exposures",
+      "aliases": [
+        "Pesticide Herbicide and Fungicide Exposure",
+        "pesticide"
+      ],
+      "exact_mappings": [
+        "CHEBI:25944"
+      ]
+    },
+    {
+      "name": "RadonExposure",
+      "is_a": "Exposures",
+      "aliases": [
+        "Radon Exposure",
+        "radon(0)"
+      ],
+      "exact_mappings": [
+        "CHEBI:49997"
+      ]
+    },
+    {
+      "name": "LeadExposure",
+      "is_a": "Exposures",
+      "aliases": [
+        "Lead Exposure",
+        "lead(2+)"
+      ],
+      "exact_mappings": [
+        "CHEBI:49807"
+      ]
+    },
+    {
+      "name": "CarbonMonoxidePoisoning",
+      "is_a": "Exposures",
+      "aliases": [
+        "Carbon Monoxide Poisoning",
+        "carbon monoxide poisoning"
+      ],
+      "exact_mappings": [
+        "MONDO:0800373"
+      ]
+    },
+    {
+      "name": "FoodBasedExposures",
+      "is_a": "Exposures",
+      "aliases": [
+        "Food-based Exposures",
+        "not found"
+      ]
+    },
+    {
+      "name": "EnvironmentalExposures",
+      "is_a": "Exposures",
+      "aliases": [
+        "Environmental Exposures",
+        "exposure to environmental material"
+      ],
+      "exact_mappings": [
+        "ECTO:0000015"
+      ]
+    }
+  ]
+}

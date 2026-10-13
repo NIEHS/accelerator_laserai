@@ -19,6 +19,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.9",
-    package_data={"accelerator_laserai": ["accelerator_laserai/templates/*.jinja", "accelerator_laserai/resources/*"]},
+    package_data={"accelerator_laserai": ["templates/*.jinja", "resources/*"]},
     include_package_data=True,
 )

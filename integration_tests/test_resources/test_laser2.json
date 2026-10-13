@@ -1,0 +1,200 @@
+{
+  "submission": {
+    "submitter_name": "",
+    "submitter_email": "",
+    "submitter_comment": ""
+  },
+  "data": {
+    "source": "laserai",
+    "source_reference_number": "13303",
+    "bibliographic": {
+      "first_author": "Lapietra",
+      "year": 2024,
+      "title": "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+      "doi": "10.1016/j.ijdrr.2024.104507",
+      "accession_number": "WOS:001238730100001",
+      "study_identifiers": [
+        104507
+      ]
+    },
+    "review": {
+      "reference_type": "Review Article",
+      "reference_type_comments": [],
+      "information_source": "Complete Resource",
+      "information_source_comments": [],
+      "recommend_for_removal": "not reported",
+      "recommend_for_removal_comments": [],
+      "postpone": "not reported",
+      "postpone_comments": []
+    },
+    "study_objectives": [],
+    "exposures": [
+      {
+        "level1": "Extreme Weather-Related Event or Disaster",
+        "level2": "",
+        "level3": ""
+      }
+    ],
+    "health_impacts": [
+      {
+        "level1": "Morbidity/Mortality",
+        "level2": "",
+        "level3": ""
+      }
+    ],
+    "geography": [
+      {
+        "level1": "Non-United States",
+        "level2": "Europe",
+        "level3": ""
+      }
+    ],
+    "geographic_features": [
+      "not reported"
+    ],
+    "data_and_models": {
+      "data_resource_types": {
+        "levels": {
+          "1": [],
+          "2": []
+        },
+        "write_in": []
+      },
+      "model_types": []
+    },
+    "special_topics": {
+      "levels": {
+        "1": [
+          "Intervention",
+          "Sociodemographic Vulnerability",
+          "Study Population"
+        ],
+        "2": [
+          "Disaster Risk Reduction",
+          "General Population"
+        ]
+      },
+      "write_in": []
+    },
+    "raw_values": {
+      "1st Author": [
+        "Lapietra",
+        "Lapietra",
+        "Lapietra",
+        "Lapietra",
+        "Lapietra",
+        "Lapietra",
+        "Lapietra"
+      ],
+      "Year": [
+        2024,
+        2024,
+        2024,
+        2024,
+        2024,
+        2024,
+        2024
+      ],
+      "Title": [
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction",
+        "Unveiling social vulnerability to natural hazards in the EEA and UK: A systematic review with insights for enhanced emergency planning and risk reduction"
+      ],
+      "Reference number": [
+        13303,
+        13303,
+        13303,
+        13303,
+        13303,
+        13303,
+        13303
+      ],
+      "Study identifier": [
+        104507,
+        104507,
+        104507,
+        104507,
+        104507,
+        104507,
+        104507
+      ],
+      "DOI": [
+        "10.1016/j.ijdrr.2024.104507",
+        "10.1016/j.ijdrr.2024.104507",
+        "10.1016/j.ijdrr.2024.104507",
+        "10.1016/j.ijdrr.2024.104507",
+        "10.1016/j.ijdrr.2024.104507",
+        "10.1016/j.ijdrr.2024.104507",
+        "10.1016/j.ijdrr.2024.104507"
+      ],
+      "Accession Number": [
+        "WOS:001238730100001",
+        "WOS:001238730100001",
+        "WOS:001238730100001",
+        "WOS:001238730100001",
+        "WOS:001238730100001",
+        "WOS:001238730100001",
+        "WOS:001238730100001"
+      ],
+      "Reference Type (extracted)": [
+        "Review Article"
+      ],
+      "Information Source (extracted)": [
+        "Complete Resource"
+      ],
+      "Recommend for Removal (extracted)": [
+        "not reported"
+      ],
+      "Postpone (extracted)": [
+        "not reported"
+      ],
+      "Exposure L1 (extracted)": [
+        "Extreme Weather-Related Event or Disaster"
+      ],
+      "Health Impact L1 (extracted)": [
+        "Morbidity/Mortality"
+      ],
+      "Location L1 (extracted)": [
+        "Non-United States"
+      ],
+      "Location L2 (extracted)": [
+        "Europe"
+      ],
+      "Geographic Feature (extracted)": [
+        "not reported"
+      ],
+      "Special Topics L1 (extracted)": [
+        "Intervention",
+        "Sociodemographic Vulnerability",
+        "Study Population"
+      ],
+      "Special Topics L2 (extracted)": [
+        "Disaster Risk Reduction",
+        "General Population"
+      ]
+    }
+  },
+  "technical_metadata": {
+    "created": "2026-10-13T12:16:26.511016+00:00",
+    "modified": "2026-10-13T12:16:26.511016+00:00",
+    "verified": "",
+    "data_checksum": "",
+    "target_schema_type": "",
+    "target_schema_version": "",
+    "original_source_type": "laserai_spreadsheet",
+    "original_source_identifier": "10.1016/j.ijdrr.2024.104507",
+    "original_source_link": "LaserAI Export.xlsx",
+    "additional_data": [],
+    "history": [
+      {
+        "timestamp": "2026-10-13T08:16:27.591857",
+        "msg": "ingest from landing zone: LaserAI Export.xlsx"
+      }
+    ],
+    "dissemination_endpoints": []
+  }
+}

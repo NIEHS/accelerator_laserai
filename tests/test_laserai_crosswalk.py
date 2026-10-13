@@ -6,10 +6,55 @@ from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
 from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 
+from accelerator_laserai.hew_measures_crosswalk import HEWMeasuresTermMapper
 from accelerator_laserai.laserai_crosswalk import LaserAIToHEWCrosswalk
 
 
 class TestLaserAICrosswalk(unittest.TestCase):
+    def test_hew_measures_mapper_matches_by_domain_and_preserves_unmapped_terms(self):
+        mapper = HEWMeasuresTermMapper()
+
+        self.assertEqual(
+            "https://NIEHS.github.io/HEW_Measures/dist/Temperature",
+            mapper("exposure", "temperature"),
+        )
+        self.assertEqual(
+            "https://NIEHS.github.io/HEW_Measures/dist/Asthma",
+            mapper("health_impact", "asthma"),
+        )
+        self.assertEqual(
+            "https://NIEHS.github.io/HEW_Measures/dist/WomensHealth",
+            mapper("health_impact", "Womens Health"),
+        )
+        self.assertEqual("Asthma", mapper("exposure", "Asthma"))
+        self.assertEqual(
+            "LaserAI-only term",
+            mapper("health_impact", "LaserAI-only term"),
+        )
+        self.assertEqual(
+            {
+                "source_vocabularies": [
+                    "https://NIEHS.github.io/HEW_Measures/hew_measures.jsonld"
+                ],
+                "exact_mappings": ["HP:0002099"],
+            },
+            mapper.annotation_metadata("health_impact", "Asthma"),
+        )
+        self.assertEqual(
+            {},
+            mapper.annotation_metadata("exposure", "LaserAI-only term"),
+        )
+        self.assertEqual(
+            {
+                "source_vocabularies": [
+                    "https://NIEHS.github.io/HEW_Measures/hew_measures.jsonld"
+                ],
+                "aliases": ["Womens Health"],
+                "exact_mappings": ["mesh:D016387"],
+            },
+            mapper.annotation_metadata("health_impact", "Womens Health"),
+        )
+
     def test_crosswalks_intermediate_record_to_hew_shape(self):
         record_path = (
             Path(__file__).parent

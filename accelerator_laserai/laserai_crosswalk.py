@@ -12,6 +12,8 @@ from accelerator_core.utils.xcom_utils import XcomPropsResolver
 from accelerator_core.workflow.accel_source_ingest import IngestPayload
 from accelerator_core.workflow.crosswalk import Crosswalk
 
+from accelerator_laserai.hew_measures_crosswalk import HEWMeasuresTermMapper
+
 
 TermMapper = Callable[[str, str], str]
 JsonLdSerializer = Callable[..., dict[str, Any]]
@@ -140,11 +142,25 @@ def _annotation_values(
 ) -> list[dict[str, Any]]:
     annotations = []
     for value in _without_not_reported(values):
-        annotation = {"coded_concept": map_term(category, str(value))}
+        annotation = _concept_annotation(category, str(value), map_term)
         if parent_concept:
             annotation["parent_concept"] = parent_concept
         annotations.append(annotation)
     return annotations
+
+
+def _concept_annotation(
+    category: str,
+    value: str,
+    map_term: TermMapper,
+    **fields: Any,
+) -> dict[str, Any]:
+    annotation = {"coded_concept": map_term(category, value)}
+    metadata = getattr(map_term, "annotation_metadata", None)
+    if callable(metadata):
+        annotation.update(metadata(category, value))
+    annotation.update(fields)
+    return annotation
 
 
 def _level_annotations(
@@ -160,10 +176,12 @@ def _level_annotations(
                 value = rollup.get(f"level{level}")
                 if value:
                     annotations.append(
-                        {
-                            "coded_concept": map_term(category, str(value)),
-                            "coding_depth": int(level),
-                        }
+                        _concept_annotation(
+                            category,
+                            str(value),
+                            map_term,
+                            coding_depth=int(level),
+                        )
                     )
         return annotations
 
@@ -173,10 +191,12 @@ def _level_annotations(
         for level, values in levels.items():
             for value in _without_not_reported(values):
                 annotations.append(
-                    {
-                        "coded_concept": map_term(category, str(value)),
-                        "coding_depth": int(level),
-                    }
+                    _concept_annotation(
+                        category,
+                        str(value),
+                        map_term,
+                        coding_depth=int(level),
+                    )
                 )
     else:
         annotations.extend(
@@ -188,7 +208,9 @@ def _level_annotations(
         )
 
     for value in _without_not_reported(group.get("write_in", [])):
-        annotations.append({"coded_concept": map_term(category, str(value))})
+        annotations.append(
+            _concept_annotation(category, str(value), map_term)
+        )
     return annotations
 
 
@@ -243,7 +265,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         jsonld_serializer: JsonLdSerializer | None = None,
     ):
         super().__init__(xcom_props_resolver)
-        self.term_mapper = term_mapper or (lambda _category, value: value)
+        self.term_mapper = term_mapper or HEWMeasuresTermMapper()
         self.jsonld_serializer = jsonld_serializer or self._load_jsonld_serializer()
         self.template_processor = AccelTemplateProcessor()
 
@@ -301,10 +323,11 @@ class LaserAIToHEWCrosswalk(Crosswalk):
 
     def translate_to_linkml(self, payload: dict[str, Any]) -> dict[str, Any]:
         """Build a best-effort HEW LiteratureResource JSON object."""
-        reference_number = str(payload["source_reference_number"])
+        payload_data = payload["data"]
+        reference_number = str(payload_data["source_reference_number"])
         resource_id = _resource_id(reference_number)
-        bibliographic = payload.get("bibliographic", {})
-        review = payload.get("review", {})
+        bibliographic = payload_data.get("bibliographic", {})
+        review = payload_data.get("review", {})
 
         resource: dict[str, Any] = {
             "id": resource_id,
@@ -360,6 +383,8 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             "coding_method": "laser_ai_generated",
         }
 
+        payload_data = payload["data"]
+
         reference_type = _enum_value(review.get("reference_type"), _REFERENCE_TYPES)
         information_source = _enum_value(
             review.get("information_source"), _INFORMATION_SOURCES
@@ -369,23 +394,23 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         if information_source:
             annotation["information_source"] = information_source
 
-        objectives = payload.get("study_objectives", [])
+        objectives = payload_data.get("study_objectives", [])
         if objectives:
             annotation["study_objective"] = objectives[0]
             if len(objectives) > 1:
                 annotation["notes"] = "; ".join(str(value) for value in objectives[1:])
 
-        exposures = payload.get("exposures", {})
+        exposures = payload_data.get("exposures", {})
         annotation["exposure_annotations"] = _level_annotations(
             "exposure", exposures, self.term_mapper
         )
 
-        health_impacts = payload.get("health_impacts", {})
+        health_impacts = payload_data.get("health_impacts", {})
         annotation["health_impact_annotations"] = _level_annotations(
             "health_impact", health_impacts, self.term_mapper
         )
 
-        geography = payload.get("geography", {})
+        geography = payload_data.get("geography", {})
         geography_annotation: dict[str, Any] = {}
         if isinstance(geography, list):
             locations = [
