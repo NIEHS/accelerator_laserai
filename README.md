@@ -34,9 +34,12 @@ annotation coding; labels that cannot be mapped safely are preserved in
 
 LaserAI exposure, health-impact, and special-topic labels are matched against
 a bundled HEW_Measures vocabulary snapshot using case- and punctuation-insensitive
-exact matches of term names and aliases. Unique matches use the canonical
-HEW_Measures term URI and include vocabulary provenance and any available exact
-mappings. Exposure and health-impact matches are restricted to their
-corresponding vocabulary domains. Ambiguous and unmatched labels are left as
-source text rather than guessed. The snapshot is packaged with the connector
-so crosswalking does not require runtime network access.
+exact matches of term titles and aliases. Unique matches use the canonical
+`HEWM:<identifier>` term CURIE (for example, `HEWM:0000181` for Drought) and
+include the vocabulary schema URI
+(`https://w3id.org/hew/measures/schema`) and any available exact mappings.
+The HEW model's JSON-LD context expands these CURIEs using
+`https://w3id.org/hew/measures/term/`. Exposure and health-impact matches are
+restricted to their corresponding vocabulary domains. Ambiguous and unmatched
+labels are left as source text rather than guessed. The snapshot is packaged
+with the connector so crosswalking does not require runtime network access.

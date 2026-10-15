@@ -3,6 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from rdflib import URIRef
+
+from hew_model.jsonld import jsonld_graph
 from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
@@ -98,16 +101,31 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
             annotation = jsonld["data"]["annotations"][0]
             self.assertEqual("research_article", annotation["reference_type"])
             self.assertEqual("complete_resource", annotation["information_source"])
-            temperature_annotation = annotation["exposure_annotations"][2]
+            drought_annotation = annotation["exposure_annotations"][2]
             self.assertEqual(
-                "https://NIEHS.github.io/HEW_Measures/dist/Drought",
-                temperature_annotation["coded_concept"],
+                "HEWM:0000181",
+                drought_annotation["coded_concept"],
             )
             self.assertEqual(
-                [
-                    "https://NIEHS.github.io/HEW_Measures/hew_measures.jsonld"
-                ],
-                temperature_annotation["source_vocabularies"],
+                ["Drought", "drought"],
+                drought_annotation["aliases"],
+            )
+            self.assertEqual(
+                ["https://w3id.org/hew/measures/schema"],
+                drought_annotation["source_vocabularies"],
+            )
+            self.assertEqual(
+                ["envo:1000745"],
+                drought_annotation["exact_mappings"],
+            )
+            self.assertEqual(
+                "https://w3id.org/hew/measures/term/",
+                jsonld["data"]["@context"]["HEWM"],
+            )
+            graph = jsonld_graph(jsonld["data"])
+            self.assertIn(
+                URIRef("https://w3id.org/hew/measures/term/0000181"),
+                set(graph.objects()),
             )
 
             self.assertIn("submission", jsonld)

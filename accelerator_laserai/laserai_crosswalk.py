@@ -419,9 +419,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
                 for value in (rollup.get("level1"), rollup.get("level2"), rollup.get("level3"))
                 if value and value != "not reported"
             ]
-            features = _without_not_reported(
-                payload.get("geographic_features", [])
-            )
+            features = _without_not_reported(payload_data.get("geographic_features", []))
         else:
             locations_group = geography.get("locations", {})
             locations = _without_not_reported(

@@ -1,23 +1,12 @@
 {
   "name": "hew_measures_vocabulary",
   "version": "1.0.0",
-  "vocabulary_uri": "https://NIEHS.github.io/HEW_Measures/hew_measures.jsonld",
-  "vocabulary_prefix": "https://NIEHS.github.io/HEW_Measures/dist/",
+  "vocabulary_uri": "https://w3id.org/hew/measures/schema",
   "terms": [
     {
-      "name": "Category"
-    },
-    {
-      "name": "Health",
-      "is_a": "Category"
-    },
-    {
-      "name": "HealthData",
-      "is_a": "Health"
-    },
-    {
-      "name": "ClaimsData",
-      "is_a": "HealthData",
+      "id": "HEWM:0000003",
+      "title": "Claims Data",
+      "category": "Health",
       "aliases": [
         "Claims Data",
         "administrative claims, healthcare"
@@ -27,8 +16,9 @@
       ]
     },
     {
-      "name": "ElectronicHealthRecords",
-      "is_a": "HealthData",
+      "id": "HEWM:0000004",
+      "title": "Electronic Health Records",
+      "category": "Health",
       "aliases": [
         "Electronic Health Records",
         "electronic health records"
@@ -38,8 +28,9 @@
       ]
     },
     {
-      "name": "HealthSurveyData",
-      "is_a": "HealthData",
+      "id": "HEWM:0000005",
+      "title": "Health Survey Data",
+      "category": "Health",
       "aliases": [
         "Health Survey Data",
         "health surveys"
@@ -49,8 +40,9 @@
       ]
     },
     {
-      "name": "MensHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000006",
+      "title": "Mens Health",
+      "category": "Health",
       "aliases": [
         "Mens Health",
         "men's health"
@@ -60,8 +52,9 @@
       ]
     },
     {
-      "name": "WomensHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000007",
+      "title": "Womens Health",
+      "category": "Health",
       "aliases": [
         "Womens Health",
         "women's health"
@@ -71,8 +64,9 @@
       ]
     },
     {
-      "name": "OccupationalHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000008",
+      "title": "Occupational Health",
+      "category": "Health",
       "aliases": [
         "Occupational Health",
         "occupational health"
@@ -82,8 +76,9 @@
       ]
     },
     {
-      "name": "Nutrition",
-      "is_a": "HealthData",
+      "id": "HEWM:0000009",
+      "title": "Nutrition",
+      "category": "Health",
       "aliases": [
         "Nutrition",
         "nutrition survey"
@@ -93,8 +88,9 @@
       ]
     },
     {
-      "name": "PhysicalFitness",
-      "is_a": "HealthData",
+      "id": "HEWM:0000010",
+      "title": "Physical Fitness",
+      "category": "Health",
       "aliases": [
         "Physical Fitness",
         "physical fitness"
@@ -104,8 +100,9 @@
       ]
     },
     {
-      "name": "HealthBehavior",
-      "is_a": "HealthData",
+      "id": "HEWM:0000011",
+      "title": "Health Behavior",
+      "category": "Health",
       "aliases": [
         "Health Behavior",
         "health behavior"
@@ -115,8 +112,9 @@
       ]
     },
     {
-      "name": "ChildHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000012",
+      "title": "Child Health",
+      "category": "Health",
       "aliases": [
         "Child Health",
         "child health"
@@ -126,8 +124,9 @@
       ]
     },
     {
-      "name": "AdolescentHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000013",
+      "title": "Adolescent Health",
+      "category": "Health",
       "aliases": [
         "Adolescent Health",
         "adolescent health"
@@ -137,8 +136,9 @@
       ]
     },
     {
-      "name": "ReproductiveBirth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000014",
+      "title": "Reproductive/Birth",
+      "category": "Health",
       "aliases": [
         "Reproductive/Birth",
         "reproductive history"
@@ -148,8 +148,9 @@
       ]
     },
     {
-      "name": "HealthIndicators",
-      "is_a": "HealthData",
+      "id": "HEWM:0000015",
+      "title": "Health Indicators",
+      "category": "Health",
       "aliases": [
         "Health Indicators",
         "health status indicators"
@@ -159,8 +160,9 @@
       ]
     },
     {
-      "name": "GeriatricHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000016",
+      "title": "Geriatric Health",
+      "category": "Health",
       "aliases": [
         "Geriatric Health",
         "healthy aging"
@@ -170,16 +172,18 @@
       ]
     },
     {
-      "name": "OrthopedicHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000017",
+      "title": "Orthopedic Health",
+      "category": "Health",
       "aliases": [
         "Orthopedic Health",
         "not found"
       ]
     },
     {
-      "name": "MaternalAndChildHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000018",
+      "title": "Maternal and Child Health",
+      "category": "Health",
       "aliases": [
         "Maternal and Child Health",
         "maternal health"
@@ -189,8 +193,9 @@
       ]
     },
     {
-      "name": "MedicationAdherence",
-      "is_a": "HealthData",
+      "id": "HEWM:0000019",
+      "title": "Medication Adherence",
+      "category": "Health",
       "aliases": [
         "Medication Adherence",
         "medication adherance"
@@ -200,8 +205,9 @@
       ]
     },
     {
-      "name": "DevelopmentalHealth",
-      "is_a": "HealthData",
+      "id": "HEWM:0000020",
+      "title": "Developmental Health",
+      "category": "Health",
       "aliases": [
         "Developmental Health",
         "developmental origins of health and disease"
@@ -211,8 +217,9 @@
       ]
     },
     {
-      "name": "PatientReportedOutcomes",
-      "is_a": "HealthData",
+      "id": "HEWM:0000021",
+      "title": "Patient-Reported Outcomes",
+      "category": "Health",
       "aliases": [
         "Patient-Reported Outcomes",
         "patient reported outcome measures"
@@ -222,8 +229,9 @@
       ]
     },
     {
-      "name": "Immunization",
-      "is_a": "HealthData",
+      "id": "HEWM:0000022",
+      "title": "Immunization",
+      "category": "Health",
       "aliases": [
         "Immunization",
         "immunization"
@@ -233,8 +241,9 @@
       ]
     },
     {
-      "name": "RadiationTherapy",
-      "is_a": "HealthData",
+      "id": "HEWM:0000023",
+      "title": "Radiation Therapy",
+      "category": "Health",
       "aliases": [
         "Radiation Therapy",
         "radiotherapy"
@@ -244,8 +253,9 @@
       ]
     },
     {
-      "name": "DiseaseRisk",
-      "is_a": "HealthData",
+      "id": "HEWM:0000024",
+      "title": "Disease Risk",
+      "category": "Health",
       "aliases": [
         "Disease Risk",
         "risk factors"
@@ -255,8 +265,9 @@
       ]
     },
     {
-      "name": "Disability",
-      "is_a": "HealthData",
+      "id": "HEWM:0000025",
+      "title": "Disability",
+      "category": "Health",
       "aliases": [
         "Disability",
         "persons with disabilities"
@@ -266,8 +277,9 @@
       ]
     },
     {
-      "name": "Fertility",
-      "is_a": "HealthData",
+      "id": "HEWM:0000026",
+      "title": "Fertility",
+      "category": "Health",
       "aliases": [
         "Fertility",
         "fertility"
@@ -277,8 +289,9 @@
       ]
     },
     {
-      "name": "Genetics",
-      "is_a": "HealthData",
+      "id": "HEWM:0000027",
+      "title": "Genetics",
+      "category": "Health",
       "aliases": [
         "Genetics",
         "genetics"
@@ -288,8 +301,9 @@
       ]
     },
     {
-      "name": "Metabolomics",
-      "is_a": "HealthData",
+      "id": "HEWM:0000028",
+      "title": "Metabolomics",
+      "category": "Health",
       "aliases": [
         "Metabolomics",
         "metabolomics"
@@ -299,8 +313,9 @@
       ]
     },
     {
-      "name": "ClinicalChemistry",
-      "is_a": "HealthData",
+      "id": "HEWM:0000029",
+      "title": "Clinical Chemistry",
+      "category": "Health",
       "aliases": [
         "Clinical Chemistry",
         "clinical chemistry tests"
@@ -310,19 +325,17 @@
       ]
     },
     {
-      "name": "WellBeing",
-      "is_a": "HealthData",
+      "id": "HEWM:0000030",
+      "title": "Well-Being",
+      "category": "Health",
       "aliases": [
         "Well-Being"
       ]
     },
     {
-      "name": "HealthPopulation",
-      "is_a": "Health"
-    },
-    {
-      "name": "GeneralPopulation",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000032",
+      "title": "General Population",
+      "category": "Health",
       "aliases": [
         "General Population",
         "population"
@@ -332,8 +345,9 @@
       ]
     },
     {
-      "name": "Inpatient",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000033",
+      "title": "Inpatient",
+      "category": "Health",
       "aliases": [
         "Inpatient",
         "inpatients"
@@ -343,8 +357,9 @@
       ]
     },
     {
-      "name": "Readmissions",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000034",
+      "title": "Readmissions",
+      "category": "Health",
       "aliases": [
         "Readmissions",
         "patient readmission"
@@ -354,8 +369,9 @@
       ]
     },
     {
-      "name": "Outpatient",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000035",
+      "title": "Outpatient",
+      "category": "Health",
       "aliases": [
         "Outpatient",
         "outpatients"
@@ -365,8 +381,9 @@
       ]
     },
     {
-      "name": "EmergencyCare",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000036",
+      "title": "Emergency Care",
+      "category": "Health",
       "aliases": [
         "Emergency Care",
         "emergency medical services"
@@ -376,8 +393,9 @@
       ]
     },
     {
-      "name": "IndigenousPeople",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000037",
+      "title": "Indigenous People",
+      "category": "Health",
       "aliases": [
         "Indigenous People",
         "indigenous peoples"
@@ -387,20 +405,18 @@
       ]
     },
     {
-      "name": "PopulationsOfConcern",
-      "is_a": "HealthPopulation",
+      "id": "HEWM:0000038",
+      "title": "Populations of Concern",
+      "category": "Health",
       "aliases": [
         "Populations of Concern",
         "not found"
       ]
     },
     {
-      "name": "HealthSystem",
-      "is_a": "Health"
-    },
-    {
-      "name": "HealthCareProviderCharacteristics",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000040",
+      "title": "Health Care Provider Characteristics",
+      "category": "Health",
       "aliases": [
         "Health Care Provider Characteristics",
         "health personnel"
@@ -410,8 +426,9 @@
       ]
     },
     {
-      "name": "HealthCareFacilitiesCharacteristics",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000041",
+      "title": "Health Care Facilities Characteristics",
+      "category": "Health",
       "aliases": [
         "Health Care Facilities Characteristics",
         "health facilities"
@@ -421,8 +438,9 @@
       ]
     },
     {
-      "name": "HealthOutcomes",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000042",
+      "title": "Health Outcomes",
+      "category": "Health",
       "aliases": [
         "Health Outcomes",
         "patient outcome assessment"
@@ -432,8 +450,9 @@
       ]
     },
     {
-      "name": "HealthCareQuality",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000043",
+      "title": "Health Care Quality",
+      "category": "Health",
       "aliases": [
         "Health Care Quality",
         "quality of health care"
@@ -443,8 +462,9 @@
       ]
     },
     {
-      "name": "HealthCareIndicators",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000044",
+      "title": "Health Care Indicators",
+      "category": "Health",
       "aliases": [
         "Health Care Indicators",
         "quality indicators, health care"
@@ -454,8 +474,9 @@
       ]
     },
     {
-      "name": "HealthPrevention",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000045",
+      "title": "Health Prevention",
+      "category": "Health",
       "aliases": [
         "Health Prevention",
         "preventive health service"
@@ -465,16 +486,18 @@
       ]
     },
     {
-      "name": "HealthCareBenefits",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000046",
+      "title": "Health Care Benefits",
+      "category": "Health",
       "aliases": [
         "Health Care Benefits",
         "not found"
       ]
     },
     {
-      "name": "HealthCareReferrals",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000047",
+      "title": "Health Care Referrals",
+      "category": "Health",
       "aliases": [
         "Health Care Referrals",
         "referral and consultation"
@@ -484,8 +507,9 @@
       ]
     },
     {
-      "name": "MedicalFinancialAssistance",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000048",
+      "title": "Medical Financial Assistance",
+      "category": "Health",
       "aliases": [
         "Medical Financial Assistance",
         "public assistance"
@@ -495,19 +519,21 @@
       ]
     },
     {
-      "name": "HealthCareUtilization",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000049",
+      "title": "Health Care Utilization",
+      "category": "Health",
       "aliases": [
         "Health Care Utilization",
         "health service utilization"
       ],
       "exact_mappings": [
-        "SCDO:0000493"
+        "scdo:0000493"
       ]
     },
     {
-      "name": "HealthEquity",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000050",
+      "title": "Health Equity",
+      "category": "Health",
       "aliases": [
         "Health Equity",
         "health equity"
@@ -517,203 +543,218 @@
       ]
     },
     {
-      "name": "VaccineSafetyAndEffectiveness",
-      "is_a": "HealthSystem",
+      "id": "HEWM:0000051",
+      "title": "Vaccine Safety and Effectiveness",
+      "category": "Health",
       "aliases": [
         "Vaccine Safety and Effectiveness",
         "vaccine effectiveness rate"
       ],
       "exact_mappings": [
-        "VO:0000443"
+        "vo:0000443"
       ]
     },
     {
-      "name": "HealthCondition",
-      "is_a": "Health"
-    },
-    {
-      "name": "GeneralHealth",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000053",
+      "title": "General Health",
+      "category": "Health",
       "aliases": [
         "General Health"
       ]
     },
     {
-      "name": "CardiovascularSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000054",
+      "title": "Cardiovascular System",
+      "category": "Health",
       "aliases": [
         "Cardiovascular System",
         "cardiovascular system"
       ],
       "exact_mappings": [
-        "UBERON:0004535"
+        "uberon:0004535"
       ]
     },
     {
-      "name": "EndocrineSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000055",
+      "title": "Endocrine System",
+      "category": "Health",
       "aliases": [
         "Endocrine System",
         "endocrine system"
       ],
       "exact_mappings": [
-        "UBERON:0000949"
+        "uberon:0000949"
       ]
     },
     {
-      "name": "GastrointestinalSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000056",
+      "title": "Gastrointestinal System",
+      "category": "Health",
       "aliases": [
         "Gastrointestinal System",
         "digestive system"
       ],
       "exact_mappings": [
-        "UBERON:0001007"
+        "uberon:0001007"
       ]
     },
     {
-      "name": "HematopoieticSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000057",
+      "title": "Hematopoietic System",
+      "category": "Health",
       "aliases": [
         "Hematopoietic System",
         "hematopoietic system"
       ],
       "exact_mappings": [
-        "UBERON:0002390"
+        "uberon:0002390"
       ]
     },
     {
-      "name": "ImmuneSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000058",
+      "title": "Immune System",
+      "category": "Health",
       "aliases": [
         "Immune System",
         "immune system"
       ],
       "exact_mappings": [
-        "UBERON:0002405"
+        "uberon:0002405"
       ]
     },
     {
-      "name": "IntegumentarySystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000059",
+      "title": "Integumentary System",
+      "category": "Health",
       "aliases": [
         "Integumentary System",
         "integumental system"
       ],
       "exact_mappings": [
-        "UBERON:0002416"
+        "uberon:0002416"
       ]
     },
     {
-      "name": "MusculoskeletalSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000060",
+      "title": "Musculoskeletal System",
+      "category": "Health",
       "aliases": [
         "Musculoskeletal System",
         "musculoskeletal"
       ],
       "exact_mappings": [
-        "UBERON:0002204"
+        "uberon:0002204"
       ]
     },
     {
-      "name": "ReproductiveSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000061",
+      "title": "Reproductive System",
+      "category": "Health",
       "aliases": [
         "Reproductive System",
         "reproductive system"
       ],
       "exact_mappings": [
-        "UBERON:0000990"
+        "uberon:0000990"
       ]
     },
     {
-      "name": "RespiratorySystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000062",
+      "title": "Respiratory System",
+      "category": "Health",
       "aliases": [
         "Respiratory System",
         "respiratory system"
       ],
       "exact_mappings": [
-        "UBERON:0001004"
+        "uberon:0001004"
       ]
     },
     {
-      "name": "ThoracicSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000063",
+      "title": "Thoracic System",
+      "category": "Health",
       "aliases": [
         "Thoracic System",
         "not found"
       ]
     },
     {
-      "name": "UrinarySystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000064",
+      "title": "Urinary System",
+      "category": "Health",
       "aliases": [
         "Urinary System",
         "renal system"
       ],
       "exact_mappings": [
-        "UBERON:0001008"
+        "uberon:0001008"
       ]
     },
     {
-      "name": "NervousSystem",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000065",
+      "title": "Nervous System",
+      "category": "Health",
       "aliases": [
         "Nervous System",
         "nervous system"
       ],
       "exact_mappings": [
-        "UBERON:0001016"
+        "uberon:0001016"
       ]
     },
     {
-      "name": "Injury",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000066",
+      "title": "Injury",
+      "category": "Health",
       "aliases": [
         "Injury",
         "injury"
       ],
       "exact_mappings": [
-        "MONDO:0021178"
+        "mondo:0021178"
       ]
     },
     {
-      "name": "InfectiousDisease",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000067",
+      "title": "Infectious Disease",
+      "category": "Health",
       "aliases": [
         "Infectious Disease",
         "infectious disease"
       ],
       "exact_mappings": [
-        "MONDO:0005550"
+        "mondo:0005550"
       ]
     },
     {
-      "name": "Cancer",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000068",
+      "title": "Cancer",
+      "category": "Health",
       "aliases": [
         "Cancer",
         "neoplasm"
       ],
       "exact_mappings": [
-        "HP:0002664"
+        "hp:0002664"
       ]
     },
     {
-      "name": "Asthma",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000069",
+      "title": "Asthma",
+      "category": "Health",
       "aliases": [
         "Asthma",
         "asthma"
       ],
       "exact_mappings": [
-        "HP:0002099"
+        "hp:0002099"
       ]
     },
     {
-      "name": "MentalHealth",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000070",
+      "title": "Mental Health",
+      "category": "Health",
       "aliases": [
         "Mental Health",
         "mental health"
@@ -723,30 +764,33 @@
       ]
     },
     {
-      "name": "Diabetes",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000071",
+      "title": "Diabetes",
+      "category": "Health",
       "aliases": [
         "Diabetes",
         "diabetes mellitus"
       ],
       "exact_mappings": [
-        "HP:0000819"
+        "hp:0000819"
       ]
     },
     {
-      "name": "Osteoporosis",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000072",
+      "title": "Osteoporosis",
+      "category": "Health",
       "aliases": [
         "Osteoporosis",
         "osteoporosis"
       ],
       "exact_mappings": [
-        "HP:0000939"
+        "hp:0000939"
       ]
     },
     {
-      "name": "BirthDefect",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000073",
+      "title": "Birth Defect",
+      "category": "Health",
       "aliases": [
         "Birth Defect",
         "congenital abnormalities"
@@ -756,93 +800,102 @@
       ]
     },
     {
-      "name": "ChronicObstructivePulmonaryDiseaseCopd",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000074",
+      "title": "Chronic Obstructive Pulmonary Disease (COPD)",
+      "category": "Health",
       "aliases": [
         "Chronic Obstructive Pulmonary Disease (COPD)",
         "chronic pulmonary obstruction"
       ],
       "exact_mappings": [
-        "HP:0006510"
+        "hp:0006510"
       ]
     },
     {
-      "name": "HeatRelatedIllnesses",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000075",
+      "title": "Heat Related Illnesses",
+      "category": "Health",
       "aliases": [
         "Heat Related Illnesses",
         "heat related illness"
       ],
       "exact_mappings": [
-        "NCIT:C206556"
+        "ncit:C206556"
       ]
     },
     {
-      "name": "HormoneDisorder",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000076",
+      "title": "Hormone Disorder",
+      "category": "Health",
       "aliases": [
         "Hormone Disorder",
         "not found"
       ]
     },
     {
-      "name": "Stroke",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000077",
+      "title": "Stroke",
+      "category": "Health",
       "aliases": [
         "Stroke",
         "stroke"
       ],
       "exact_mappings": [
-        "HP:0001297"
+        "hp:0001297"
       ]
     },
     {
-      "name": "KidneyDisease",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000078",
+      "title": "Kidney Disease",
+      "category": "Health",
       "aliases": [
         "Kidney Disease",
         "kidney disorder"
       ],
       "exact_mappings": [
-        "MONDO:0005240"
+        "mondo:0005240"
       ]
     },
     {
-      "name": "Obesity",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000079",
+      "title": "Obesity",
+      "category": "Health",
       "aliases": [
         "Obesity",
         "obesity"
       ],
       "exact_mappings": [
-        "HP:0001513"
+        "hp:0001513"
       ]
     },
     {
-      "name": "DentalAndOralConditions",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000080",
+      "title": "Dental and Oral Conditions",
+      "category": "Health",
       "aliases": [
         "Dental and Oral Conditions",
         "dental disorder"
       ],
       "exact_mappings": [
-        "NCIT:C35077"
+        "ncit:C35077"
       ]
     },
     {
-      "name": "Arthritis",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000081",
+      "title": "Arthritis",
+      "category": "Health",
       "aliases": [
         "Arthritis",
         "arthritis"
       ],
       "exact_mappings": [
-        "HP:0001369"
+        "hp:0001369"
       ]
     },
     {
-      "name": "Covid19",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000082",
+      "title": "COVID-19",
+      "category": "Health",
       "aliases": [
         "COVID-19",
         "COVID-19"
@@ -852,8 +905,9 @@
       ]
     },
     {
-      "name": "Death",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000083",
+      "title": "Death",
+      "category": "Health",
       "aliases": [
         "Death",
         "death"
@@ -863,27 +917,42 @@
       ]
     },
     {
-      "name": "EyeAndVision",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000084",
+      "title": "Infectious Disease",
+      "category": "Health",
+      "aliases": [
+        "Infectious Disease",
+        "infectious disease"
+      ],
+      "exact_mappings": [
+        "mondo:0005550"
+      ]
+    },
+    {
+      "id": "HEWM:0000085",
+      "title": "Eye and Vision",
+      "category": "Health",
       "aliases": [
         "Eye and Vision",
         "eye disorder"
       ],
       "exact_mappings": [
-        "MONDO:0005328"
+        "mondo:0005328"
       ]
     },
     {
-      "name": "AidsHiv",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000086",
+      "title": "AIDS/HIV",
+      "category": "Health",
       "aliases": [
         "AIDS/HIV",
         "two terms"
       ]
     },
     {
-      "name": "Tuberculosis",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000087",
+      "title": "Tuberculosis",
+      "category": "Health",
       "aliases": [
         "Tuberculosis",
         "tuberculosis"
@@ -893,86 +962,86 @@
       ]
     },
     {
-      "name": "CommunicableDisease",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000088",
+      "title": "Communicable Disease",
+      "category": "Health",
       "aliases": [
         "Communicable Disease",
         "infectious disease"
       ]
     },
     {
-      "name": "Anemia",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000089",
+      "title": "Anemia",
+      "category": "Health",
       "aliases": [
         "Anemia",
         "anemia"
       ],
       "exact_mappings": [
-        "HP:0001903"
+        "hp:0001903"
       ]
     },
     {
-      "name": "HearingLoss",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000090",
+      "title": "Hearing Loss",
+      "category": "Health",
       "aliases": [
         "Hearing Loss",
         "hearing impairment"
       ],
       "exact_mappings": [
-        "HP:0000365"
+        "hp:0000365"
       ]
     },
     {
-      "name": "Allergy",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000091",
+      "title": "Allergy",
+      "category": "Health",
       "aliases": [
         "Allergy",
         "allergy"
       ],
       "exact_mappings": [
-        "HP:0012393"
+        "hp:0012393"
       ]
     },
     {
-      "name": "Anxiety",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000092",
+      "title": "Anxiety",
+      "category": "Health",
       "aliases": [
         "Anxiety",
         "anxiety"
       ],
       "exact_mappings": [
-        "HP:0000739"
+        "hp:0000739"
       ]
     },
     {
-      "name": "Hypertension",
-      "is_a": "HealthCondition",
+      "id": "HEWM:0000093",
+      "title": "Hypertension",
+      "category": "Health",
       "aliases": [
         "Hypertension",
         "hypertension"
       ],
       "exact_mappings": [
-        "HP:0000822"
+        "hp:0000822"
       ]
     },
     {
-      "name": "Environment",
-      "is_a": "Category"
-    },
-    {
-      "name": "RemoteSensing",
-      "is_a": "Environment"
-    },
-    {
-      "name": "NightimeImagery",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000095",
+      "title": "Nightime Imagery",
+      "category": "Environment",
       "aliases": [
         "Nightime Imagery"
       ]
     },
     {
-      "name": "LandEnvironmentIndicators",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000096",
+      "title": "Land Environment Indicators",
+      "category": "Environment",
       "aliases": [
         "Land Environment Indicators",
         "environmental indicators"
@@ -982,317 +1051,327 @@
       ]
     },
     {
-      "name": "InfraredRadiation",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000097",
+      "title": "Infrared Radiation",
+      "category": "Environment",
       "aliases": [
         "Infrared Radiation",
         "infrared radiation"
       ],
       "exact_mappings": [
-        "ENVO:21001214"
+        "envo:21001214"
       ]
     },
     {
-      "name": "LightAbsorptionScatter",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000098",
+      "title": "Light Absorption/Scatter",
+      "category": "Environment",
       "aliases": [
         "Light Absorption/Scatter",
         "two terms"
       ]
     },
     {
-      "name": "SolarRadiation",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000099",
+      "title": "Solar Radiation",
+      "category": "Environment",
       "aliases": [
         "Solar Radiation",
         "solar radiation"
       ],
       "exact_mappings": [
-        "ENVO:01001862"
+        "envo:01001862"
       ]
     },
     {
-      "name": "UltravioletRadiation",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000100",
+      "title": "Ultraviolet Radiation",
+      "category": "Environment",
       "aliases": [
         "Ultraviolet Radiation",
         "ultraviolet radiation"
       ],
       "exact_mappings": [
-        "ENVO:21001216"
+        "envo:21001216"
       ]
     },
     {
-      "name": "Radiation",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000101",
+      "title": "Radiation",
+      "category": "Environment",
       "aliases": [
         "Radiation",
         "radiation"
       ],
       "exact_mappings": [
-        "ENVO:01001023"
+        "envo:01001023"
       ]
     },
     {
-      "name": "Evaporation",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000102",
+      "title": "Evaporation",
+      "category": "Environment",
       "aliases": [
         "Evaporation",
         "evaporation"
       ],
       "exact_mappings": [
-        "ENVO:02500034"
+        "envo:02500034"
       ]
     },
     {
-      "name": "RadiativeForcing",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000103",
+      "title": "Radiative Forcing",
+      "category": "Environment",
       "aliases": [
         "Radiative Forcing",
         "not found"
       ]
     },
     {
-      "name": "AtmosphericStability",
-      "is_a": "RemoteSensing",
+      "id": "HEWM:0000104",
+      "title": "Atmospheric Stability",
+      "category": "Environment",
       "aliases": [
         "Atmospheric Stability",
         "not found"
       ]
     },
     {
-      "name": "Land",
-      "is_a": "Environment"
-    },
-    {
-      "name": "Vegetation",
-      "is_a": "Land"
-    },
-    {
-      "name": "Biomass",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000106",
+      "title": "Biomass",
+      "category": "Environment",
       "aliases": [
         "Biomass",
         "organic material"
       ],
       "exact_mappings": [
-        "ENVO:01000155"
+        "envo:01000155"
       ]
     },
     {
-      "name": "VegetationCover",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000107",
+      "title": "Vegetation Cover",
+      "category": "Environment",
       "aliases": [
         "Vegetation Cover",
         "vegetation layer"
       ],
       "exact_mappings": [
-        "ENVO:01000355"
+        "envo:01000355"
       ]
     },
     {
-      "name": "VegetationType",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000108",
+      "title": "Vegetation Type",
+      "category": "Environment",
       "aliases": [
         "Vegetation Type",
         "vegetation layer"
       ],
       "exact_mappings": [
-        "ENVO:01000355"
+        "envo:01000355"
       ]
     },
     {
-      "name": "VegetationPhenology",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000109",
+      "title": "Vegetation Phenology",
+      "category": "Environment",
       "aliases": [
         "Vegetation Phenology",
         "plant phenology trait"
       ],
       "exact_mappings": [
-        "PPO:0002000"
+        "ppo:0002000"
       ]
     },
     {
-      "name": "VegetationStress",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000110",
+      "title": "Vegetation Stress",
+      "category": "Environment",
       "aliases": [
         "Vegetation Stress",
         "not found"
       ]
     },
     {
-      "name": "VegetationProductivity",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000111",
+      "title": "Vegetation Productivity",
+      "category": "Environment",
       "aliases": [
         "Vegetation Productivity",
         "not found"
       ]
     },
     {
-      "name": "VegetationStructure",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000112",
+      "title": "Vegetation Structure",
+      "category": "Environment",
       "aliases": [
         "Vegetation Structure",
         "vegetation layer"
       ],
       "exact_mappings": [
-        "ENVO:01000355"
+        "envo:01000355"
       ]
     },
     {
-      "name": "VegetationIndicators",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000113",
+      "title": "Vegetation Indicators",
+      "category": "Environment",
       "aliases": [
         "Vegetation Indicators",
         "not found"
       ]
     },
     {
-      "name": "VegetationGreenness",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000114",
+      "title": "Vegetation Greenness",
+      "category": "Environment",
       "aliases": [
         "Vegetation Greenness",
         "vegetated area"
       ],
       "exact_mappings": [
-        "ENVO:01001305"
+        "envo:01001305"
       ]
     },
     {
-      "name": "CanopyCharacteristics",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000115",
+      "title": "Canopy Characteristics",
+      "category": "Environment",
       "aliases": [
         "Canopy Characteristics",
         "canopy"
       ],
       "exact_mappings": [
-        "ENVO:01001242"
+        "envo:01001242"
       ]
     },
     {
-      "name": "SolarInducedFluorescence",
-      "is_a": "Vegetation",
+      "id": "HEWM:0000116",
+      "title": "Solar Induced Fluorescence",
+      "category": "Environment",
       "aliases": [
         "Solar Induced Fluorescence",
         "not found"
       ]
     },
     {
-      "name": "LandSurface",
-      "is_a": "Land"
-    },
-    {
-      "name": "Topography",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000118",
+      "title": "Topography",
+      "category": "Environment",
       "aliases": [
         "Topography",
         "not found"
       ]
     },
     {
-      "name": "SurfaceReflectance",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000119",
+      "title": "Surface Reflectance",
+      "category": "Environment",
       "aliases": [
         "Surface Reflectance",
         "not found"
       ]
     },
     {
-      "name": "LandUse",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000120",
+      "title": "Land Use",
+      "category": "Environment",
       "aliases": [
         "Land Use",
         "land use process"
       ],
       "exact_mappings": [
-        "ENVO:01001431"
+        "envo:01001431"
       ]
     },
     {
-      "name": "LandCover",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000121",
+      "title": "Land Cover",
+      "category": "Environment",
       "aliases": [
         "Land Cover",
         "vegetated area"
       ],
       "exact_mappings": [
-        "ENVO:01001305"
+        "envo:01001305"
       ]
     },
     {
-      "name": "LandSurfaceCharacteristics",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000122",
+      "title": "Land Surface Characteristics",
+      "category": "Environment",
       "aliases": [
         "Land Surface Characteristics",
         "not found"
       ]
     },
     {
-      "name": "SoilMoisture",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000123",
+      "title": "Soil Moisture",
+      "category": "Environment",
       "aliases": [
         "Soil Moisture",
         "concentration of liquid water in soil"
       ],
       "exact_mappings": [
-        "ENVO:09000026"
+        "envo:09000026"
       ]
     },
     {
-      "name": "SoilTemperature",
-      "is_a": "LandSurface",
+      "id": "HEWM:0000124",
+      "title": "Soil Temperature",
+      "category": "Environment",
       "aliases": [
         "Soil Temperature",
         "temperature of soil"
       ],
       "exact_mappings": [
-        "ENVO:09200012"
+        "envo:09200012"
       ]
     },
     {
-      "name": "Water",
-      "is_a": "Environment"
-    },
-    {
-      "name": "WaterQuality",
-      "is_a": "Water"
-    },
-    {
-      "name": "ImpairedWater",
-      "is_a": "WaterQuality",
+      "id": "HEWM:0000126",
+      "title": "Impaired Water",
+      "category": "Environment",
       "aliases": [
         "Impaired Water",
         "water pollution"
       ],
       "exact_mappings": [
-        "ENVO:02500039"
+        "envo:02500039"
       ]
     },
     {
-      "name": "DrinkingWater",
-      "is_a": "WaterQuality",
+      "id": "HEWM:0000127",
+      "title": "Drinking Water",
+      "category": "Environment",
       "aliases": [
         "Drinking Water",
         "drinking water"
       ],
       "exact_mappings": [
-        "ENVO:00003064"
+        "envo:00003064"
       ]
     },
     {
-      "name": "WaterComposition",
-      "is_a": "WaterQuality",
+      "id": "HEWM:0000128",
+      "title": "Water Composition",
+      "category": "Environment",
       "aliases": [
         "Water Composition",
         "composition of water"
       ],
       "exact_mappings": [
-        "ENVO:09200017"
+        "envo:09200017"
       ]
     },
     {
-      "name": "WaterQualityIndicators",
-      "is_a": "WaterQuality",
+      "id": "HEWM:0000129",
+      "title": "Water Quality Indicators",
+      "category": "Environment",
       "aliases": [
         "Water Quality Indicators",
         "water qulaity"
@@ -1302,710 +1381,749 @@
       ]
     },
     {
-      "name": "WasteWater",
-      "is_a": "WaterQuality",
+      "id": "HEWM:0000130",
+      "title": "Waste Water",
+      "category": "Environment",
       "aliases": [
         "Waste Water",
         "waste water"
       ],
       "exact_mappings": [
-        "ENVO:00002001"
+        "envo:00002001"
       ]
     },
     {
-      "name": "WaterBodies",
-      "is_a": "Water"
-    },
-    {
-      "name": "SeaSurfaceTemperature",
-      "is_a": "WaterBodies",
+      "id": "HEWM:0000132",
+      "title": "Sea Surface Temperature",
+      "category": "Environment",
       "aliases": [
         "Sea Surface Temperature",
         "temperature of sea surface"
       ],
       "exact_mappings": [
-        "ENVO:04000002"
+        "envo:04000002"
       ]
     },
     {
-      "name": "OceanColor",
-      "is_a": "WaterBodies",
+      "id": "HEWM:0000133",
+      "title": "Ocean Color",
+      "category": "Environment",
       "aliases": [
         "Ocean Color",
         "color"
       ],
       "exact_mappings": [
-        "PATO:0000014"
+        "pato:0000014"
       ]
     },
     {
-      "name": "SeaSurfaceSalinity",
-      "is_a": "WaterBodies",
+      "id": "HEWM:0000134",
+      "title": "Sea Surface Salinity",
+      "category": "Environment",
       "aliases": [
         "Sea Surface Salinity",
         "salinity"
       ],
       "exact_mappings": [
-        "PATO:0085001"
+        "pato:0085001"
       ]
     },
     {
-      "name": "Evapotranspiration",
-      "is_a": "WaterBodies",
+      "id": "HEWM:0000135",
+      "title": "Evapotranspiration",
+      "category": "Environment",
       "aliases": [
         "Evapotranspiration",
         "not found"
       ]
     },
     {
-      "name": "GroundWater",
-      "is_a": "WaterBodies",
+      "id": "HEWM:0000136",
+      "title": "Ground Water",
+      "category": "Environment",
       "aliases": [
         "Ground Water",
         "ground water"
       ],
       "exact_mappings": [
-        "ENVO:00002041"
+        "envo:00002041"
       ]
     },
     {
-      "name": "SeaIce",
-      "is_a": "WaterBodies",
+      "id": "HEWM:0000137",
+      "title": "Sea Ice",
+      "category": "Environment",
       "aliases": [
         "Sea Ice",
         "sea ice"
       ],
       "exact_mappings": [
-        "ENVO:00002200"
+        "envo:00002200"
       ]
     },
     {
-      "name": "Air",
-      "is_a": "Environment"
-    },
-    {
-      "name": "AirQuality",
-      "is_a": "Air"
-    },
-    {
-      "name": "Diesel",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000139",
+      "title": "Diesel",
+      "category": "Environment",
       "aliases": [
         "Diesel",
         "diesel exhaust"
       ],
       "exact_mappings": [
-        "ENVO:03510008"
+        "envo:03510008"
       ]
     },
     {
-      "name": "Pm25",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000140",
+      "title": "PM2.5",
+      "category": "Environment",
       "aliases": [
         "PM2.5",
         "not separated"
       ]
     },
     {
-      "name": "Pm10",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000141",
+      "title": "PM10",
+      "category": "Environment",
       "aliases": [
         "PM10",
         "not separated"
       ]
     },
     {
-      "name": "ParticulateMatterPm25Pm10",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000142",
+      "title": "Particulate Matter (PM2.5, PM10)",
+      "category": "Environment",
       "aliases": [
         "Particulate Matter (PM2.5, PM10)",
         "ultrafine respirable suspended particulate matter"
       ],
       "exact_mappings": [
-        "ENVO:01000416"
+        "envo:01000416"
       ]
     },
     {
-      "name": "SulfurDioxideSo2",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000143",
+      "title": "Sulfur Dioxide (SO2)",
+      "category": "Environment",
       "aliases": [
         "Sulfur Dioxide (SO2)",
         "sulfur dioxide"
       ],
       "exact_mappings": [
-        "CHEBI:18422"
+        "chebi:18422"
       ]
     },
     {
-      "name": "OzoneO3",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000144",
+      "title": "Ozone (O3)",
+      "category": "Environment",
       "aliases": [
         "Ozone (O3)",
         "ozone"
       ],
       "exact_mappings": [
-        "CHEBI:25812"
+        "chebi:25812"
       ]
     },
     {
-      "name": "CarbonMonoxideCo",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000145",
+      "title": "Carbon Monoxide (CO)",
+      "category": "Environment",
       "aliases": [
         "Carbon Monoxide (CO)",
         "carbon monoxide"
       ],
       "exact_mappings": [
-        "CHEBI:17245"
+        "chebi:17245"
       ]
     },
     {
-      "name": "CarbonDioxideCo2",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000146",
+      "title": "Carbon Dioxide (CO2)",
+      "category": "Environment",
       "aliases": [
         "Carbon Dioxide (CO2)",
         "carbon dioxide"
       ],
       "exact_mappings": [
-        "CHEBI:16526"
+        "chebi:16526"
       ]
     },
     {
-      "name": "AirQualityIndicators",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000147",
+      "title": "Air Quality Indicators",
+      "category": "Environment",
       "aliases": [
         "Air Quality Indicators",
         "not found - see EPA"
       ]
     },
     {
-      "name": "AirPollutants",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000148",
+      "title": "Air Pollutants",
+      "category": "Environment",
       "aliases": [
         "Air Pollutants",
         "air pollution"
       ],
       "exact_mappings": [
-        "ENVO:02500037"
+        "envo:02500037"
       ]
     },
     {
-      "name": "NitrogenDioxideNo2",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000149",
+      "title": "Nitrogen Dioxide (NO2)",
+      "category": "Environment",
       "aliases": [
         "Nitrogen Dioxide (NO2)",
         "nitrogen dioxide"
       ],
       "exact_mappings": [
-        "CHEBI:33101"
+        "chebi:33101"
       ]
     },
     {
-      "name": "FormaldehydeHcho",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000150",
+      "title": "Formaldehyde (HCHO)",
+      "category": "Environment",
       "aliases": [
         "Formaldehyde (HCHO)",
         "formaldehyde"
       ],
       "exact_mappings": [
-        "CHEBI:16842"
+        "chebi:16842"
       ]
     },
     {
-      "name": "Dust",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000151",
+      "title": "Dust",
+      "category": "Environment",
       "aliases": [
         "Dust",
         "dust"
       ],
       "exact_mappings": [
-        "ENVO:00002008"
+        "envo:00002008"
       ]
     },
     {
-      "name": "AmmoniaNh3",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000152",
+      "title": "Ammonia (NH3)",
+      "category": "Environment",
       "aliases": [
         "Ammonia (NH3)",
         "ammonia"
       ],
       "exact_mappings": [
-        "CHEBI:16134"
+        "chebi:16134"
       ]
     },
     {
-      "name": "Aerosol",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000153",
+      "title": "Aerosol",
+      "category": "Environment",
       "aliases": [
         "Aerosol",
         "aerosol"
       ],
       "exact_mappings": [
-        "ENVO:00010505"
+        "envo:00010505"
       ]
     },
     {
-      "name": "TraceGases",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000154",
+      "title": "Trace Gases",
+      "category": "Environment",
       "aliases": [
         "Trace Gases",
         "not found"
       ]
     },
     {
-      "name": "VolatileOrganicCompoundsVoc",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000155",
+      "title": "Volatile Organic Compounds (VOC)",
+      "category": "Environment",
       "aliases": [
         "Volatile Organic Compounds (VOC)",
         "volatile organic compound"
       ],
       "exact_mappings": [
-        "CHEBI:134179"
+        "chebi:134179"
       ]
     },
     {
-      "name": "Aeroallergens",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000156",
+      "title": "Aeroallergens",
+      "category": "Environment",
       "aliases": [
         "Aeroallergens",
         "not found"
       ]
     },
     {
-      "name": "BlackCarbon",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000157",
+      "title": "Black Carbon",
+      "category": "Environment",
       "aliases": [
         "Black Carbon",
         "carbon black"
       ],
       "exact_mappings": [
-        "CHEBI:82297"
+        "chebi:82297"
       ]
     },
     {
-      "name": "MethaneCh4",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000158",
+      "title": "Methane (CH4)",
+      "category": "Environment",
       "aliases": [
         "Methane (CH4)",
         "methane"
       ],
       "exact_mappings": [
-        "CHEBI:16183"
+        "chebi:16183"
       ]
     },
     {
-      "name": "NitrousOxideLaughingGasN2o",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000159",
+      "title": "Nitrous Oxide (laughing gas, N2O)",
+      "category": "Environment",
       "aliases": [
         "Nitrous Oxide (laughing gas, N2O)",
         "nitrous oxide"
       ],
       "exact_mappings": [
-        "CHEBI:749671"
+        "chebi:749671"
       ]
     },
     {
-      "name": "WaterVapor",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000160",
+      "title": "Water Vapor",
+      "category": "Environment",
       "aliases": [
         "Water Vapor",
         "water vapour"
       ],
       "exact_mappings": [
-        "ENVO:01000266"
+        "envo:01000266"
       ]
     },
     {
-      "name": "ChlorofluorocarbonsCfc",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000161",
+      "title": "Chlorofluorocarbons (CFC)",
+      "category": "Environment",
       "aliases": [
         "Chlorofluorocarbons (CFC)",
         "chlorofouorocarbon"
       ],
       "exact_mappings": [
-        "CHEBI:134024"
+        "chebi:134024"
       ]
     },
     {
-      "name": "NitricOxideNo",
-      "is_a": "AirQuality",
+      "id": "HEWM:0000162",
+      "title": "Nitric Oxide (NO)",
+      "category": "Environment",
       "aliases": [
         "Nitric Oxide (NO)",
         "nitric oxide"
       ],
       "exact_mappings": [
-        "CHEBI:16480"
+        "chebi:16480"
       ]
     },
     {
-      "name": "Wildfire",
-      "is_a": "Environment"
-    },
-    {
-      "name": "WildfireCharacteristics",
-      "is_a": "Wildfire"
-    },
-    {
-      "name": "FireArea",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000164",
+      "title": "Fire Area",
+      "category": "Environment",
       "aliases": [
         "Fire Area",
         "area"
       ],
       "exact_mappings": [
-        "NCIT:C25244"
+        "ncit:C25244"
       ]
     },
     {
-      "name": "FireLocation",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000165",
+      "title": "Fire Location",
+      "category": "Environment",
       "aliases": [
         "Fire Location",
         "not found"
       ]
     },
     {
-      "name": "BurnSeverity",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000166",
+      "title": "Burn Severity",
+      "category": "Environment",
       "aliases": [
         "Burn Severity",
         "not found"
       ]
     },
     {
-      "name": "FirePerimeter",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000167",
+      "title": "Fire Perimeter",
+      "category": "Environment",
       "aliases": [
         "Fire Perimeter",
         "perimeter"
       ],
       "exact_mappings": [
-        "PATO:0001711"
+        "pato:0001711"
       ]
     },
     {
-      "name": "FireType",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000168",
+      "title": "Fire Type",
+      "category": "Environment",
       "aliases": [
         "Fire Type",
         "land fire"
       ],
       "exact_mappings": [
-        "ENVO:01001292"
+        "envo:01001292"
       ]
     },
     {
-      "name": "FireHotspot",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000169",
+      "title": "Fire Hotspot",
+      "category": "Environment",
       "aliases": [
         "Fire Hotspot",
         "not found"
       ]
     },
     {
-      "name": "FireEmission",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000170",
+      "title": "Fire Emission",
+      "category": "Environment",
       "aliases": [
         "Fire Emission",
         "not found"
       ]
     },
     {
-      "name": "FireFuel",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000171",
+      "title": "Fire Fuel",
+      "category": "Environment",
       "aliases": [
         "Fire Fuel",
         "fuel"
       ],
       "exact_mappings": [
-        "CHEBI:33292"
+        "chebi:33292"
       ]
     },
     {
-      "name": "FireSmoke",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000172",
+      "title": "Fire Smoke",
+      "category": "Environment",
       "aliases": [
         "Fire Smoke",
         "smoke"
       ],
       "exact_mappings": [
-        "ENVO:01000838"
+        "envo:01000838"
       ]
     },
     {
-      "name": "FireDetail",
-      "is_a": "WildfireCharacteristics",
+      "id": "HEWM:0000173",
+      "title": "Fire Detail",
+      "category": "Environment",
       "aliases": [
         "Fire Detail",
         "not found"
       ]
     },
     {
-      "name": "WildfireManagement",
-      "is_a": "Wildfire"
-    },
-    {
-      "name": "FireDeathAndInjury",
-      "is_a": "WildfireManagement",
+      "id": "HEWM:0000175",
+      "title": "Fire Death and Injury",
+      "category": "Environment",
       "aliases": [
         "Fire Death and Injury",
         "death by fire (event)"
       ],
       "exact_mappings": [
-        "SNOMED:67786008"
+        "snomed:67786008"
       ]
     },
     {
-      "name": "FireDamage",
-      "is_a": "WildfireManagement",
+      "id": "HEWM:0000176",
+      "title": "Fire Damage",
+      "category": "Environment",
       "aliases": [
         "Fire Damage",
         "not found"
       ]
     },
     {
-      "name": "FireSuppression",
-      "is_a": "WildfireManagement",
+      "id": "HEWM:0000177",
+      "title": "Fire Suppression",
+      "category": "Environment",
       "aliases": [
         "Fire Suppression",
         "not found"
       ]
     },
     {
-      "name": "FireForecasting",
-      "is_a": "WildfireManagement",
+      "id": "HEWM:0000178",
+      "title": "Fire Forecasting",
+      "category": "Environment",
       "aliases": [
         "Fire Forecasting",
         "not found"
       ]
     },
     {
-      "name": "FireManagement",
-      "is_a": "WildfireManagement",
+      "id": "HEWM:0000179",
+      "title": "Fire Management",
+      "category": "Environment",
       "aliases": [
         "Fire Management",
         "planned burn"
       ],
       "exact_mappings": [
-        "ENVO:03000122"
+        "envo:03000122"
       ]
     },
     {
-      "name": "Weather",
-      "is_a": "Environment"
-    },
-    {
-      "name": "Drought",
-      "is_a": "Weather",
+      "id": "HEWM:0000181",
+      "title": "Drought",
+      "category": "Environment",
       "aliases": [
         "Drought",
         "drought"
       ],
       "exact_mappings": [
-        "ENVO:1000745"
+        "envo:1000745"
       ]
     },
     {
-      "name": "Heat",
-      "is_a": "Weather",
+      "id": "HEWM:0000182",
+      "title": "Heat",
+      "category": "Environment",
       "aliases": [
         "Heat",
         "not found"
       ]
     },
     {
-      "name": "Precipitation",
-      "is_a": "Weather",
+      "id": "HEWM:0000183",
+      "title": "Precipitation",
+      "category": "Environment",
       "aliases": [
         "Precipitation",
         "hydrological precipitation process"
       ],
       "exact_mappings": [
-        "ENVO:01000703"
+        "envo:01000703"
       ]
     },
     {
-      "name": "Temperature",
-      "is_a": "Weather",
+      "id": "HEWM:0000184",
+      "title": "Temperature",
+      "category": "Environment",
       "aliases": [
         "Temperature",
         "temperature"
       ],
       "exact_mappings": [
-        "PATO:0000146"
+        "pato:0000146"
       ]
     },
     {
-      "name": "Flooding",
-      "is_a": "Weather",
+      "id": "HEWM:0000185",
+      "title": "Flooding",
+      "category": "Environment",
       "aliases": [
         "Flooding",
         "flood"
       ],
       "exact_mappings": [
-        "ENVO:01000710"
+        "envo:01000710"
       ]
     },
     {
-      "name": "Hurricanes",
-      "is_a": "Weather",
+      "id": "HEWM:0000186",
+      "title": "Hurricanes",
+      "category": "Environment",
       "aliases": [
         "Hurricanes",
         "cyclone"
       ],
       "exact_mappings": [
-        "ENVO:01001297"
+        "envo:01001297"
       ]
     },
     {
-      "name": "Tornados",
-      "is_a": "Weather",
+      "id": "HEWM:0000187",
+      "title": "Tornados",
+      "category": "Environment",
       "aliases": [
         "Tornados",
         "tornado"
       ],
       "exact_mappings": [
-        "ENVO:01001482"
+        "envo:01001482"
       ]
     },
     {
-      "name": "Wildfires",
-      "is_a": "Weather",
+      "id": "HEWM:0000188",
+      "title": "Wildfires",
+      "category": "Environment",
       "aliases": [
         "Wildfires",
         "wildfire"
       ],
       "exact_mappings": [
-        "ENVO:01000787"
+        "envo:01000787"
       ]
     },
     {
-      "name": "Humidity",
-      "is_a": "Weather",
+      "id": "HEWM:0000189",
+      "title": "Humidity",
+      "category": "Environment",
       "aliases": [
         "Humidity",
         "humidity"
       ],
       "exact_mappings": [
-        "PATO:0015009"
+        "pato:0015009"
       ]
     },
     {
-      "name": "Winds",
-      "is_a": "Weather",
+      "id": "HEWM:0000190",
+      "title": "Winds",
+      "category": "Environment",
       "aliases": [
         "Winds",
         "atmospheric wind"
       ],
       "exact_mappings": [
-        "ENVO:01000793"
+        "envo:01000793"
       ]
     },
     {
-      "name": "Clouds",
-      "is_a": "Weather",
+      "id": "HEWM:0000191",
+      "title": "Clouds",
+      "category": "Environment",
       "aliases": [
         "Clouds",
         "cloud"
       ],
       "exact_mappings": [
-        "ENVO:01000760"
+        "envo:01000760"
       ]
     },
     {
-      "name": "UvRadiation",
-      "is_a": "Weather",
+      "id": "HEWM:0000192",
+      "title": "UV Radiation",
+      "category": "Environment",
       "aliases": [
         "UV Radiation"
       ]
     },
     {
-      "name": "Lightning",
-      "is_a": "Weather",
+      "id": "HEWM:0000193",
+      "title": "Lightning",
+      "category": "Environment",
       "aliases": [
         "Lightning",
         "atmospheric lightning"
       ],
       "exact_mappings": [
-        "ENVO:01000898"
+        "envo:01000898"
       ]
     },
     {
-      "name": "Snow",
-      "is_a": "Weather",
+      "id": "HEWM:0000194",
+      "title": "Snow",
+      "category": "Environment",
       "aliases": [
         "Snow",
         "snow"
       ],
       "exact_mappings": [
-        "ENVO:01000406"
+        "envo:01000406"
       ]
     },
     {
-      "name": "Sunlight",
-      "is_a": "Weather",
+      "id": "HEWM:0000195",
+      "title": "Sunlight",
+      "category": "Environment",
       "aliases": [
         "Sunlight",
         "solar radiation"
       ],
       "exact_mappings": [
-        "ENVO:01001862"
+        "envo:01001862"
       ]
     },
     {
-      "name": "BarometricPressure",
-      "is_a": "Weather",
+      "id": "HEWM:0000196",
+      "title": "Barometric Pressure",
+      "category": "Environment",
       "aliases": [
         "Barometric Pressure",
         "pressure of air"
       ],
       "exact_mappings": [
-        "ENVO:09200011"
+        "envo:09200011"
       ]
     },
     {
-      "name": "DewPoint",
-      "is_a": "Weather",
+      "id": "HEWM:0000197",
+      "title": "Dew Point",
+      "category": "Environment",
       "aliases": [
         "Dew Point",
         "dew point"
       ],
       "exact_mappings": [
-        "ENVO:01001859"
+        "envo:01001859"
       ]
     },
     {
-      "name": "Visibility",
-      "is_a": "Weather",
+      "id": "HEWM:0000198",
+      "title": "Visibility",
+      "category": "Environment",
       "aliases": [
         "Visibility",
         "atmospheric aerosol"
       ],
       "exact_mappings": [
-        "ENVO:01001652"
+        "envo:01001652"
       ]
     },
     {
-      "name": "Monsoon",
-      "is_a": "Weather",
+      "id": "HEWM:0000199",
+      "title": "Atmospheric Stability",
+      "category": "Environment",
+      "aliases": [
+        "Atmospheric Stability",
+        "not found"
+      ]
+    },
+    {
+      "id": "HEWM:0000200",
+      "title": "Monsoon",
+      "category": "Environment",
       "aliases": [
         "Monsoon",
         "monsoon wind"
       ],
       "exact_mappings": [
-        "ENVO:03000130"
+        "envo:03000130"
       ]
     },
     {
-      "name": "Social",
-      "is_a": "Category"
-    },
-    {
-      "name": "SocialContext",
-      "is_a": "Social"
-    },
-    {
-      "name": "Demographics",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000202",
+      "title": "Demographics",
+      "category": "Social",
       "aliases": [
         "Demographics",
         "demographic"
@@ -2015,8 +2133,9 @@
       ]
     },
     {
-      "name": "Immigration",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000203",
+      "title": "Immigration",
+      "category": "Social",
       "aliases": [
         "Immigration",
         "emigration and immigration"
@@ -2026,8 +2145,9 @@
       ]
     },
     {
-      "name": "LivingConditions",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000204",
+      "title": "Living Conditions",
+      "category": "Social",
       "aliases": [
         "Living Conditions",
         "home environment"
@@ -2037,8 +2157,9 @@
       ]
     },
     {
-      "name": "SocioeconomicIndicators",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000205",
+      "title": "Socioeconomic Indicators",
+      "category": "Social",
       "aliases": [
         "Socioeconomic Indicators",
         "socioeconomic factors"
@@ -2048,8 +2169,9 @@
       ]
     },
     {
-      "name": "Segregation",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000206",
+      "title": "Segregation",
+      "category": "Social",
       "aliases": [
         "Segregation",
         "social segregation"
@@ -2059,16 +2181,18 @@
       ]
     },
     {
-      "name": "Traffic",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000207",
+      "title": "Traffic",
+      "category": "Social",
       "aliases": [
         "Traffic",
         "not found"
       ]
     },
     {
-      "name": "EnvironmentalJusticeIndicators",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000208",
+      "title": "Environmental Justice Indicators",
+      "category": "Social",
       "aliases": [
         "Environmental Justice Indicators",
         "environmental justice"
@@ -2078,8 +2202,9 @@
       ]
     },
     {
-      "name": "SocialVulnerabilityIndicators",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000209",
+      "title": "Social Vulnerability Indicators",
+      "category": "Social",
       "aliases": [
         "Social Vulnerability Indicators",
         "social vulnerability"
@@ -2089,8 +2214,9 @@
       ]
     },
     {
-      "name": "RuralUrban",
-      "is_a": "SocialContext",
+      "id": "HEWM:0000210",
+      "title": "Rural/Urban",
+      "category": "Social",
       "aliases": [
         "Rural/Urban",
         "urbanization"
@@ -2100,12 +2226,9 @@
       ]
     },
     {
-      "name": "Economic",
-      "is_a": "Social"
-    },
-    {
-      "name": "Income",
-      "is_a": "Economic",
+      "id": "HEWM:0000212",
+      "title": "Income",
+      "category": "Social",
       "aliases": [
         "Income",
         "income"
@@ -2115,8 +2238,9 @@
       ]
     },
     {
-      "name": "Employment",
-      "is_a": "Economic",
+      "id": "HEWM:0000213",
+      "title": "Employment",
+      "category": "Social",
       "aliases": [
         "Employment",
         "employment"
@@ -2126,8 +2250,9 @@
       ]
     },
     {
-      "name": "Poverty",
-      "is_a": "Economic",
+      "id": "HEWM:0000214",
+      "title": "Poverty",
+      "category": "Social",
       "aliases": [
         "Poverty",
         "poverty"
@@ -2137,8 +2262,9 @@
       ]
     },
     {
-      "name": "OccupationAndIndustry",
-      "is_a": "Economic",
+      "id": "HEWM:0000215",
+      "title": "Occupation and Industry",
+      "category": "Social",
       "aliases": [
         "Occupation and Industry",
         "technology, industry and agriculture"
@@ -2148,73 +2274,72 @@
       ]
     },
     {
-      "name": "Education",
-      "is_a": "Social"
-    },
-    {
-      "name": "ProximityToSchool",
-      "is_a": "Education",
+      "id": "HEWM:0000217",
+      "title": "Proximity to School",
+      "category": "Social",
       "aliases": [
         "Proximity to School",
         "not found"
       ]
     },
     {
-      "name": "EducationAttainment",
-      "is_a": "Education",
+      "id": "HEWM:0000218",
+      "title": "Education Attainment",
+      "category": "Social",
       "aliases": [
         "Education Attainment",
         "education level"
       ],
       "exact_mappings": [
-        "NCIT:C17953"
+        "ncit:C17953"
       ]
     },
     {
-      "name": "SchoolSystem",
-      "is_a": "Education",
+      "id": "HEWM:0000219",
+      "title": "School System",
+      "category": "Social",
       "aliases": [
         "School System",
         "not found"
       ]
     },
     {
-      "name": "EducationalFunding",
-      "is_a": "Education",
+      "id": "HEWM:0000220",
+      "title": "Educational Funding",
+      "category": "Social",
       "aliases": [
         "Educational Funding",
         "not found"
       ]
     },
     {
-      "name": "Literacy",
-      "is_a": "Education",
+      "id": "HEWM:0000221",
+      "title": "Literacy",
+      "category": "Social",
       "aliases": [
         "Literacy",
         "literacy"
       ],
       "exact_mappings": [
-        "GSSO:010553"
+        "gsso:010553"
       ]
     },
     {
-      "name": "Numeracy",
-      "is_a": "Education",
+      "id": "HEWM:0000222",
+      "title": "Numeracy",
+      "category": "Social",
       "aliases": [
         "Numeracy",
         "quantitative literacy"
       ],
       "exact_mappings": [
-        "GSSO:010556"
+        "gsso:010556"
       ]
     },
     {
-      "name": "PhysicalInfrastructure",
-      "is_a": "Social"
-    },
-    {
-      "name": "Housing",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000224",
+      "title": "Housing",
+      "category": "Social",
       "aliases": [
         "Housing",
         "housing"
@@ -2224,8 +2349,9 @@
       ]
     },
     {
-      "name": "Internet",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000225",
+      "title": "Internet",
+      "category": "Social",
       "aliases": [
         "Internet",
         "internet"
@@ -2235,8 +2361,9 @@
       ]
     },
     {
-      "name": "SocialServices",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000226",
+      "title": "Social Services",
+      "category": "Social",
       "aliases": [
         "Social Services",
         "social work"
@@ -2246,8 +2373,9 @@
       ]
     },
     {
-      "name": "FoodAccess",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000227",
+      "title": "Food Access",
+      "category": "Social",
       "aliases": [
         "Food Access",
         "access to healthy foods"
@@ -2257,8 +2385,9 @@
       ]
     },
     {
-      "name": "AccessToExercise",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000228",
+      "title": "Access to Exercise",
+      "category": "Social",
       "aliases": [
         "Access to Exercise",
         "exercise"
@@ -2268,8 +2397,9 @@
       ]
     },
     {
-      "name": "Migration",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000229",
+      "title": "Migration",
+      "category": "Social",
       "aliases": [
         "Migration",
         "human migration"
@@ -2279,8 +2409,9 @@
       ]
     },
     {
-      "name": "Crime",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000230",
+      "title": "Crime",
+      "category": "Social",
       "aliases": [
         "Crime",
         "crime"
@@ -2290,8 +2421,9 @@
       ]
     },
     {
-      "name": "IndustryComposition",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000231",
+      "title": "Industry Composition",
+      "category": "Social",
       "aliases": [
         "Industry Composition",
         "industry"
@@ -2301,8 +2433,9 @@
       ]
     },
     {
-      "name": "Transportation",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000232",
+      "title": "Transportation",
+      "category": "Social",
       "aliases": [
         "Transportation",
         "transportation"
@@ -2312,27 +2445,30 @@
       ]
     },
     {
-      "name": "Walkability",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000233",
+      "title": "Walkability",
+      "category": "Social",
       "aliases": [
         "Walkability",
         "perceived walkability of neighborhood (observable entity)"
       ],
       "exact_mappings": [
-        "SNOMED:1220610008"
+        "snomed:1220610008"
       ]
     },
     {
-      "name": "BuiltEnvironmentIndicators",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000234",
+      "title": "Built Environment Indicators",
+      "category": "Social",
       "aliases": [
         "Built Environment Indicators",
         "not found"
       ]
     },
     {
-      "name": "BuiltEnvironment",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000235",
+      "title": "Built Environment",
+      "category": "Social",
       "aliases": [
         "Built Environment",
         "built environment"
@@ -2342,8 +2478,9 @@
       ]
     },
     {
-      "name": "GreenSpace",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000236",
+      "title": "Green Space",
+      "category": "Social",
       "aliases": [
         "Green Space",
         "parks, recreational"
@@ -2353,23 +2490,21 @@
       ]
     },
     {
-      "name": "Commute",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000237",
+      "title": "Commute",
+      "category": "Social",
       "aliases": [
         "Commute",
         "commute"
       ],
       "exact_mappings": [
-        "NCIT:C141285"
+        "ncit:C141285"
       ]
     },
     {
-      "name": "HealthcareAccess",
-      "is_a": "Social"
-    },
-    {
-      "name": "HealthInsurance",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000239",
+      "title": "Health Insurance",
+      "category": "Social",
       "aliases": [
         "Health Insurance",
         "insurance, health"
@@ -2379,94 +2514,99 @@
       ]
     },
     {
-      "name": "DistanceToProvider",
-      "is_a": "PhysicalInfrastructure",
+      "id": "HEWM:0000240",
+      "title": "Distance to Provider",
+      "category": "Social",
       "aliases": [
         "Distance to Provider",
         "not found"
       ]
     },
     {
-      "name": "Exposures",
-      "is_a": "Category"
-    },
-    {
-      "name": "ProximityToHazards",
-      "is_a": "Exposures",
+      "id": "HEWM:0000242",
+      "title": "Proximity to Hazards",
+      "category": "Exposures",
       "aliases": [
         "Proximity to Hazards",
         "proximally connected to"
       ]
     },
     {
-      "name": "HouseholdExposures",
-      "is_a": "Exposures",
+      "id": "HEWM:0000243",
+      "title": "Household Exposures",
+      "category": "Exposures",
       "aliases": [
         "Household Exposures",
         "not found"
       ]
     },
     {
-      "name": "PesticideHerbicideAndFungicideExposure",
-      "is_a": "Exposures",
+      "id": "HEWM:0000244",
+      "title": "Pesticide Herbicide and Fungicide Exposure",
+      "category": "Exposures",
       "aliases": [
         "Pesticide Herbicide and Fungicide Exposure",
         "pesticide"
       ],
       "exact_mappings": [
-        "CHEBI:25944"
+        "chebi:25944"
       ]
     },
     {
-      "name": "RadonExposure",
-      "is_a": "Exposures",
+      "id": "HEWM:0000245",
+      "title": "Radon Exposure",
+      "category": "Exposures",
       "aliases": [
         "Radon Exposure",
         "radon(0)"
       ],
       "exact_mappings": [
-        "CHEBI:49997"
+        "chebi:49997"
       ]
     },
     {
-      "name": "LeadExposure",
-      "is_a": "Exposures",
+      "id": "HEWM:0000246",
+      "title": "Lead Exposure",
+      "category": "Exposures",
       "aliases": [
         "Lead Exposure",
         "lead(2+)"
       ],
       "exact_mappings": [
-        "CHEBI:49807"
+        "chebi:49807"
       ]
     },
     {
-      "name": "CarbonMonoxidePoisoning",
-      "is_a": "Exposures",
+      "id": "HEWM:0000247",
+      "title": "Carbon Monoxide Poisoning",
+      "category": "Exposures",
       "aliases": [
         "Carbon Monoxide Poisoning",
         "carbon monoxide poisoning"
       ],
       "exact_mappings": [
-        "MONDO:0800373"
+        "mondo:0800373"
       ]
     },
     {
-      "name": "FoodBasedExposures",
-      "is_a": "Exposures",
+      "id": "HEWM:0000248",
+      "title": "Food-based Exposures",
+      "category": "Exposures",
       "aliases": [
         "Food-based Exposures",
         "not found"
       ]
     },
     {
-      "name": "EnvironmentalExposures",
-      "is_a": "Exposures",
+      "id": "HEWM:0000249",
+      "title": "Environmental Exposures",
+      "category": "Exposures",
       "aliases": [
         "Environmental Exposures",
         "exposure to environmental material"
       ],
       "exact_mappings": [
-        "ECTO:0000015"
+        "ecto:0000015"
       ]
     }
   ]
