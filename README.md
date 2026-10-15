@@ -31,3 +31,15 @@ Output is serialized against the HEW 2.0 core schema (`hew.yaml`). Closed HEW en
 are normalized to schema values. Review geography is retained as broad
 annotation coding; labels that cannot be mapped safely are preserved in
 `spatial_text` and are not promoted to exact structured locations.
+
+LaserAI exposure, health-impact, and special-topic labels are matched against
+a bundled HEW_Measures vocabulary snapshot using case- and punctuation-insensitive
+exact matches of term titles and aliases. Unique matches use the canonical
+`HEWM:<identifier>` term CURIE (for example, `HEWM:0000181` for Drought) and
+include the vocabulary schema URI
+(`https://w3id.org/hew/measures/schema`) and any available exact mappings.
+The HEW model's JSON-LD context expands these CURIEs using
+`https://w3id.org/hew/measures/term/`. Exposure and health-impact matches are
+restricted to their corresponding vocabulary domains. Ambiguous and unmatched
+labels are left as source text rather than guessed. The snapshot is packaged
+with the connector so crosswalking does not require runtime network access.

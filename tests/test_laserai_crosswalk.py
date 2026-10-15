@@ -6,10 +6,88 @@ from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
 from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 
+from accelerator_laserai.hew_measures_crosswalk import HEWMeasuresTermMapper
 from accelerator_laserai.laserai_crosswalk import LaserAIToHEWCrosswalk
 
 
 class TestLaserAICrosswalk(unittest.TestCase):
+    def test_hew_measures_mapper_matches_by_domain_and_preserves_unmapped_terms(self):
+        mapper = HEWMeasuresTermMapper()
+
+        self.assertEqual(
+            "HEWM:0000184",
+            mapper("exposure", "temperature"),
+        )
+        self.assertEqual(
+            "HEWM:0000069",
+            mapper("health_impact", "asthma"),
+        )
+        self.assertEqual(
+            "HEWM:0000007",
+            mapper("health_impact", "women's health"),
+        )
+        self.assertEqual("Asthma", mapper("exposure", "Asthma"))
+        self.assertEqual(
+            "LaserAI-only term",
+            mapper("health_impact", "LaserAI-only term"),
+        )
+        self.assertEqual(
+            "infectious disease",
+            mapper("health_impact", "infectious disease"),
+        )
+        self.assertEqual(
+            {
+                "source_vocabularies": [
+                    "https://w3id.org/hew/measures/schema"
+                ],
+                "aliases": ["Asthma", "asthma"],
+                "exact_mappings": ["hp:0002099"],
+            },
+            mapper.annotation_metadata("health_impact", "Asthma"),
+        )
+        self.assertEqual(
+            {},
+            mapper.annotation_metadata("exposure", "LaserAI-only term"),
+        )
+        self.assertEqual(
+            {
+                "source_vocabularies": ["https://w3id.org/hew/measures/schema"],
+                "aliases": ["Womens Health", "women's health"],
+                "exact_mappings": ["mesh:D016387"],
+            },
+            mapper.annotation_metadata("health_impact", "women's health"),
+        )
+
+    def test_concept_annotations_include_all_vocabulary_aliases(self):
+        mapper = HEWMeasuresTermMapper()
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            term_mapper=mapper,
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+
+        annotation = crosswalk._annotation(
+            {
+                "data": {
+                    "exposures": {
+                        "levels": {"1": ["Drought"]},
+                    },
+                    "health_impacts": {},
+                    "geography": {},
+                },
+                "data_and_models": {},
+                "special_topics": {},
+            },
+            "HEWRES:laserai_test",
+            "test",
+            {},
+        )
+
+        self.assertEqual(
+            ["Drought", "drought"],
+            annotation["exposure_annotations"][0]["aliases"],
+        )
+
     def test_crosswalks_intermediate_record_to_hew_shape(self):
         record_path = (
             Path(__file__).parent
@@ -20,12 +98,12 @@ class TestLaserAICrosswalk(unittest.TestCase):
             self.skipTest("LaserAI intermediate JSON fixture is not present")
 
         with record_path.open(encoding="utf-8") as record_file:
-            record = json.load(record_file)
+            record = {"data": json.load(record_file)}
         record = AccelTemplateProcessor().render_generic(
             record,
             {"submitter_name": "", "submitter_email": "", "submitter_comment": ""},
             {
-                "original_source_identifier": record["bibliographic"]["doi"],
+                "original_source_identifier": record["data"]["bibliographic"]["doi"],
                 "original_source_link": "laserai.xlsx",
                 "history": [],
             },
@@ -140,8 +218,10 @@ class TestLaserAICrosswalk(unittest.TestCase):
         for first_author in (None, "", "not reported", "---"):
             resource = crosswalk.translate_to_linkml(
                 {
-                    "source_reference_number": "1",
-                    "bibliographic": {"title": "T", "first_author": first_author},
+                    "data": {
+                        "source_reference_number": "1",
+                        "bibliographic": {"title": "T", "first_author": first_author},
+                    }
                 }
             )
             self.assertNotIn("authors", resource)
@@ -153,7 +233,12 @@ class TestLaserAICrosswalk(unittest.TestCase):
         )
         for year, expected in ((2024, "2024"), ("2024", "2024"), ("n.d.", None), (None, None)):
             resource = crosswalk.translate_to_linkml(
-                {"source_reference_number": "1", "bibliographic": {"year": year}}
+                {
+                    "data": {
+                        "source_reference_number": "1",
+                        "bibliographic": {"year": year},
+                    }
+                }
             )
             self.assertEqual(expected, resource.get("publication_date"))
 
@@ -164,10 +249,12 @@ class TestLaserAICrosswalk(unittest.TestCase):
         )
         resource = crosswalk.translate_to_linkml(
             {
-                "source_reference_number": "1",
-                "bibliographic": {
-                    "title": "Publication",
-                    "subtitle": "A study subtitle",
+                "data": {
+                    "source_reference_number": "1",
+                    "bibliographic": {
+                        "title": "Publication",
+                        "subtitle": "A study subtitle",
+                    },
                 },
             }
         )

@@ -3,6 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from rdflib import URIRef
+
+from hew_model.jsonld import jsonld_graph
 from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
@@ -27,7 +30,7 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
             record,
             {"submitter_name": "", "submitter_email": "", "submitter_comment": ""},
             {
-                "original_source_identifier": record["bibliographic"]["doi"],
+                "original_source_identifier": record["data"]["bibliographic"]["doi"],
                 "original_source_link": "laserai.xlsx",
                 "history": [],
             },
@@ -67,44 +70,64 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
                 "https://w3id.org/hew/",
                 jsonld["data"]["@context"]["@vocab"],
             )
-            self.assertEqual("HEWRES:laserai_8689", jsonld["data"]["id"])
-            self.assertEqual("38959513", jsonld["data"]["pmid"])
+            self.assertEqual("HEWRES:laserai_11227", jsonld["data"]["id"])
+            self.assertEqual("38503408", jsonld["data"]["pmid"])
             self.assertEqual(
-                "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
+                "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
                 jsonld["data"]["title"],
             )
             self.assertEqual(
-                "10.3928/00989134-20240618-01",
+                "10.1136/bmjopen-2023-080374",
                 jsonld["data"]["doi"],
             )
             self.assertEqual(
                 [
                     {
                         "@type": "Person",
-                        "id": "PERSON:laserai_husser",
+                        "id": "PERSON:laserai_njuguna",
                         "agent_type": "Person",
-                        "family_name": "Husser",
+                        "family_name": "Njuguna",
                     }
                 ],
                 jsonld["data"]["authors"],
             )
-            self.assertEqual("commentary_opinion", jsonld["data"]["publication_type"])
+            self.assertEqual("research_article", jsonld["data"]["publication_type"])
             self.assertEqual("2024", jsonld["data"]["publication_date"])
             self.assertIn("PERSON", jsonld["data"]["@context"])
             self.assertEqual(
-                ["8689"],
+                ["11227"],
                 jsonld["data"]["identifiers"],
             )
             annotation = jsonld["data"]["annotations"][0]
-            self.assertEqual("HEWANN:laserai_8689", annotation["id"])
-            self.assertEqual("commentary_opinion", annotation["reference_type"])
+            self.assertEqual("research_article", annotation["reference_type"])
             self.assertEqual("complete_resource", annotation["information_source"])
-            geography_annotation = annotation["geography_annotations"][0]
+            drought_annotation = annotation["exposure_annotations"][2]
             self.assertEqual(
-                ["global_or_unspecified_location"],
-                geography_annotation["geographic_locations"],
+                "HEWM:0000181",
+                drought_annotation["coded_concept"],
             )
-            self.assertNotIn("spatial_text", geography_annotation)
+            self.assertEqual(
+                ["Drought", "drought"],
+                drought_annotation["aliases"],
+            )
+            self.assertEqual(
+                ["https://w3id.org/hew/measures/schema"],
+                drought_annotation["source_vocabularies"],
+            )
+            self.assertEqual(
+                ["envo:1000745"],
+                drought_annotation["exact_mappings"],
+            )
+            self.assertEqual(
+                "https://w3id.org/hew/measures/term/",
+                jsonld["data"]["@context"]["HEWM"],
+            )
+            graph = jsonld_graph(jsonld["data"])
+            self.assertIn(
+                URIRef("https://w3id.org/hew/measures/term/0000181"),
+                set(graph.objects()),
+            )
+
             self.assertIn("submission", jsonld)
             self.assertIn("technical_metadata", jsonld)
 
