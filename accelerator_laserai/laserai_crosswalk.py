@@ -322,12 +322,15 @@ class LaserAIToHEWCrosswalk(Crosswalk):
         return output_payload
 
     def translate_to_linkml(self, payload: dict[str, Any]) -> dict[str, Any]:
-        """Build a best-effort HEW LiteratureResource JSON object."""
-        payload_data = payload["data"]
-        reference_number = str(payload_data["source_reference_number"])
+        """Build a HEW LiteratureResource from a source record or ingest envelope."""
+        source_record = payload.get("data", payload)
+        if not isinstance(source_record, dict):
+            raise ValueError("LaserAI ingest record data must be an object")
+
+        reference_number = str(source_record["source_reference_number"])
         resource_id = _resource_id(reference_number)
-        bibliographic = payload_data.get("bibliographic", {})
-        review = payload_data.get("review", {})
+        bibliographic = source_record.get("bibliographic", {})
+        review = source_record.get("review", {})
 
         resource: dict[str, Any] = {
             "id": resource_id,
@@ -339,7 +342,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
                 + (bibliographic.get("study_identifiers") or [])
             ),
             "annotations": [
-                self._annotation(payload, resource_id, reference_number, review)
+                self._annotation(source_record, resource_id, reference_number, review)
             ],
         }
 

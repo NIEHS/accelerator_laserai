@@ -226,6 +226,26 @@ class TestLaserAICrosswalk(unittest.TestCase):
             )
             self.assertNotIn("authors", resource)
 
+    def test_translate_accepts_full_ingest_envelope(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        source_record = {
+            "source_reference_number": "1",
+            "bibliographic": {"title": "T", "doi": "10.1234/example"},
+        }
+        ingest_envelope = {
+            "data": source_record,
+            "submission": {"submitter_name": "A"},
+            "technical_metadata": {"original_source_identifier": "10.1234/example"},
+        }
+
+        self.assertEqual(
+            crosswalk.translate_to_linkml(source_record),
+            crosswalk.translate_to_linkml(ingest_envelope),
+        )
+
     def test_translate_maps_year_to_publication_date(self):
         crosswalk = LaserAIToHEWCrosswalk(
             DirectXcomPropsResolver(False, None),
