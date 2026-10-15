@@ -386,7 +386,9 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             "coding_method": "laser_ai_generated",
         }
 
-        payload_data = payload["data"]
+        payload_data = payload.get("data", payload)
+        if not isinstance(payload_data, dict):
+            raise ValueError("LaserAI ingest record data must be an object")
 
         reference_type = _enum_value(review.get("reference_type"), _REFERENCE_TYPES)
         information_source = _enum_value(
@@ -454,7 +456,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             [geography_annotation] if geography_annotation else []
         )
 
-        data_and_models = payload.get("data_and_models", {})
+        data_and_models = payload_data.get("data_and_models", {})
         data_resource_types = data_and_models.get("data_resource_types", {})
         if not data_resource_types:
             data_resource_types = {
@@ -478,7 +480,7 @@ class LaserAIToHEWCrosswalk(Crosswalk):
             [data_tool_method_annotation] if data_tool_method_annotation else []
         )
 
-        special_topics = payload.get("special_topics", {})
+        special_topics = payload_data.get("special_topics", {})
         annotation["special_topic_annotations"] = _level_annotations(
             "special_topic", special_topics, self.term_mapper
         )
