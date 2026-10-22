@@ -1,13 +1,17 @@
 import json
 import unittest
+from copy import deepcopy
 from pathlib import Path
+
+from jsonschema import ValidationError
+from linkml_runtime.utils.schemaview import SchemaView
 
 from accelerator_core.utils.xcom_utils import DirectXcomPropsResolver
 from accelerator_core.workflow.accel_data_models import IngestPayload, IngestSourceDescriptor
 from accelerator_core.schema.templates.template_processor import AccelTemplateProcessor
 
 from accelerator_laserai.hew_measures_crosswalk import HEWMeasuresTermMapper
-from accelerator_laserai.laserai_crosswalk import LaserAIToHEWCrosswalk
+from accelerator_laserai.laserai_crosswalk import LaserAIToHEWCrosswalk, _hew_schema_path
 
 
 class TestLaserAICrosswalk(unittest.TestCase):
@@ -209,6 +213,8 @@ class TestLaserAICrosswalk(unittest.TestCase):
             transformed["data"]["authors"],
         )
         self.assertNotIn("agent_associations", transformed["data"])
+        self.assertNotIn("spatial_extent", transformed["data"])
+        self.assertNotIn("temporal_extent", transformed["data"])
 
     def test_translate_omits_authors_when_first_author_missing(self):
         crosswalk = LaserAIToHEWCrosswalk(
@@ -279,6 +285,77 @@ class TestLaserAICrosswalk(unittest.TestCase):
             }
         )
         self.assertEqual("A study subtitle", resource["subtitle"])
+
+    def test_installed_model_is_the_canonical_enum_only_schema(self):
+        from hew_model.jsonld import SCHEMA_PATH
+
+        self.assertEqual(SCHEMA_PATH, _hew_schema_path())
+        self.assertEqual("hew.yaml", SCHEMA_PATH.name)
+        view = SchemaView(str(SCHEMA_PATH))
+        self.assertEqual("TemporalResolutionEnum", view.get_slot("temporal_resolution").range)
+        self.assertNotIn("temporal_resolution_category", view.all_slots())
+        self.assertIn("spatial_extent", view.class_slots("LiteratureResource"))
+        self.assertIn("temporal_extent", view.class_slots("LiteratureResource"))
+
+    def test_translate_preserves_explicit_coverage_without_mutating_source(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        source = {
+            "source_reference_number": "1",
+            "spatial_coverage": "Study area supplied by curator",
+            "temporal_coverage": "2020",
+            "spatial_extent": {
+                "bounding_box": {"west": -100.0, "south": 35.0, "east": -99.0, "north": 36.0},
+                "coordinate_reference_system_uri": "epsg:4326",
+            },
+            "temporal_extent": {
+                "start_time": "2020-01-01T00:00:00Z",
+                "end_time": "2021-01-01T00:00:00Z",
+                "temporal_resolution": "daily",
+                "coverage_status": "bounded",
+            },
+        }
+        original = deepcopy(source)
+        resource = crosswalk.translate_to_linkml({"data": source})
+        for slot in ("spatial_coverage", "temporal_coverage", "spatial_extent", "temporal_extent"):
+            self.assertEqual(source[slot], resource[slot])
+        resource["spatial_extent"]["bounding_box"]["west"] = -110.0
+        resource["temporal_extent"]["temporal_resolution"] = "hourly"
+        self.assertEqual(original, source)
+
+    def test_translate_rejects_duration_resolution_and_removed_category(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        for extent in (
+            {"temporal_resolution": "P1D"},
+            {"temporal_resolution": "PT1H"},
+            {"temporal_resolution": "every_three_days"},
+            {"temporal_resolution_category": "daily"},
+            {"start_time": "not-a-date"},
+        ):
+            with self.subTest(extent=extent), self.assertRaises(ValidationError):
+                crosswalk.translate_to_linkml({
+                    "source_reference_number": "1", "temporal_extent": extent
+                })
+
+    def test_translate_rejects_invalid_structured_bounding_boxes(self):
+        crosswalk = LaserAIToHEWCrosswalk(
+            DirectXcomPropsResolver(False, None),
+            jsonld_serializer=lambda instance, class_name: instance,
+        )
+        for bounding_box in (
+            {"west": -100.0, "south": 35.0, "east": -99.0},
+            {"west": -100.0, "south": 35.0, "east": -99.0, "north": 100.0},
+        ):
+            with self.subTest(bounding_box=bounding_box), self.assertRaises(ValidationError):
+                crosswalk.translate_to_linkml({
+                    "source_reference_number": "1",
+                    "spatial_extent": {"bounding_box": bounding_box},
+                })
 
 
 if __name__ == "__main__":

@@ -131,6 +131,46 @@ class TestLaserAICrosswalkIntegration(unittest.TestCase):
             self.assertIn("submission", jsonld)
             self.assertIn("technical_metadata", jsonld)
 
+    def test_enriched_coverage_receives_current_hew_jsonld_types(self):
+        source = {
+            "source_reference_number": "coverage",
+            "bibliographic": {"year": 2024},
+            "spatial_extent": {
+                "bounding_box": {"west": -100.0, "south": 35.0, "east": -99.0, "north": 36.0}
+            },
+            "temporal_extent": {
+                "start_time": "2020-01-01T00:00:00Z",
+                "end_time": "2021-01-01T00:00:00Z",
+                "temporal_resolution": "daily",
+            },
+        }
+        descriptor = IngestSourceDescriptor()
+        descriptor.ingest_identifier = "laserai-coverage-test"
+        descriptor.ingest_item_id = "coverage"
+        payload = IngestPayload(descriptor)
+        payload.payload.append(AccelTemplateProcessor().render_generic(
+            source,
+            {"submitter_name": "", "submitter_email": "", "submitter_comment": ""},
+            {
+                "original_source_identifier": "coverage",
+                "original_source_link": "laserai.xlsx",
+                "history": [],
+            },
+        ))
+        crosswalk = LaserAIToHEWCrosswalk(DirectXcomPropsResolver(False, None))
+        result = crosswalk.transform(payload)
+        document = result.payload[0]["data"]
+        self.assertEqual("SpatialExtent", document["spatial_extent"]["@type"])
+        self.assertEqual("BoundingBox", document["spatial_extent"]["bounding_box"]["@type"])
+        self.assertEqual("TemporalExtent", document["temporal_extent"]["@type"])
+        self.assertEqual("daily", document["temporal_extent"]["temporal_resolution"])
+        self.assertEqual("2024", document["publication_date"])
+        self.assertNotIn("temporal_resolution_category", document["@context"])
+        self.assertEqual(
+            "2020-01-01T00:00:00Z", document["temporal_extent"]["start_time"]
+        )
+        self.assertTrue(jsonld_graph(document))
+
 
 if __name__ == "__main__":
     unittest.main()
