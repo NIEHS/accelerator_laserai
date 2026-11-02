@@ -1,43 +1,56 @@
 {
+  "submission": {
+    "submitter_name": "",
+    "submitter_email": "",
+    "submitter_comment": ""
+  },
+  "data": {
     "source": "laserai",
-    "source_reference_number": "8689",
+    "source_reference_number": "11227",
     "bibliographic": {
-      "first_author": "Husser",
+      "first_author": "Njuguna",
       "year": 2024,
-      "title": "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-      "doi": "10.3928/00989134-20240618-01",
-      "accession_number": 38959513,
+      "title": "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+      "doi": "10.1136/bmjopen-2023-080374",
+      "accession_number": 38503408,
       "study_identifiers": []
     },
     "review": {
-      "reference_type": "Commentary/Opinion",
+      "reference_type": "Research Article",
       "reference_type_comments": [],
       "information_source": "Complete Resource",
       "information_source_comments": [],
-      "recommend_for_removal": "not reported",
-      "recommend_for_removal_comments": [],
-      "postpone": "not reported",
+      "recommend_for_removal": null,
+      "recommend_for_removal_comments": [
+        "Focus on health system leadership - no HI focus [I would say that the discussion of healthcare delivery is enough of a connection to health impacts to warrant inclusion]"
+      ],
+      "postpone": null,
       "postpone_comments": []
     },
     "study_objectives": [],
     "exposures": [
       {
-        "level1": "Temperature",
-        "level2": "Extreme Heat/Heat",
+        "level1": "Food Security",
+        "level2": "",
+        "level3": ""
+      },
+      {
+        "level1": "Extreme Weather-Related Event or Disaster",
+        "level2": "Drought",
         "level3": ""
       }
     ],
     "health_impacts": [
       {
-        "level1": "Temperature-Related Health Impact",
-        "level2": "Heat-Related Health Impact",
-        "level3": "not reported"
+        "level1": "General Health Impact",
+        "level2": "",
+        "level3": ""
       }
     ],
     "geography": [
       {
-        "level1": "Global or Unspecified Location",
-        "level2": "not reported",
+        "level1": "Non-United States",
+        "level2": "Africa",
         "level3": ""
       }
     ],
@@ -57,28 +70,29 @@
     "special_topics": {
       "levels": {
         "1": [
-          "Study Population",
-          "Sociodemographic Vulnerability",
-          "Intervention"
+          "Communication",
+          "Health Sector Influence",
+          "Policy"
         ],
         "2": [
-          "Elderly",
-          "not reported"
+          "Health Professional"
         ]
       },
       "write_in": []
     },
     "raw_values": {
       "1st Author": [
-        "Husser",
-        "Husser",
-        "Husser",
-        "Husser",
-        "Husser",
-        "Husser",
-        "Husser"
+        "Njuguna",
+        "Njuguna",
+        "Njuguna",
+        "Njuguna",
+        "Njuguna",
+        "Njuguna",
+        "Njuguna",
+        "Njuguna"
       ],
       "Year": [
+        2024,
         2024,
         2024,
         2024,
@@ -88,86 +102,100 @@
         2024
       ],
       "Title": [
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events",
-        "Knowledge Is Power: Protect Older Adults Against High and Sustained Heat Events"
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study",
+        "Roles of health system leadership under emergency in drought-affected districts in northeast Uganda: a mixed-method study"
       ],
       "Reference number": [
-        8689,
-        8689,
-        8689,
-        8689,
-        8689,
-        8689,
-        8689
+        11227,
+        11227,
+        11227,
+        11227,
+        11227,
+        11227,
+        11227,
+        11227
       ],
       "DOI": [
-        "10.3928/00989134-20240618-01",
-        "10.3928/00989134-20240618-01",
-        "10.3928/00989134-20240618-01",
-        "10.3928/00989134-20240618-01",
-        "10.3928/00989134-20240618-01",
-        "10.3928/00989134-20240618-01",
-        "10.3928/00989134-20240618-01"
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374",
+        "10.1136/bmjopen-2023-080374"
       ],
       "Accession Number": [
-        38959513,
-        38959513,
-        38959513,
-        38959513,
-        38959513,
-        38959513,
-        38959513
+        38503408,
+        38503408,
+        38503408,
+        38503408,
+        38503408,
+        38503408,
+        38503408,
+        38503408
       ],
       "Reference Type (extracted)": [
-        "Commentary/Opinion"
+        "Research Article"
       ],
       "Information Source (extracted)": [
         "Complete Resource"
       ],
-      "Recommend for Removal (extracted)": [
-        "not reported"
-      ],
-      "Postpone (extracted)": [
-        "not reported"
+      "Recommend for Removal (comment)": [
+        "Focus on health system leadership - no HI focus [I would say that the discussion of healthcare delivery is enough of a connection to health impacts to warrant inclusion]"
       ],
       "Exposure L1 (extracted)": [
-        "Temperature"
+        "Food Security",
+        "Extreme Weather-Related Event or Disaster"
       ],
       "Exposure L2 (extracted)": [
-        "Extreme Heat/Heat"
+        "Drought"
       ],
       "Health Impact L1 (extracted)": [
-        "Temperature-Related Health Impact"
-      ],
-      "Health Impact L2 (extracted)": [
-        "Heat-Related Health Impact"
-      ],
-      "Health Impact L3 (extracted)": [
-        "not reported"
+        "General Health Impact"
       ],
       "Location L1 (extracted)": [
-        "Global or Unspecified Location"
+        "Non-United States"
       ],
       "Location L2 (extracted)": [
-        "not reported"
+        "Africa"
       ],
       "Geographic Feature (extracted)": [
         "not reported"
       ],
       "Special Topics L1 (extracted)": [
-        "Study Population",
-        "Sociodemographic Vulnerability",
-        "Intervention"
+        "Communication",
+        "Health Sector Influence",
+        "Policy"
       ],
       "Special Topics L2 (extracted)": [
-        "Elderly",
-        "not reported",
-        "not reported"
+        "Health Professional"
       ]
     }
+  },
+  "technical_metadata": {
+    "created": "2026-10-13T12:16:26.511016+00:00",
+    "modified": "2026-10-13T12:16:26.511016+00:00",
+    "verified": "",
+    "data_checksum": "",
+    "target_schema_type": "",
+    "target_schema_version": "",
+    "original_source_type": "laserai_spreadsheet",
+    "original_source_identifier": "10.1136/bmjopen-2023-080374",
+    "original_source_link": "LaserAI Export.xlsx",
+    "additional_data": [],
+    "history": [
+      {
+        "timestamp": "2026-10-13T08:16:27.644606",
+        "msg": "ingest from landing zone: LaserAI Export.xlsx"
+      }
+    ],
+    "dissemination_endpoints": []
   }
+}
